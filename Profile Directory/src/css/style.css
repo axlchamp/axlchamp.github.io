@@ -1,0 +1,346 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	padding-top: 20px;
+	background-color: #cccccc
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1200px;
+	box-sizing: border-box;
+}
+
+.pc-Main-Container,
+.pc-Main-Container a,
+.pc-Main-Container div,
+.pc-Main-Container img,
+.pc-Main-Container label,
+.pc-Main-Container button,
+.pc-Main-Container input,
+.pc-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: sans-serif
+}
+
+/* ! MAIN */
+div.pc-Section-Container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.pc-Panel-Filters {
+	border-radius: 5px;
+}
+
+/* !FILTERS */
+div.pc-Filters-Search {
+	display: flex;
+	border: 1px solid #333333;
+	overflow: hidden;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	padding-right: 25px;
+	background-color: #fff
+}
+
+button.pc-Search-Button {
+	max-width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #333333;
+	border: 0 !important;
+	cursor: pointer;
+	padding: 10px;
+}
+
+button.pc-Search-Button span {
+	color: #ffffff;
+}
+
+input.pc-Search-Input {
+	max-width: 80%;
+	border: 0 !important;
+	padding: 10px;
+}
+
+input.pc-Search-Input:focus {
+	outline: 0;
+}
+
+i.pc-Search-Icon {
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	margin-top: -8px;
+	opacity: 0;
+	user-select: none;
+	pointer-events: none;
+	transition: all .25s;
+	cursor: pointer;
+}
+
+i.pc-Search-Icon-Active {
+	opacity: 1;
+	user-select: auto;
+	pointer-events: auto;
+}
+
+/* ! ADVANCE FILTERS */
+div.pc-Filters-Container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+	padding: 0 10px;
+}
+
+div.pc-Advance-Clear,
+div.pc-Filters-More {
+	width: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 15px;
+}
+
+div.pc-Advance-Clear {
+	margin-top: 0;
+	cursor: pointer;
+}
+
+div.pc-Filters-More {
+	cursor: pointer;
+}
+
+span.pc-More-Text {
+	margin-right: 5px;
+}
+
+/* ? Dropdown */
+div.pc-Filters-Advance {
+	position: absolute;
+	display: block;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	transition: all .5s;
+	padding: 20px;
+	border-radius: 5px;
+	z-index: 1;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	max-width: 33%;
+	opacity: 0;
+	pointer-events: none;
+	user-select: none;
+	margin-top: -100px;
+}
+
+div.pc-Filters-Advance-Active {
+	opacity: 1;
+	pointer-events: auto;
+	user-select: auto;
+	margin-top: 0;
+}
+
+div.pc-Filters-Advance div.pc-Advance-Dropdown {
+	margin-bottom: 10px;
+}
+
+div.pc-Advance-Dropdown select {
+	padding: 10px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+	border: 1px solid #333333;
+	cursor: pointer;
+	background-color: #ffffff;
+}
+
+
+/* ! ITEMS */
+div.pc-Panel-Container {
+	margin-bottom: 20px;
+}
+
+div.pc-Items-Container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.pc-Container-Item {
+	overflow: hidden;
+	margin-bottom: 20px;
+	max-width: 32.5%;
+	border-radius: 15px;
+	padding-bottom: 40px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.5);
+	transition: all .35s;
+}
+
+div.pc-Container-Item:hover {
+	transform: translate3d(1px, -1px, 1px);
+	-webkit-box-shadow: 5px 5px 15px 5px #00000050;
+	box-shadow: 5px 5px 15px 5px #00000050;
+}
+
+/* ? Image */
+div.pc-Item-Image {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.pc-Image-Container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	padding: 10px;
+	width: 100%;
+	height: 250px;
+}
+
+div.pc-Item-Image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+/* ? Info */
+div.pc-Item-Info {
+	padding: 10px;
+}
+
+div.pc-Item-Name {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0;
+	color: #ffffff;
+	background-color: #333;
+	text-transform: uppercase;
+}
+
+div.pc-Info-Description {
+	font-size: 14px
+}
+
+
+/* ? FOOTER */
+
+div.pc-Container-Item div.pc-Item-Footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 12px;
+	font-weight: bold;
+	transition: all .25s;
+	color: #ffffff;
+	padding: 5px;
+	background-color: #333333
+}
+
+div.pc-Item-Footer {
+	display: flex;
+	justify-content: flex-end;
+}
+
+div.pc-Item-Footer>div {
+	width: auto
+}
+
+div.pc-Item-Level {
+	margin-left: 10px;
+	text-transform: uppercase;
+}
+
+div.pc-Item-Preview {
+	cursor: pointer;
+	margin-right: 10px;
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+div.pc-Item-Preview a {
+	color: #ffffff
+}
+
+div.pc-Item-Preview i {
+	transition: all .25s
+}
+
+div.pc-Item-Preview:hover i {
+	transform: translateX(10px)
+}
+
+/* ! FILLER  */
+div.pc-Container-Item-Filler {
+	pointer-events: none;
+	user-select: none;
+	opacity: 0;
+}
+
+div.pc-No-Result {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 20px;
+	min-height: 200px;
+	padding: 20px;
+}
+
+i.pc-No-Result-Icon {
+	font-size: 30px
+}
+
+div.pc-No-Result-Text {
+	margin-top: 10px;
+	font-size: 20px;
+	width: auto;
+}
+
+
+
+@media screen and (max-width:700px) {
+
+	div.pc-Section-Container,
+	div.pc-Items-Container {
+		display: block;
+	}
+
+	div.pc-Section-Container>div,
+	div.pc-Items-Container>div {
+		max-width: 100%;
+	}
+}

@@ -1,0 +1,311 @@
+html,
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: Roboto;
+    font-size: 14px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.widget-abc123 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.angular-google-map,
+.angular-google-map-container {
+    width: 100%;
+    height: 100%;
+}
+
+.gscale {
+    width: 100%;
+    height: 100%;
+}
+
+.station-Main-Container {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    line-height: normal;
+    text-align: left;
+    margin: 0;
+    padding: 0
+}
+
+.station-Panel-Details,
+.station-Panel-Details div,
+.station-Panel-Details label,
+.station-Panel-Details a,
+.station-Panel-Details img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    line-height: normal;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.station-Map-Container img {
+    position: absolute;
+}
+
+/* SECTION MAP */
+div.station-Section-Map {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* PANEL MAP */
+div.station-Map-Container {
+    width: 100%;
+    height: 100%;
+}
+
+.station-Label {
+    text-shadow: 1px 1px 0 #00000050 !important
+}
+
+/* PANEL LOCATIONS */
+div.station-Panel-Map {
+    height: 520px;
+    width: 100%;
+}
+
+div.station-Map-Container {
+    width: 100%;
+    height: 100%;
+}
+
+/* PANEL LOCATIONS */
+div.station-Panel-Details {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    height: auto;
+    max-width: 450px;
+    overflow-y: auto;
+    background-color: #fff;
+    box-shadow: 1px 5px 15px 1px #00000050;
+}
+
+div.station-Panel-Details-Load {
+    display: block;
+    left: -200%;
+    top: -200%;
+}
+
+div.station-Panel-Close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+div.station-Panel-Close i {
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 1px 1px 9px #00000050;
+}
+
+/* Images */
+div.station-Container-Image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%
+}
+
+div.station-Image-Box {
+    width: 100%;
+    height: 250px;
+}
+
+/* Distance Slides */
+div.station-Details-Distance {
+    margin-top: -30px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #5153ff;
+}
+
+div.station-Slides-Name,
+div.station-Slides-Distance {
+    padding-top: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Single Station Names */
+/* div.station-Slides-Name p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+} */
+
+div.station-Name-Marker,
+div.station-Distance-Marker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+div.station-Distance-Marker div.station-Marker-Circle {
+    text-align: center;
+    height: 24px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.station-Name-Marker div.station-Marker-Circle {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.station-Marker-Line {
+    max-width: 30%;
+    height: 1px;
+    background-color: #fff;
+}
+
+div.station-Marker-Line-Hidden {
+    background: transparent !important
+}
+
+div.station-Slides-Name {
+    text-align: center;
+    cursor: pointer;
+}
+
+div.station-Slides-Name p {
+    margin: 0;
+    font-size: 12px
+}
+
+div.station-Slides-Distance {
+    text-align: center;
+}
+
+.station-Distance-Active .station-Marker-Circle {
+    transform: scale(1.1);
+}
+
+.station-Distance-Active div.station-Circle-Inner {
+    position: relative;
+    width: 12px;
+    height: 12px;
+    background-color: #5153FF;
+    box-shadow: 0 0 0 4px #ffffff90;
+    border-radius: 50%;
+}
+
+/* Station Info */
+div.station-Details-Info {
+    padding: 40px;
+}
+
+div.station-Info-Name {
+    display: flex;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+div.station-Info-Name p {
+    margin: 0 10px 5px 0;
+}
+
+div.station-Info-Sub {
+    margin: 0 0 15px;
+    font-size: 15px;
+}
+
+div.station-Info-Description {
+    margin: 5px 0 15px;
+}
+
+div.station-Info-Readmore {
+    width: fit-content;
+}
+
+div.station-Info-Links {
+    display: flex;
+    align-items: center;
+}
+
+div.station-Info-Links p {
+    margin-right: 5px
+}
+
+div.station-Info-Links i {
+    font-size: 11px
+}
+
+div.station-Links-List {
+    margin-left: 30px;
+    display: flex;
+}
+
+div.station-Links-List a {
+    width: fit-content;
+    margin-right: 15px;
+}
+
+div.station-Info-Proximty {
+    display: flex;
+    align-items: center;
+}
+
+div.station-Info-Proximty>div {
+    width: fit-content;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+div.station-Info-Proximty>div i {
+    font-size: 25px;
+}
+
+
+
+
+
+
+
+/* SLIDER */
+div.station-Images-Container .slick-dots {
+    bottom: 6px;
+    color: #fff;
+}
+
+.slick-dots li button:before {
+    color: #fff !important;
+    font-size: 12px !important;
+}

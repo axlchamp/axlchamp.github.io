@@ -1,0 +1,76 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+
+.voting-Main-Container,
+.voting-Main-Container a,
+.voting-Main-Container div,
+.voting-Main-Container img,
+.voting-Main-Container label,
+.voting-Main-Container input,
+.voting-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+/* Main */
+.voting-Main-Container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.voting-Section-Icons {
+	display: flex;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	justify-content: space-between;
+}
+
+div.voting-Section-Icons div {
+	width: 49%;
+	cursor: pointer;
+}
+
+
+div.voting-Section-Icons div i,
+div.voting-Section-Icons div span {
+	font-size: 25px
+}
+
+div.voting-Main-Container {
+	max-width: 300px;
+}
+
+div.voting-Main-Container img {
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+}

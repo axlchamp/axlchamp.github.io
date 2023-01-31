@@ -1,0 +1,375 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	padding-top: 20px;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 1200px;
+	box-sizing: border-box;
+}
+
+.pc-Main-Container,
+.pc-Main-Container a,
+.pc-Main-Container div,
+.pc-Main-Container img,
+.pc-Main-Container label,
+.pc-Main-Container button,
+.pc-Main-Container input,
+.pc-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: sans-serif
+}
+
+/* ! MAIN */
+div.pc-Section-Container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.pc-Panel-Filters {
+	border-radius: 5px;
+	max-width: 20%;
+	background-color: #eeeeee;
+	padding: 10px;
+}
+
+div.pc-Panel-Items {
+	max-width: 79%;
+}
+
+/* !FILTERS */
+div.pc-Filters-Clear {
+	text-align: center;
+	cursor: pointer;
+	text-decoration: underline;
+	margin: 0 auto;
+	border-radius: 5px;
+	transition: all .25s;
+	position: absolute;
+	bottom: 20px;
+	left: 0
+}
+
+div.pc-Filters-Clear:hover {
+	background-color: #cccccc;
+	color: #333333;
+}
+
+div.pc-Container-Title {
+	color: #ffffff;
+	font-size: 20px;
+	background-color: #333333;
+	text-align: center;
+	border-radius: 5px
+}
+
+/* ? Checkbox */
+div.pc-Container-Checkbox {
+	padding: 5px 15px;
+	overflow-y: auto;
+	max-height: 350px;
+	margin: 20px auto;
+}
+
+/* * Input */
+div.pc-Checkbox-Input {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+div.pc-Checkbox-Input label,
+div.pc-Checkbox-Input input {
+	width: auto;
+	cursor: pointer;
+	user-select: none
+}
+
+div.pc-Checkbox-Input label {
+	margin-left: 5px
+}
+
+
+/* ! ITEMS */
+div.pc-Panel-Container {
+	margin-bottom: 20px;
+}
+
+div.pc-Items-Container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+div.pc-Container-Item {
+	overflow: hidden;
+	margin-bottom: 20px;
+	max-width: 32.5%;
+	border-radius: 15px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.5);
+	transition: all .35s;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+div.pc-Container-Item:hover {
+	transform: translate3d(1px, -1px, 1px);
+	-webkit-box-shadow: 5px 5px 15px 5px #00000050;
+	box-shadow: 5px 5px 15px 5px #00000050;
+}
+
+/* ? Image */
+div.pc-Item-Image {
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.pc-Image-Container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	padding: 10px;
+	width: 100%;
+	height: 250px;
+	opacity: 0;
+}
+
+div.pc-Item-Image img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+/* ? Info */
+div.pc-Item-Info {
+	padding: 10px;
+	background-color: #33333380;
+	display: flex;
+	position: absolute;
+	bottom: 0;
+}
+
+div.pc-Info-Text {
+	max-width: 80%;
+}
+
+div.pc-Info-Icon {
+	max-width: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.pc-Info-Icon i {
+	font-size: 45px;
+	color: #fff;
+	cursor: pointer
+}
+
+div.pc-Info-Name {
+	font-size: 15px;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	color: #ffffff;
+}
+
+div.pc-Info-Description {
+	font-size: 14px;
+	color: #ffffff;
+}
+
+
+/* ! FILLER  */
+div.pc-Container-Item-Filler {
+	pointer-events: none;
+	user-select: none;
+	opacity: 0;
+}
+
+div.pc-No-Result {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 20px;
+	min-height: 200px;
+	padding: 20px;
+}
+
+i.pc-No-Result-Icon {
+	font-size: 30px
+}
+
+div.pc-No-Result-Text {
+	margin-top: 10px;
+	font-size: 20px;
+	width: auto;
+}
+
+
+/* ! MODAL */
+.pc-Main-Modal,
+.pc-Main-Modal a,
+.pc-Main-Modal div,
+.pc-Main-Modal img,
+.pc-Main-Modal label,
+.pc-Main-Modal button,
+.pc-Main-Modal input,
+.pc-Main-Modal select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: sans-serif
+}
+
+div.pc-Main-Modal {
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	background-color: #33333380;
+	top: 0;
+	left: 0
+}
+
+div.pc-Modal-Wrapper {
+	width: 800px;
+	height: auto;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding: 15px;
+}
+
+div.pc-Wrapper-Panel-Image {
+	max-width: 100%;
+	height: 200px
+}
+
+div.pc-Wrapper-Panel-Image img {
+	object-fit: contain;
+	width: 100%;
+	height: 100%;
+}
+
+div.pc-Wrapper-Panel-Details {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: space-between;
+	margin-top: 20px;
+}
+
+div.pc-Modal-Details {
+	width: 35%;
+}
+
+div.pc-Details-Condition,
+div.pc-Details-Manufacturer {
+	margin: 10px 0;
+	font-size: 18px
+}
+
+div.pc-Modal-Description {
+	width: 60%;
+	max-height: 230px;
+	overflow-y: auto;
+}
+
+div.pc-Details-Name {
+	font-size: 25px;
+}
+
+
+/* Modal Label */
+span.pc-Condition-Label,
+span.pc-Manufacturer-label {
+	font-weight: bold;
+}
+
+/* !CLOSE */
+i.pc-Modal-Close {
+	display: block;
+	font-size: 25px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+	z-index: 1;
+}
+
+@media screen and (max-width:700px) {
+
+	div.pc-Section-Container,
+	div.pc-Items-Container,
+	div.pc-Wrapper-Panel-Details {
+		display: block;
+	}
+
+	div.pc-Section-Container>div,
+	div.pc-Items-Container>div,
+	div.pc-Wrapper-Panel-Details>div {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+
+
+/* ? SCROLL BAR START */
+div.pc-Modal-Description::-webkit-scrollbar-track,
+div.pc-Container-Checkbox::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: #cccccc;
+}
+
+div.pc-Modal-Description::-webkit-scrollbar,
+div.pc-Container-Checkbox::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+div.pc-Modal-Description::-webkit-scrollbar-thumb,
+div.pc-Container-Checkbox::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: #333333;
+}
+
+/* ? SCROLL BAR END */
