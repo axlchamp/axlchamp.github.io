@@ -84,7 +84,7 @@ div.header_role {
 a.header_button {
     position: relative;
     display: block;
-    width: auto;
+    width: fit-content;
     height: auto;
 }
 
@@ -325,4 +325,11 @@ div.footer_email i {
     div.footer_socials>div {
         max-width: 50%;
     }
+}
+
+
+a.wp-Grid-Item-Filler {
+    pointer-events: none;
+    user-select: none;
+    opacity: 0;
 }

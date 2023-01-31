@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+    <div class="widget-4892f4">
+        <div class="fc-Main-Container">
+            <div class="fc_Calendar_Filters">
+
+                <div class="fc_Calendar_Filter">
+                    <div class="fc_Filter_Wrap">
+                        <i class="fc__Fiter_icons fa-solid fa-folder-open"></i>
+                        <div class="fc_Calendar_Dropdown" data-value="All">All</div>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="fc_Filter_input" data-parent="Category"></div>
+                </div>
+
+
+                <div class="fc_Calendar_Tags">
+                    <div class="fc_Filter_Wrap">
+                        <i class="fa-solid fa-tags"></i>
+                        <div class="fc_Calendar_Dropdown" data-value="All">Tags</div>
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                    <div class="fc_Filter_input" data-parent="Tags"></div>
+                </div>
+
+
+                <input type="text" placeholder="Search...">
+            </div>
+            <div id="fc_calendar_container"></div>
+        </div>
+
+        <!--GOT TO DATE-->
+        <div class="fc_Goto_Button">
+            <div class="fc_Goto_Date">
+                <input type="date" name="getDateCalendar" class="fc_Get_Calendar" value="2017-01-01" />
+                <button class="fc_event_Get_Date">Go to Date</button>
+            </div>
+        </div>
+        <!--GOT TO DATE-->
+
+        <div class="fc_Details_ModalBG"></div>
+        <div class="fc_Details_Modal">
+            <div class="fc_Modal_Header">
+                <div class="fc_Modal_Title"></div>
+                <i class="fas fa-times fc_Modal_Close"></i>
+            </div>
+            <div class="fc_Modal_Body">
+                <div class="fc_Modal_Body_Content fc_Modal_BodyRight">
+                    <div class="fc_Modal_Image">
+                        <img src="" alt="" width="250" height="250">
+                    </div>
+                </div>
+                <div class="fc_Modal_Body_Content fc_Modal_BodyLeft">
+                    <div class="fc_Modal_Label">Where: </div>
+                    <div class="fc_Modal_Location"></div>
+                    <div class="fc_Modal_Label">When: </div>
+                    <div class="fc_Modal_Date"></div>
+                    <div class="fc_Modal_Label">Description: </div>
+                    <div class="fc_Modal_Description"></div>
+                </div>
+            </div>
+            <div class="fc_Modal_Footer">
+                <a href="#" class="fc_View_Page"><span class="text">View Page</span></a>
+            </div>
+        </div>
+        <div class="searched_color_flag" data-color="#E92875"></div>
+
+        <!-- LOADER -->
+        <div class="fc_Loader">
+            <img src="https://www.phoenixfuels.ph/wp-content/plugins/interactive-3d-flipbook-powered-physics-engine/assets/images/dark-loader.gif"
+                alt="Loader">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="./src/js/script.js"></script>
+</body>
+
+</html>
