@@ -42,7 +42,7 @@ let sheet = spreadsheet.substring(spreadsheet.indexOf('d/') + 2).replace('/edit?
 let sheetDetails = {
 	sheetid: sheet,
 	sheetname: data.config.sheetname ? data.config.sheetname : "Sheet1",
-	apikey: data.config.apikey ? data.config.apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0"
+	apikey: data.config.apikey ? data.config.apikey : "AIzaSyAdIJAwH4h8sgYSWIrS3PNSew6rsyvavzU"
 };
 
 // WIDGET VARIABLES

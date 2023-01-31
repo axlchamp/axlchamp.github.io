@@ -32,7 +32,7 @@ let dmAPI = {
 let element = $('.widget-abc123');
 let data = {
     config: {
-        apikey: "AIzaSyBxbT_lvVBVVSQdtRSUlp3lZYlDJyFRrLk", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyBMr1pQsfm1SIgU54HgGx5YxM56EjyOV3c || AIzaSyBxbT_lvVBVVSQdtRSUlp3lZYlDJyFRrLk
+        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyBMr1pQsfm1SIgU54HgGx5YxM56EjyOV3c || AIzaSyBxbT_lvVBVVSQdtRSUlp3lZYlDJyFRrLk
         spreadsheet: "https://docs.google.com/spreadsheets/d/1c4dcpoLCKSP2EBkp04rSTtjL3RXwspMvYAR_XAZgIwQ/edit?usp=sharing",
         sheetname: "Sheet1",
 
@@ -81,7 +81,7 @@ let sheet = select_str(spreadsheet, "d/", 2, '/edit?usp=sharing'); // Get GSX ID
 let sheetDetails = {
     sheetid: sheet,
     sheetname: sheetname ? sheetname : "Sheet1",
-    apikey: 'AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0' //apikey ? apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0"
+    apikey: 'AIzaSyAdIJAwH4h8sgYSWIrS3PNSew6rsyvavzU' //apikey ? apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0"
 };
 
 // Map Default values
