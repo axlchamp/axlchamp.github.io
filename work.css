@@ -73,9 +73,9 @@ div.wp-Panel-Grid>a:hover {
 
 div.wp-Item-Title {
     font-size: 18px;
-    /* font-weight: bold; */
     color: #000000;
     margin-bottom: 10px;
+    text-align: center
 }
 
 div.wp-Item-Image {
