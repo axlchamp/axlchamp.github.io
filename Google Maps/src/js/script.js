@@ -325,8 +325,8 @@ function initMap(obj) {
                     let markerIndex = $(this).attr("data-index");
                     if (marker.id == markerIndex) {
                         google.maps.event.trigger(marker, trigger);
-                        let circle = new Create().circle(map);
-                        circle.bindTo('center', marker, 'position');
+                        // let circle = new Create().circle(map);
+                        // circle.bindTo('center', marker, 'position');
                     }
                 });
 
