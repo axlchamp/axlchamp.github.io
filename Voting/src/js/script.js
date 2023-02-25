@@ -15,7 +15,7 @@ let data = {
 	}
 };
 
-let endpoint = './src/php/actions.php';
+let endpoint = 'https://personalappaxl.000webhostapp.com/php/actions.php';
 
 let create = new Create();
 let vote = new Voting();
