@@ -277,6 +277,7 @@ function Collection(collection) {
 function initMap(obj) {
     let bounds = new google.maps.LatLngBounds();
     let infowindow = new google.maps.InfoWindow();
+    let markers = [];
     map = new google.maps.Map(document.getElementById(googleId), {
         center: {
             lat: centerLat,
@@ -296,6 +297,7 @@ function initMap(obj) {
             id: "marker_" + index
         });
         bounds.extend(marker.position);
+        markers.push(marker);
         if (locations.list.length > 1) {
             map.fitBounds(bounds);
         }
@@ -338,6 +340,20 @@ function initMap(obj) {
                 };
             })(marker, i));
         }
+    });
+    // Listen to the 'bounds_changed' event of the map object
+    google.maps.event.addListener(map, 'bounds_changed', function () {
+        let visibleMarkers = markers.filter(function (marker) {
+            return map.getBounds().contains(marker.getPosition());
+        });
+
+        let viewport_markers = markers.filter(marker => {
+            if (visibleMarkers.includes(marker)) {
+                $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).show();
+            } else {
+                $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).hide();
+            }
+        });
     });
 }
 // Remove duplicate from Object
