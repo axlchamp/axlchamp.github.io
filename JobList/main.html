@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+
+	<div class="widget-abc123">
+		<div class="jobListingMainWrapper">
+			<div class="jobSearchWrapper">
+				<div class="searchInputWrapper">
+					<div class="searchIconWrapper">
+						<i class="fas fa-search"></i>
+					</div>
+					<div class="searchInputField">
+						<input type="text" id="searchKeyword" name="keyword" class="searchField"
+							placeholder="Job title, location, and keyword">
+					</div>
+					<div class="resetIconWrapper" style="display:none">
+						<i class="fas fa-times"></i>
+					</div>
+				</div>
+			</div>
+			<div class="jobListMainWrapper">
+				<div class="jobListHeaderWrapper">
+					<div class="jobCountWrapper">
+						<span class="jobFeatTitle">Available Jobs</span>
+						<div class="resultSummary" style="display:none">
+							<span class="jobCount"></span> job/s found.
+						</div>
+					</div>
+					<div class="jobFilterWrap">
+						<div class="clearFilter">Clear Filter</div>
+						<!--<div class="showFilter">Show Filter</div>-->
+					</div>
+				</div>
+				<div class="jobResultFilterWrapper">
+					<div class="innerJobFil">
+						<div class="jobFilWrap">
+							<div class="jobCategory"><span>Job Category</span> <i class="fa-solid fa-angle-down"></i>
+							</div>
+							<select name="jobCategory" id="jobCategory" multiple>
+								<option value="" selected disabled hidden>Job Category</option>
+								<option value="select_all">Any</option>
+							</select>
+						</div>
+						<div class="jobFilWrap">
+							<select name="joblocname" id="joblocname">
+								<option value="" selected disabled hidden>Location</option>
+								<option value="">Any</option>
+							</select>
+						</div>
+						<div class="jobFilWrap">
+							<select name="jobtypename" id="jobtypename">
+								<option value="" selected disabled hidden>Employment Type</option>
+								<option value="">Any</option>
+							</select>
+						</div>
+						<div class="jobFilWrap">
+							<select name="jobfunctionname" id="jobfunctionname">
+								<option value="" selected disabled hidden>Job Type</option>
+								<option value="">Any</option>
+							</select>
+						</div>
+						<div class="jobFilWrap">
+							<select name="jobSortType" id="jobSortType">
+								<option value="" selected disabled hidden>Sort By</option>
+								<option value="atoz">A - Z</option>
+								<option value="ztoa">Z - A</option>
+								<option value="newest">Newest</option>
+								<option value="oldest">Oldest</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="jobListWrapPage">
+					<div class="jobListWrap gridLayout"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async defer></script>
+	<script src="src/js/script.js"></script>
+</body>
+
+</html>
