@@ -708,6 +708,17 @@
 		max-width: 100%;
 	}
 
+	#jobCategory {
+		max-width: 100%;
+		width: 100%;
+		opacity: 1;
+		pointer-events: auto;
+		position: relative;
+		border: 0 !important;
+		left: 0px;
+		height: auto;
+	}
+
 	.jobCategory {
 		display: none;
 	}
