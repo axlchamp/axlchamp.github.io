@@ -42,7 +42,7 @@
 				</div>
 				<div class="jobResultFilterWrapper">
 					<div class="innerJobFil">
-						<div class="jobFilWrap">
+						<div class="jobFilWrap" data-filter="category">
 							<div class="jobCategory"><span>Job Category</span> <i class="fa-solid fa-angle-down"></i>
 							</div>
 							<select name="jobCategory" id="jobCategory" multiple>
@@ -50,25 +50,25 @@
 								<option value="select_all">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap">
+						<div class="jobFilWrap"  data-filter="location">
 							<select name="joblocname" id="joblocname">
 								<option value="" selected disabled hidden>Location</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap">
+						<div class="jobFilWrap"  data-filter="jobtype">
 							<select name="jobtypename" id="jobtypename">
 								<option value="" selected disabled hidden>Employment Type</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap">
+						<div class="jobFilWrap" data-filter="employmenttype">
 							<select name="jobfunctionname" id="jobfunctionname">
 								<option value="" selected disabled hidden>Job Type</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap">
+						<div class="jobFilWrap" data-filter="sort">
 							<select name="jobSortType" id="jobSortType">
 								<option value="" selected disabled hidden>Sort By</option>
 								<option value="atoz">A - Z</option>

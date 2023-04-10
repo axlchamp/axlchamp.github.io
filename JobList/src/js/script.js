@@ -20,10 +20,19 @@ const dmAPI = {
 let element = $('.widget-abc123');
 let data = {
 	config: {
+		// 
 		api_url: "/JobList/src/js/sample.json",
-		jobLayout: "gridLayout", // gridLayout || listLayout
-		pageSze: "9",
-		theme: "red"
+
+		layout: "gridLayout", // gridLayout or listLayout
+		page_size: "9",
+		theme: "red",
+		font: "Calibri",
+
+		// Show Filters
+		job_category: true,
+		job_location: true,
+		job_employment_type: true,
+		job_type: true,
 	}
 };
 
@@ -31,11 +40,16 @@ let headerHeight = $('.dmHeaderContainer').css("position") == "fixed" ? parseFlo
 let scrollTo = $(element).offset().top - headerHeight - 20;
 
 let jobs = data.config.api_url;
-let layoutType = data.config.jobLayout;
+let layoutType = data.config.layout;
 let newTab = data.config.linkNewTab;
-let pageSze = parseInt(data.config.pageSze);
+let page_size = parseInt(data.config.page_size);
 let getJobs = new Collection(jobs).ajax();
 let jobList;
+
+let job_category = data.config.job_category;
+let job_location = data.config.job_location;
+let job_employment_type = data.config.job_employment_type;
+let job_type = data.config.job_type;
 
 let jobfunctionname_init = getParameterByName('jobfunctionname') ? decodeURIComponent(getParameterByName('jobfunctionname')) : "";
 let jobcatname_init = getParameterByName('jobcatname') ? decodeURIComponent(getParameterByName('jobcatname')) : "";
@@ -43,7 +57,9 @@ let joblocname_init = getParameterByName('joblocname') ? decodeURIComponent(getP
 let jobtypename_init = getParameterByName('jobtypename') ? decodeURIComponent(getParameterByName('jobtypename')) : "";
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
 
+// Configuration
 let theme = data.config.theme;
+let font = data.config.font;
 //DISPLAY FEATURED JOBS ON LOAD
 dmAPI.loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d635638a/files/uploaded/fuse.js', function () {
 	dmAPI.loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
@@ -65,10 +81,23 @@ dmAPI.loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d6
 		let jobtypename = removeDuplicate(jobList.map(a => a.jobtypename));
 		let joblocname = removeDuplicate(jobList.map(a => a.joblocname));
 
-		createFilterDropdown(jobfunctionname, 'jobfunctionname');
-		createFilterDropdown(jobcatname, 'jobCategory');
-		createFilterDropdown(joblocname, 'joblocname');
-		createFilterDropdown(jobtypename, 'jobtypename');
+		if (job_category) {
+			createFilterDropdown(jobcatname, 'jobCategory');
+			$(element).find(".jobFilWrap[data-filter=category]").show();
+		}
+		if (job_employment_type) {
+			createFilterDropdown(jobtypename, 'jobtypename');
+			$(element).find(".jobFilWrap[data-filter=jobtype]").show();
+		}
+		if (job_location) {
+			createFilterDropdown(joblocname, 'joblocname');
+			$(element).find(".jobFilWrap[data-filter=location]").show();
+		}
+		if (job_type) {
+			createFilterDropdown(jobfunctionname, 'jobfunctionname');
+			$(element).find(".jobFilWrap[data-filter=employmenttype]").show();
+		}
+
 		if (data.device != "mobile") {
 			multiSelectWithoutCtrl('#jobCategory');
 		}
@@ -82,9 +111,14 @@ dmAPI.loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d6
 	});
 });
 
-function change_theme(theme) {
-	$(element).find(".searchIconWrapper i,.joblocname,.jobInfoLabel,.jobFilterWrap>div").css("color", theme);
-	$(element).find(".featuredJob .innerJobWrap2,.featJob").css("border-color", theme);
+function Config() {
+	this.theme = function (theme) {
+		$(element).find(".searchIconWrapper i,.joblocname,.jobInfoLabel,.jobFilterWrap>div").css("color", theme);
+		$(element).find(".featuredJob .innerJobWrap2,.featJob").css("border-color", theme);
+	};
+	this.font = function (font) {
+		$(element).find(".jobListingMainWrapper *:not(i)").css("font-family", font);
+	};
 }
 
 function multiSelectWithoutCtrl(elemSelector) {
@@ -319,20 +353,21 @@ function displayFeatJobs(arr) {
 function PaginationFunction(jobs) {
 	$(element).find('.jobListWrapPage').pagination({
 		dataSource: jobs,
-		pageSize: pageSze,
+		pageSize: page_size,
 		callback: function (result, pagination) {
 			let structure = '';
 			if (layoutType == 'listLayout') {
 				structure = result.map(i => {
 					return createJob2(i);
-				}).join("")
+				}).join("");
 			} else {
 				structure = result.map(i => {
 					return createJob(i);
-				}).join("")
+				}).join("");
 			}
 			$(element).find(".jobListWrap").html(structure);
-			change_theme(theme);
+			new Config().theme(theme);
+			new Config().font(font);
 		},
 		afterPageOnClick: function () {
 			window.scrollTo({
