@@ -193,6 +193,7 @@ $(element).find(".googleMap-Search-Input").keyup(function (e) {
         eventFilter();
     }
 });
+
 $(element).find(".googleMap-Filter-Category").change(function () {
     eventFilter();
 });

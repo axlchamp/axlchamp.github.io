@@ -696,6 +696,19 @@
 /* ? SCROLL BAR END */
 
 
+@media screen and (max-width:800px) {
+	.jobFilWrap {
+		width: 100%;
+		border-bottom: 1px solid #ccc;
+	}
+
+	.jobWrap,
+	#jobCategory {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
 /* ? SCROLL BAR START */
 ::-webkit-scrollbar-track {
 	border-radius: 5px;
