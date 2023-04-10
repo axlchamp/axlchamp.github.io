@@ -707,6 +707,10 @@
 		width: 100%;
 		max-width: 100%;
 	}
+
+	.jobCategory {
+		display: none;
+	}
 }
 
 /* ? SCROLL BAR START */
