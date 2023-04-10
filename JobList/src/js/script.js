@@ -61,53 +61,56 @@ let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParamet
 let theme = data.config.theme;
 let font = data.config.font;
 //DISPLAY FEATURED JOBS ON LOAD
-dmAPI.loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d635638a/files/uploaded/fuse.js', function () {
-	dmAPI.loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
-		let filters = {
-			jobfunctionname: jobfunctionname_init,
-			jobcatname: jobcatname_init,
-			joblocname: joblocname_init,
-			jobtypename: jobtypename_init,
-		};
-		let param = multiFilter(jobList, filters).filter(i => {
-			return i.keyword.toLowerCase().includes(keyword_init.toLowerCase());
+getJobs.then(function (response) {
+	dmAPI.loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d635638a/files/uploaded/fuse.js', function () {
+		dmAPI.loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
+			jobList = new Collection().data(response);
+			let filters = {
+				jobfunctionname: jobfunctionname_init,
+				jobcatname: jobcatname_init,
+				joblocname: joblocname_init,
+				jobtypename: jobtypename_init,
+			};
+			let param = multiFilter(jobList, filters).filter(i => {
+				return i.keyword.toLowerCase().includes(keyword_init.toLowerCase());
+			});
+			if (keyword_init) {
+				$(element).find("#searchKeyword").val(keyword_init);
+			}
+			//CREATING DYNAMIC FILTER DROPDOWN
+			let jobfunctionname = removeDuplicate(jobList.map(a => a.jobfunctionname));
+			let jobcatname = removeDuplicate(jobList.map(a => a.jobcatname));
+			let jobtypename = removeDuplicate(jobList.map(a => a.jobtypename));
+			let joblocname = removeDuplicate(jobList.map(a => a.joblocname));
+
+			if (job_category) {
+				createFilterDropdown(jobcatname, 'jobCategory');
+				$(element).find(".jobFilWrap[data-filter=category]").show();
+			}
+			if (job_employment_type) {
+				createFilterDropdown(jobtypename, 'jobtypename');
+				$(element).find(".jobFilWrap[data-filter=jobtype]").show();
+			}
+			if (job_location) {
+				createFilterDropdown(joblocname, 'joblocname');
+				$(element).find(".jobFilWrap[data-filter=location]").show();
+			}
+			if (job_type) {
+				createFilterDropdown(jobfunctionname, 'jobfunctionname');
+				$(element).find(".jobFilWrap[data-filter=employmenttype]").show();
+			}
+
+			if (data.device != "mobile") {
+				multiSelectWithoutCtrl('#jobCategory');
+			}
+
+			displayFeatJobs(param);
+
+			let isMobile = mobileCheck();
+			if (isMobile) {
+				$(element).find('#jobCategory').addClass('jobCategory-active');
+			}
 		});
-		if (keyword_init) {
-			$(element).find("#searchKeyword").val(keyword_init);
-		}
-		//CREATING DYNAMIC FILTER DROPDOWN
-		let jobfunctionname = removeDuplicate(jobList.map(a => a.jobfunctionname));
-		let jobcatname = removeDuplicate(jobList.map(a => a.jobcatname));
-		let jobtypename = removeDuplicate(jobList.map(a => a.jobtypename));
-		let joblocname = removeDuplicate(jobList.map(a => a.joblocname));
-
-		if (job_category) {
-			createFilterDropdown(jobcatname, 'jobCategory');
-			$(element).find(".jobFilWrap[data-filter=category]").show();
-		}
-		if (job_employment_type) {
-			createFilterDropdown(jobtypename, 'jobtypename');
-			$(element).find(".jobFilWrap[data-filter=jobtype]").show();
-		}
-		if (job_location) {
-			createFilterDropdown(joblocname, 'joblocname');
-			$(element).find(".jobFilWrap[data-filter=location]").show();
-		}
-		if (job_type) {
-			createFilterDropdown(jobfunctionname, 'jobfunctionname');
-			$(element).find(".jobFilWrap[data-filter=employmenttype]").show();
-		}
-
-		if (data.device != "mobile") {
-			multiSelectWithoutCtrl('#jobCategory');
-		}
-
-		displayFeatJobs(param);
-
-		let isMobile = mobileCheck();
-		if (isMobile) {
-			$(element).find('#jobCategory').addClass('jobCategory-active');
-		}
 	});
 });
 
@@ -524,8 +527,6 @@ function Collection(collection) {
 	this.ajax = () => {
 		return $.ajax({
 			url: collection,
-		}).then(response => {
-			jobList = $this.data(response);
 		});
 	};
 	this.data = (response) => {
