@@ -112,7 +112,7 @@ getJobs.then(function (response) {
 				if (isMobile) {
 					$(element).find('#jobCategory').addClass('jobCategory-active');
 				}
-
+				$(element).addClass('job-list-active');
 
 			});
 		});

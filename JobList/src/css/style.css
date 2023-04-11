@@ -1,26 +1,21 @@
 /*MAIN WRAPPER*/
-.jobListingMainWrapper {
-	display: block;
+.container-xxl[data-container=main] {
+	display: none;
 	width: 100%;
 	position: relative;
 	font-family: 'Nunito', sans-serif;
 	margin: 0 auto;
 }
 
-.jobListingMainWrapper>div {
+.container-xxl[data-container=main]>div {
 	text-align: left;
 }
 
-/*JOB SEARCH CSS*/
-.container-xxl[data-container=main] {
-	display: flex;
-	width: 100%;
-	margin: 0 auto;
-	align-items: center;
-	padding: 10px;
-	box-sizing: border-box;
+.job-list-active {
+	display: block !important;
 }
 
+/*JOB SEARCH CSS*/
 .input-group.mb-3 {
 	display: flex;
 	width: 100%;
