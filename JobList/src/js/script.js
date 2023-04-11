@@ -110,7 +110,7 @@ getJobs.then(function (response) {
 				displayFeatJobs(param);
 
 				if (isMobile) {
-					$(element).find('#jobCategory').addClass('jobCategory-active');
+					$(element).find('#jobCategory').addClass('job-category-active');
 				}
 				$(element).addClass('job-list-active');
 
@@ -124,7 +124,7 @@ $(element).find(".btn.btn-light").on('click touchstart', function () {
 });
 
 $(element).find(".job-category").on('click touchstart', function () {
-	$(element).find("#jobCategory").toggleClass("jobCategory-Active");
+	$(element).find("#jobCategory").toggleClass("job-category-active");
 });
 
 $(element).find("#jobCategory").on('click touch', 'option', function () {
@@ -132,7 +132,7 @@ $(element).find("#jobCategory").on('click touch', 'option', function () {
 });
 
 $(element).find("#jobCategory").mouseleave(function () {
-	$(element).find("#jobCategory").removeClass("jobCategory-Active");
+	$(element).find("#jobCategory").removeClass("job-category-active");
 });
 
 //ONCHANGE SEARCH
