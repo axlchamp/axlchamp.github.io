@@ -123,7 +123,7 @@ $(element).find(".btn.btn-light").on('click touchstart', function () {
 	search_bar($(this).next().find('#searchKeyword'));
 });
 
-$(element).find(".jobCategory").on('click touchstart', function () {
+$(element).find(".job-category").on('click touchstart', function () {
 	$(element).find("#jobCategory").toggleClass("jobCategory-Active");
 });
 
@@ -358,7 +358,7 @@ function PaginationFunction(jobs) {
 			new Config().theme(theme);
 			new Config().font(font);
 
-			$(element).find('input#searchKeyword, #searchKeyword,.job-fil-wrap select,.jobCategory').css("font-size", saf_size);
+			$(element).find('input#searchKeyword, #searchKeyword,.job-fil-wrap select,.job-category').css("font-size", saf_size);
 			$(element).find('.jobInfoLabel').css("font-size", label_size);
 			$(element).find('.jobTitle').css("font-size", job_title_size);
 			$(element).find('.jobcompanyname').css("font-size", company_name_size);

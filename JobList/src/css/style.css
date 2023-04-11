@@ -133,7 +133,7 @@ input#searchKeyword:focus {
 }
 
 .job-fil-wrap select,
-.jobCategory {
+.job-category {
 	width: 100%;
 	font-size: 16px;
 	padding: 15px;
@@ -144,13 +144,13 @@ input#searchKeyword:focus {
 	cursor: pointer;
 }
 
-.jobCategory {
+.job-category {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.jobCategory i {
+.job-category i {
 	font-size: 13px;
 	font-weight: bold;
 }
@@ -166,7 +166,7 @@ input#searchKeyword:focus {
 	top: 100%;
 }
 
-#jobCategory.jobCategory-Active {
+#jobCategory.job-category-Active {
 	opacity: 1;
 	z-index: 1;
 }
@@ -482,7 +482,7 @@ input#searchKeyword:focus {
 		border-right: 0
 	}
 
-	.jobWrap,
+	.job-wrap,
 	#jobCategory {
 		width: 100%;
 		max-width: 100%;
@@ -500,7 +500,7 @@ input#searchKeyword:focus {
 		height: auto;
 	}
 
-	.jobCategory {
+	.job-category {
 		display: none;
 	}
 
