@@ -11,65 +11,62 @@
 
 <body>
 
-	<div class="widget-abc123">
-		<div class="jobListingMainWrapper">
-			<div class="jobSearchWrapper">
-				<div class="searchInputWrapper">
-					<div class="searchIconWrapper">
+	<div class="container-xxl" data-container="main">
+		<div class="seconday-container">
+			<div class="container-xl">
+				<div class="input-group mb-3">
+					<button class="btn btn-light input-group-text">
 						<i class="fas fa-search"></i>
-					</div>
-					<div class="searchInputField">
-						<input type="text" id="searchKeyword" name="keyword" class="searchField"
+					</button>
+					<div class="container-xl">
+						<input type="text" id="searchKeyword" name="keyword" class="form-control"
 							placeholder="Job title, location, and keyword">
 					</div>
-					<div class="resetIconWrapper" style="display:none">
+					<div class="container-xl" data-button="reset" style="display:none">
 						<i class="fas fa-times"></i>
 					</div>
 				</div>
 			</div>
-			<div class="jobListMainWrapper">
-				<div class="jobListHeaderWrapper">
-					<div class="jobCountWrapper">
-						<span class="jobFeatTitle">Available Jobs</span>
-						<div class="resultSummary" style="display:none">
-							<span class="jobCount"></span> job/s found.
-						</div>
+			<div class="container-xxl">
+				<div class="job-count-container" data-container="job count">
+					<div class="form-label" data-label="result">
+						<span class="job-count"></span> job/s found.
 					</div>
-					<div class="jobFilterWrap">
-						<div class="clearFilter">Clear Filter</div>
+					<div class="job-filter-wrapper">
+						<div class="clear-filter">Clear Filter</div>
 						<!--<div class="showFilter">Show Filter</div>-->
 					</div>
 				</div>
-				<div class="jobResultFilterWrapper">
-					<div class="innerJobFil">
-						<div class="jobFilWrap" data-filter="category">
+				<div class="jobs-filter-wrapper">
+					<div class="inner-job-fil">
+						<div class="job-fil-wrap" data-filter="category">
 							<div class="jobCategory"><span>Job Category</span> <i class="fa-solid fa-angle-down"></i>
 							</div>
-							<select name="jobCategory" id="jobCategory" multiple>
+							<select class="form-select" name="jobCategory" id="jobCategory" multiple>
 								<option value="" selected disabled hidden>Job Category</option>
 								<option value="select_all">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap"  data-filter="location">
-							<select name="joblocname" id="joblocname">
+						<div class="job-fil-wrap" data-filter="location">
+							<select class="form-select" name="joblocname" id="joblocname">
 								<option value="" selected disabled hidden>Location</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap"  data-filter="jobtype">
-							<select name="jobtypename" id="jobtypename">
+						<div class="job-fil-wrap" data-filter="jobtype">
+							<select class="form-select" name="jobtypename" id="jobtypename">
 								<option value="" selected disabled hidden>Employment Type</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap" data-filter="employmenttype">
-							<select name="jobfunctionname" id="jobfunctionname">
+						<div class="job-fil-wrap" data-filter="employmenttype">
+							<select class="form-select" name="jobfunctionname" id="jobfunctionname">
 								<option value="" selected disabled hidden>Job Type</option>
 								<option value="">Any</option>
 							</select>
 						</div>
-						<div class="jobFilWrap" data-filter="sort">
-							<select name="jobSortType" id="jobSortType">
+						<div class="job-fil-wrap" data-filter="sort">
+							<select class="form-select" name="jobSortType" id="jobSortType">
 								<option value="" selected disabled hidden>Sort By</option>
 								<option value="atoz">A - Z</option>
 								<option value="ztoa">Z - A</option>
@@ -79,8 +76,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="jobListWrapPage">
-					<div class="jobListWrap gridLayout"></div>
+				<div class="job-list-wrap-page">
+					<div class="job-list-wrap gridLayout"></div>
 				</div>
 
 			</div>
