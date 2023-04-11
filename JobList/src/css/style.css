@@ -161,7 +161,7 @@ input#searchKeyword:focus {
 	top: 100%;
 }
 
-#jobCategory.job-category-Active {
+#jobCategory.job-category-active {
 	opacity: 1;
 	z-index: 1;
 }
