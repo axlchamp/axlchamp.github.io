@@ -146,8 +146,9 @@ input#searchKeyword:focus {
 }
 
 .job-category i {
-	font-size: 13px;
+	font-size: 13.5px !important;
 	font-weight: bold;
+	color: #333333 !important;
 }
 
 #jobcatname {
@@ -451,9 +452,10 @@ input#searchKeyword:focus {
 }
 
 /* PAGINATION */
-.job-list-wrap-page .paginationjs{
-	display:flex;
+.job-list-wrap-page .paginationjs {
+	display: flex;
 }
+
 /* ? SCROLL BAR START */
 #jobcatname::-webkit-scrollbar-track {
 	border-radius: 5px;

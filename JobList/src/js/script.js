@@ -655,13 +655,8 @@ function Ajax_request() {
 		const requestUrl = proxy_url + api_url; // Combined URL with proxy server
 		return $.ajax({
 			url: requestUrl,
-			type: 'GET',
-			dataType: 'json',
-			headers: {
-				'X-Requested-With': 'XMLHttpRequest'
-			}
+			type: 'GET'
 		});
-
 	};
 }
 
