@@ -109,7 +109,7 @@ input#searchKeyword:focus {
 }
 
 .job-fil-wrap {
-	display: none;
+	display: block;
 	width: 19.5%;
 	position: relative;
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
@@ -150,7 +150,7 @@ input#searchKeyword:focus {
 	font-weight: bold;
 }
 
-#jobCategory {
+#jobcatname {
 	position: absolute;
 	opacity: 0;
 	max-width: 100%;
@@ -161,7 +161,7 @@ input#searchKeyword:focus {
 	top: 100%;
 }
 
-#jobCategory.job-category-active {
+#jobcatname.job-category-active {
 	opacity: 1;
 	z-index: 1;
 }
@@ -195,7 +195,7 @@ input#searchKeyword:focus {
 }
 
 .inner-job-wrap {
-	display: flex;
+	display: block;
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
@@ -384,7 +384,7 @@ input#searchKeyword:focus {
 }
 
 .jobWrap2Col2 {
-	display: flex;
+	display: block;
 	flex-direction: column;
 	width: 30%;
 	position: relative;
@@ -450,22 +450,28 @@ input#searchKeyword:focus {
 	font-size: 25px;
 }
 
+/* PAGINATION */
+.job-list-wrap-page .paginationjs{
+	display:flex;
+}
 /* ? SCROLL BAR START */
-#jobCategory::-webkit-scrollbar-track {
+#jobcatname::-webkit-scrollbar-track {
 	border-radius: 5px;
 	background-color: #cccccc;
 }
 
-#jobCategory::-webkit-scrollbar {
+#jobcatname::-webkit-scrollbar {
 	width: 5px;
 	height: 5px;
 	border-radius: 5px;
 }
 
-#jobCategory::-webkit-scrollbar-thumb {
+#jobcatname::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 	background-color: #333333;
 }
+
+
 
 /* ? SCROLL BAR END */
 
@@ -478,13 +484,13 @@ input#searchKeyword:focus {
 	}
 
 	.job-wrap,
-	#jobCategory {
+	#jobcatname {
 		width: 100%;
 		max-width: 100%;
 		top: 0
 	}
 
-	#jobCategory {
+	#jobcatname {
 		max-width: 100%;
 		width: 100%;
 		opacity: 1;

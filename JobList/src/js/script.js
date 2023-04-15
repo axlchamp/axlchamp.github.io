@@ -2,28 +2,72 @@ let element = $('.container-xxl[data-container=main]');
 let data = {
 	config: {
 		// API ENDPOINT
-		api_url: "https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648",
+		api_url: 'https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648',
 
 		// DESIGN AND LAYOUT
-		layout: "gridLayout", // gridLayout or listLayout ( for desktop only )
+		layout: "list_layout", // grid_layout or list_layout ( for desktop only )
 		desktop_page_size: "6",
 		mobile_page_size: "3",
 		theme: "#88cc22",
 		font: "Calibri",
-
-		// FONT SIZE
-		saf_size: "16px", // Search and Filter
-		label_size: "16px", // Labels ( for listLayout only )
-		job_title_size: "18px", // Job Title
-		company_name_size: "16px", //Company Name
-		location_size: "14px", //Location
-		description_size: "14px", //Description
+		pagination_position: "center",
+		design_list: {
+			search: {
+				size: "16px",
+				color: "red",
+				font_family: "Calibri",
+				font_weight: "400"
+			},
+			label: {
+				size: "16px",
+				color: "#333333",
+				font_family: "Calibri",
+				font_weight: "400"
+			},
+			job_title: {
+				size: "18px",
+				color: "#333333",
+				font_family: "Calibri",
+				font_weight: "bold"
+			},
+			company_name: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "400"
+			},
+			location: {
+				size: "14px",
+				color: "#aaaaaa",
+				font_family: "Calibri",
+				font_weight: "400"
+			},
+			description: {
+				size: "14px",
+				color: "#333333",
+				font_family: "Calibri",
+				font_weight: "400"
+			}
+		},
+		filter_list: [{
+			field: 'jobcatname',
+			name: 'Job Category'
+		}, {
+			field: 'joblocname',
+			name: 'Locations'
+		}, {
+			field: 'jobtypename',
+			name: 'Employment Type'
+		}, {
+			field: 'jobfunctionname',
+			name: 'Job Type'
+		}, {
+			field: "jobloccity",
+			name: "City"
+		}],
 
 		// ENABLE FILTERS ( true or false)
-		job_category: true,
-		job_location: true,
-		job_employment_type: true,
-		job_type: true,
+		show_sorting: true,
 	}
 };
 
@@ -39,28 +83,16 @@ let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(dat
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
 
-let job_category = data.config.job_category;
-let job_location = data.config.job_location;
-let job_employment_type = data.config.job_employment_type;
-let job_type = data.config.job_type;
-
-
-let saf_size = data.config.saf_size;
-let label_size = data.config.label_size;
-let job_title_size = data.config.job_title_size;
-let company_name_size = data.config.company_name_size;
-let location_size = data.config.location_size;
-let description_size = data.config.description_size;
-
-let jobfunctionname_init = getParameterByName('jobfunctionname') ? decodeURIComponent(getParameterByName('jobfunctionname')) : "";
-let jobcatname_init = getParameterByName('jobcatname') ? decodeURIComponent(getParameterByName('jobcatname')) : "";
-let joblocname_init = getParameterByName('joblocname') ? decodeURIComponent(getParameterByName('joblocname')) : "";
-let jobtypename_init = getParameterByName('jobtypename') ? decodeURIComponent(getParameterByName('jobtypename')) : "";
+let show_sorting = data.config.show_sorting;
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
 
 // Configuration
 let theme = data.config.theme;
 let font = data.config.font;
+
+let pagination_position = data.config.pagination_position;
+let filter_list = data.config.filter_list;
+let design_list = data.config.design_list;
 //DISPLAY FEATURED JOBS ON LOAD
 
 getJobs.then(function (response) {
@@ -68,52 +100,60 @@ getJobs.then(function (response) {
 		new Addscript().loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
 			new Addscript().loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', function () {
 				jobList = new Collection().data(response);
-				let filters = {
-					jobfunctionname: jobfunctionname_init,
-					jobcatname: jobcatname_init,
-					joblocname: joblocname_init,
-					jobtypename: jobtypename_init,
-				};
+
+				let filter_param = filter_list.map(i => {
+					return `\"${i.field}\":${getParameterByName(i.field) ? `"${decodeURIComponent(getParameterByName(i.field))}"` : '\""'}`;
+				}).join(",");
+				let filters = JSON.parse(`{${filter_param}}`);
+
 				let param = multiFilter(jobList, filters).filter(i => {
 					return i.keyword.toLowerCase().includes(keyword_init.toLowerCase());
 				});
+
 				if (keyword_init) {
 					$(element).find("#searchKeyword").val(keyword_init);
 				}
 				//CREATING DYNAMIC FILTER DROPDOWN
-				let jobfunctionname = removeDuplicate(jobList.map(a => a.jobfunctionname));
-				let jobcatname = removeDuplicate(jobList.map(a => a.jobcatname));
-				let jobtypename = removeDuplicate(jobList.map(a => a.jobtypename));
-				let joblocname = removeDuplicate(jobList.map(a => a.joblocname));
+				let filter_dropdown = filter_list.map(i => {
+					let unique_list = removeDuplicate(jobList.map(a => a[i.field]));
+					let dropdown_options = createFilterDropdown(unique_list, i.field);
 
-				if (job_category) {
-					createFilterDropdown(jobcatname, 'jobCategory');
-					$(element).find(".job-fil-wrap[data-filter=category]").show();
-				}
-				if (job_employment_type) {
-					createFilterDropdown(jobtypename, 'jobtypename');
-					$(element).find(".job-fil-wrap[data-filter=jobtype]").show();
-				}
-				if (job_location) {
-					createFilterDropdown(joblocname, 'joblocname');
-					$(element).find(".job-fil-wrap[data-filter=location]").show();
-				}
-				if (job_type) {
-					createFilterDropdown(jobfunctionname, 'jobfunctionname');
-					$(element).find(".job-fil-wrap[data-filter=employmenttype]").show();
-				}
+					return `<div class="job-fil-wrap" data-filter="${i.field}">
+						${i.field=="jobcatname" ? `<div class="job-category"><span>Job Category</span> <i class="fa-solid fa-angle-down"></i>
+						</div>`:""}
+						<select class="form-select" name="${i.field}" id="${i.field}" ${i.field=="jobcatname" ? "multiple":""}>
+							<option value="" selected disabled hidden>${i.name}</option>
+							<option value="select_all">Any</option>
+							${dropdown_options}
+						</select>
+					</div>`;
+
+				}).join(" ");
+				let sort_filter = show_sorting ? `<div class="job-fil-wrap" data-filter="sort">
+					<select class="form-select" name="jobSortType" id="jobSortType">
+						<option value="" selected disabled hidden>Sort By</option>
+						<option value="atoz">A - Z</option>
+						<option value="ztoa">Z - A</option>
+						<option value="newest">Newest</option>
+						<option value="oldest">Oldest</option>
+					</select>
+				</div>` : "";
+				let dropdowns = `${filter_dropdown}${sort_filter}`;
+
+				$(element).find(".inner-job-fil").html(dropdowns);
 
 				if (data.device != "mobile") {
-					multiSelectWithoutCtrl('#jobCategory');
+					multiSelectWithoutCtrl('#jobcatname');
 				}
 
 				displayFeatJobs(param);
 
 				if (isMobile) {
-					$(element).find('#jobCategory').addClass('job-category-active');
+					$(element).find('#jobcatname').addClass('job-category-active');
 				}
 				$(element).addClass('job-list-active');
 
+				$(element).find(".job-list-wrap-page .paginationjs").css('justify-content', pagination_position);
 			});
 		});
 	});
@@ -123,16 +163,16 @@ $(element).find(".btn.btn-light").on('click touchstart', function () {
 	search_bar($(this).next().find('#searchKeyword'));
 });
 
-$(element).find(".job-category").on('click touchstart', function () {
-	$(element).find("#jobCategory").toggleClass("job-category-active");
+$(element).on('click touchstart', '.job-category', function () {
+	$(element).find("#jobcatname").toggleClass("job-category-active");
 });
 
-$(element).find("#jobCategory").on('click touch', 'option', function () {
+$(element).on('click touch', '#jobcatname option', function () {
 	$(element).find('.job-fil-wrap select').trigger("change");
 });
 
-$(element).find("#jobCategory").mouseleave(function () {
-	$(element).find("#jobCategory").removeClass("job-category-active");
+$(element).on("mouseleave", "#jobcatname", function () {
+	$(element).find("#jobcatname").removeClass("job-category-active");
 });
 
 //ONCHANGE SEARCH
@@ -160,34 +200,22 @@ function search_bar(el) {
 //ONCLICK RESET
 $(element).find('.container-xl[data-button=reset]').click(function () {
 	$(element).find('input#searchKeyword').val("");
-	// $(element).find('.form-label[data-label=result]').hide();
-	// $(element).find('.jobFeatTitle').fadeIn();
 	displayFeatJobs(jobList);
 });
 
 //FILTER ONCHANGE
-$('.job-fil-wrap select').change(function () {
+$(element).on("change", ".job-fil-wrap select", function () {
 	let keyword = $(element).find('input#searchKeyword').val();
-	let selectedCateg = $(element).find('#jobCategory').val();
-	let selectedLevel = $(element).find('#jobfunctionname').val();
-	let selectedLocation = $(element).find('#joblocname').val();
-	let selectedJType = $(element).find('#jobtypename').val();
 	let filters = {};
 
-	if (selectedCateg !== null) {
-		let is_any = selectedCateg.includes("select_all") ? "" : selectedCateg;
-		filters.jobcatname = is_any;
-	}
-	if (selectedLevel !== null) {
-		filters.jobfunctionname = selectedLevel;
-	}
-	if (selectedLocation !== null) {
-		filters.joblocname = selectedLocation;
-	}
-	if (selectedJType !== null) {
-		filters.jobtypename = selectedJType;
-	}
-
+	filter_list.map(i => {
+		let value_raw = $(element).find(`#${i.field}`).val();
+		let value = "";
+		if (value_raw) {
+			value = value_raw.includes("select_all") ? "" : value_raw;
+		}
+		filters[i.field] = value;
+	});
 	if (keyword) {
 		let sortValue = $(element).find('#jobSortType').val();
 		let result = searchByJobCompKey(jobList, keyword);
@@ -250,10 +278,7 @@ $('.job-fil-wrap select').change(function () {
 //FILTER CLEAR
 $(element).find('.clear-filter').click(function () {
 	$(element).find('.job-fil-wrap select').prop('selectedIndex', 0);
-	// $(element).find('.form-label[data-label=result]').hide();
-	// $(element).find('.jobFeatTitle').fadeIn();
 	$(element).find('input#searchKeyword').val("");
-
 	displayFeatJobs(jobList);
 
 });
@@ -297,11 +322,12 @@ function updateJobList(arr, keyword) {
 
 //CREATE DROPDOWN
 function createFilterDropdown(arr, filter) {
-	arr.map(function (i) {
+	return arr.map(function (i) {
 		if (getParameterByName(filter)) {
-			$(element).find('#' + filter).append(`<option value="${i}" ${i.toLowerCase().includes(getParameterByName(filter).toLowerCase()) ? "selected":""}>${i}</option>`);
+			return `<option value="${i}" ${i.toLowerCase().includes(getParameterByName(filter).toLowerCase()) ? "selected" : ""}>${i}</option>`;
 		} else {
-			$(element).find('#' + filter).append(`<option value="${i}" ${i.includes(getParameterByName(filter)) ? "selected":""}>${i}</option>`);
+			if (!i) return "";
+			return `<option value="${i}" ${i.includes(getParameterByName(filter)) ? "selected" : ""}>${i}</option>`;
 		}
 	});
 }
@@ -309,7 +335,7 @@ function createFilterDropdown(arr, filter) {
 
 //REMOVE DUPLICATE IN ARRAY
 function removeDuplicate(arr) {
-	return uniqueItems = Array.from(new Set(arr))
+	return uniqueItems = Array.from(new Set(arr));
 }
 
 function removeDuplicates(array, key) {
@@ -344,27 +370,28 @@ function PaginationFunction(jobs) {
 		dataSource: jobs,
 		pageSize: page_size,
 		callback: function (result, pagination) {
-			let structure = '';
-			if (layoutType == 'listLayout') {
-				structure = result.map(i => {
-					return createJob2(i);
-				}).join("");
-			} else {
-				structure = result.map(i => {
-					return createJob(i);
-				}).join("");
-			}
+			let structure = new Layout(result)[layoutType]();
 			$(element).find(".job-list-wrap").html(structure);
 			new Config().theme(theme);
 			new Config().font(font);
 
-			$(element).find('input#searchKeyword, #searchKeyword,.job-fil-wrap select,.job-category').css("font-size", saf_size);
-			$(element).find('.jobInfoLabel').css("font-size", label_size);
-			$(element).find('.jobTitle').css("font-size", job_title_size);
-			$(element).find('.jobcompanyname').css("font-size", company_name_size);
-			$(element).find('.jobLocWrap').css("font-size", location_size);
-			$(element).find('.jobDescription,.jobDescWrap').css("font-size", description_size);
+			let el_class = {
+				search: 'input#searchKeyword, #searchKeyword,.job-fil-wrap select,.job-category',
+				label: '.jobInfoLabel',
+				job_title: '.jobTitle',
+				company_name: '.jobcompanyname',
+				location: '.jobLocWrap',
+				description: '.jobDescription,.jobDescWrap',
+			};
 
+			Object.keys(el_class).map(i => {
+				$(element).find(el_class[i]).css({
+					"font-size": design_list[i].size,
+					"color": design_list[i].color,
+					"font-family": design_list[i].font_family,
+					"font-weight": design_list[i].font_weight,
+				});
+			});
 		},
 		afterPageOnClick: function () {
 			window.scrollTo({
@@ -388,15 +415,12 @@ function PaginationFunction(jobs) {
 }
 
 //CREATE JOB GRID LAYOUT
-function createJob(jobItem) {
-	let tags = "";
-	// let jobT = 
-	// jobT.map(function (i) {
-	// 	tags += `<div class="jobTag">${i}</div>`;
-	// });
-	let itemLink = jobItem.url;
-
-	let j = `<div class="job-wrap">
+function Layout(obj) {
+	let $this = this;
+	this.list_layout = () => {
+		return obj.map(jobItem => {
+			let itemLink = jobItem.url;
+			return `<div class="job-wrap" data-id="${jobItem.joblistid}">
                 <a href="${itemLink}" class="inner-job-wrap featJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
                     <div class="jobHeadInfo">
                         <div class="jobMainInfo">
@@ -410,7 +434,79 @@ function createJob(jobItem) {
                     <div class="jobDetailsWrap">
                         <div class="jobCategorytext">${jobItem.jobtypename}</div>
                         <div class="jobfunctionname">${jobItem.jobfunctionname}</div>
-                        <div class="jobSalary">${jobItem.jobdeptname}</div>
+                        <div class="jobcatnametext">${jobItem.jobcatname}</div>
+                    </div>
+                    <div class="jobDescWrap">
+                        ${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")} 
+                    </div>
+                    <div class="job-posted-date">
+						<div class="job-date">Job Posted: ${jobItem.createdate}</div>
+					</div>
+                </a>
+            </div>`;
+		}).join("");
+	};
+	this.grid_layout = () => {
+		return obj.map(jobItem => {
+			let itemLink = jobItem.url;
+			return `<a href="${itemLink}" class="job-wrap2 featuredJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
+                <div class="inner-job-wrap2">
+                    ${jobItem.jobFeatured == "true" ? '<div class="featWrapper">FEATURED</div>' : ''}
+                    <div class="jobWrap2Col1">
+                        <div class="jobTitle">${jobItem.jobtitle}</div>
+                        <div class="jobcompanyname">${jobItem.companyname}</div>
+                        <div class="jobDescription">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
+						<div class="job-posted-date">
+							<div class="job-date">Job Posted: ${jobItem.createdate}</div>
+						</div>
+                    </div>
+                    <div class="jobWrap2Col2">
+                        <div class="jobInfo">
+                            <div class="jobInfoLabel">Location:</div>
+                            <div class="jobInfoVal"> ${jobItem.joblocname}, ${jobItem.jobloc}</div>
+                        </div>
+                        <div class="jobInfo">
+                            <div class="jobInfoLabel">Employment Type:</div>
+                            <div class="jobInfoVal">${jobItem.jobtypename}</div>
+                        </div>
+                        <div class="jobInfo">
+                            <div class="jobInfoLabel">Sub Type:</div>
+                            <div class="jobInfoVal">${jobItem.jobfunctionname}</div>
+                        </div>
+                        <div class="jobInfo">
+                            <div class="jobInfoLabel">Category:</div>
+                            <div class="jobInfoVal">${jobItem.jobcatname}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+		});
+	};
+}
+
+function createJob(jobItem) {
+	let tags = "";
+	// let jobT = 
+	// jobT.map(function (i) {
+	// 	tags += `<div class="jobTag">${i}</div>`;
+	// });
+	let itemLink = jobItem.url;
+
+	let j = `<div class="job-wrap" data-id="${jobItem.joblistid}">
+                <a href="${itemLink}" class="inner-job-wrap featJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
+                    <div class="jobHeadInfo">
+                        <div class="jobMainInfo">
+                            <div class="jobTitle">${jobItem.jobtitle}</div>
+                            <div class="jobcompanyname">${jobItem.companyname}</div>
+                        </div>
+                    </div>
+                    <div class="jobLocWrap">
+                        ${jobItem.joblocname}, ${jobItem.jobloc}
+                    </div>
+                    <div class="jobDetailsWrap">
+                        <div class="jobCategorytext">${jobItem.jobtypename}</div>
+                        <div class="jobfunctionname">${jobItem.jobfunctionname}</div>
+                        <div class="jobdeptnametext">${jobItem.jobdeptname}</div>
                     </div>
                     <div class="jobDescWrap">
                         ${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")} 
@@ -542,7 +638,6 @@ function Config() {
 		$(element).find(".jobListingMainWrapper *:not(i)").css("font-family", font);
 	};
 }
-
 
 function Addscript() {
 	this.loadScript = (url, callback) => {
