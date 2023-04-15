@@ -208,10 +208,14 @@ input#searchKeyword:focus {
 	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-	min-height: 290px;
-	max-height: 290px;
 	text-decoration: none;
 	transition: all .35s ease;
+}
+
+.job-wrap-filler {
+	opacity: 0;
+	user-select: none;
+	pointer-events: none;
 }
 
 .inner-job-wrap:hover {
@@ -224,19 +228,19 @@ input#searchKeyword:focus {
 	border-color: #333333;
 }
 
-.jobHeadInfo {
+.job-head-info {
 	display: flex;
 	align-items: center;
 	position: relative;
 }
 
-.jobMainInfo {
+.job-main-info {
 	width: 100%;
 	display: block;
 	position: relative;
 }
 
-.jobTitle {
+.job-title {
 	display: block;
 	width: 100%;
 	font-weight: 700;
@@ -253,14 +257,14 @@ input#searchKeyword:focus {
 	margin-top: 8px;
 }
 
-.jobLocWrap {
+.job-loc-wrapper {
 	display: block;
 	width: 100%;
 	font-size: 12px;
 	color: rgba(0, 0, 0, 0.5);
 }
 
-.jobDetailsWrap {
+.job-details-wrapper {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -270,45 +274,45 @@ input#searchKeyword:focus {
 	color: black;
 }
 
-.jobDetailsWrap>div {
+.job-details-wrapper>div {
 	max-width: 32%;
 	width: fit-content;
 }
 
-.jobDescWrap {
-	display: block;
+.job-desc-wrapper {
+	display: -webkit-box;
 	width: 100%;
 	margin: 10px auto 0px auto;
 	font-size: 14px;
 	line-height: 1.4;
 	color: black;
-	display: -webkit-box !important;
+
 	-webkit-line-clamp: 3 !important;
 	-webkit-box-orient: vertical !important;
 	text-align: left;
 	overflow: hidden;
 }
 
-.job-posted-date {
+.job-bottom-details {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 	margin-top: 10px;
-	text-transform: capitalize;
+}
 
+.job-posted-date {
+	align-self: flex-end;
 }
 
 .job-date {
 	padding: 5px 15px;
 	box-sizing: border-box;
 	display: block;
-	border: 1px solid #F6F4FB;
+	/* border: 1px solid #F6F4FB; */
 	color: #000000;
-	margin-right: 10px;
 	margin-bottom: 5px;
 	font-size: 14px;
-	border-radius: 3px
+	border-radius: 3px;
 }
 
 /*LAYOUT 2 CSS*/
@@ -353,7 +357,7 @@ input#searchKeyword:focus {
 	border-radius: 5px;
 }
 
-.jobWrap2Col1 {
+.job-wrap2-col1 {
 	display: block;
 	width: 70%;
 	position: relative;
@@ -362,19 +366,19 @@ input#searchKeyword:focus {
 	border-right: 1px solid rgba(0, 0, 0, 0.1)
 }
 
-.jobWrap2Col1 .jobTitle {
+.job-wrap2-col1 .job-title {
 	font-size: 25px;
 	font-weight: bold;
 	margin-bottom: 5px;
 }
 
-.jobWrap2Col1 .jobPostingLoc {
+.job-wrap2-col1 .jobPostingLoc {
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 5px;
 }
 
-.jobDescription {
+.job-description {
 	display: -webkit-box !important;
 	-webkit-line-clamp: 3 !important;
 	-webkit-box-orient: vertical !important;
@@ -384,7 +388,7 @@ input#searchKeyword:focus {
 	color: black;
 }
 
-.jobWrap2Col2 {
+.job-wrap2-col2 {
 	display: block;
 	flex-direction: column;
 	width: 30%;
@@ -394,27 +398,29 @@ input#searchKeyword:focus {
 	justify-content: space-between;
 }
 
-.jobInfo {
+.job-info {
 	display: flex;
+	align-items: center;
 	width: 100%;
 	font-size: 14px;
 	padding-bottom: 5px;
 	box-sizing: border-box;
 }
 
-.jobInfoLabel {
+.job-info-label {
 	display: block;
 	color: #2C2ED0;
 	margin-right: 5px;
 }
 
-.jobInfoVal {
-	font-weight: bold;
+.job-info-val {
 	color: black;
+	text-align: center;
 }
 
-.jobListLayout2 .job-posted-date {
-	margin-top: 20px;
+/* Job List Buttons */
+.job-list-buttons {
+	margin-top: 10px;
 }
 
 /*DEFAULT CSS*/
@@ -473,12 +479,22 @@ input#searchKeyword:focus {
 	background-color: #333333;
 }
 
+/* MODAL */
+div.modal-dialog {
+	max-width: 80% !important;
+}
 
+div.modal-footer {
+	border-top: 0;
+	padding: 0 0 20px 0;
+	justify-content: flex-start;
+	
+}
 
 /* ? SCROLL BAR END */
 
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:1050px) {
 	.job-fil-wrap {
 		width: 100%;
 		border-bottom: 1px solid #ccc;
@@ -509,6 +525,27 @@ input#searchKeyword:focus {
 
 	.btn.btn-light {
 		width: 20%;
+	}
+
+	.inner-job-wrap2 {
+		display: block
+	}
+
+	.job-wrap2-col1 {
+		width: 100%;
+		border: 0;
+		padding-right: 0;
+	}
+
+	.job-wrap2-col2 {
+		padding-top: 20px;
+		padding-left: 0;
+		width: 100%;
+	}
+
+	/* Modal */
+	div.modal-dialog {
+		max-width: 100% !important;
 	}
 }
 

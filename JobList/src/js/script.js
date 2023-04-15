@@ -2,53 +2,117 @@ let element = $('.container-xxl[data-container=main]');
 let data = {
 	config: {
 		// API ENDPOINT
-		api_url: 'https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648',
-
+		api_url: '/JobList/src/js/sample.json',
+		// api_url: 'https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648',
+		company_id: "7648",
 		// DESIGN AND LAYOUT
-		layout: "list_layout", // grid_layout or list_layout ( for desktop only )
+		layout: "grid_layout", // grid_layout or list_layout ( for desktop only )
 		desktop_page_size: "6",
 		mobile_page_size: "3",
 		theme: "#88cc22",
 		font: "Calibri",
 		pagination_position: "center",
+
+		// Elements CSS
 		design_list: {
 			search: {
 				size: "16px",
-				color: "red",
-				font_family: "Calibri",
-				font_weight: "400"
-			},
-			label: {
-				size: "16px",
 				color: "#333333",
 				font_family: "Calibri",
-				font_weight: "400"
+				font_weight: "400",
+				background_color: "#ffffff"
+			},
+			dropdown_filters: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "400",
+				background_color: "#ffffff"
 			},
 			job_title: {
 				size: "18px",
 				color: "#333333",
 				font_family: "Calibri",
-				font_weight: "bold"
+				font_weight: "bold",
+				background_color: "#ffffff"
 			},
 			company_name: {
 				size: "16px",
 				color: "#88cc22",
 				font_family: "Calibri",
-				font_weight: "400"
+				font_weight: "400",
+				background_color: "#ffffff"
 			},
 			location: {
 				size: "14px",
 				color: "#aaaaaa",
 				font_family: "Calibri",
-				font_weight: "400"
+				font_weight: "400",
+				background_color: "#ffffff"
 			},
 			description: {
 				size: "14px",
 				color: "#333333",
 				font_family: "Calibri",
-				font_weight: "400"
+				font_weight: "400",
+				background_color: "#ffffff"
+			},
+			job_details: {
+				size: "14px",
+				color: "#333333",
+				font_family: "Calibri",
+				font_weight: "400",
+				background_color: "#ffffff"
+			},
+			label: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#ffffff"
+			},
+			button_1: {
+				size: "16px",
+				color: "#ffffff",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#88cc22",
+				border: "1px solid #88cc22"
+			},
+			button_2: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#ffffff",
+				border: "1px solid #88cc22"
+			},
+			modal_button_1: {
+				size: "16px",
+				color: "#ffffff",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#88cc22",
+				border: "1px solid #88cc22"
+			},
+			modal_button_2: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#ffffff",
+				border: "1px solid #88cc22"
+			},
+			modal_button_3: {
+				size: "16px",
+				color: "#88cc22",
+				font_family: "Calibri",
+				font_weight: "bold",
+				background_color: "#ffffff",
+				border: "1px solid #88cc22"
 			}
 		},
+		// Add or remove dropdown filters
 		filter_list: [{
 			field: 'jobcatname',
 			name: 'Job Category'
@@ -61,31 +125,54 @@ let data = {
 		}, {
 			field: 'jobfunctionname',
 			name: 'Job Type'
-		}, {
-			field: "jobloccity",
-			name: "City"
 		}],
-
-		// ENABLE FILTERS ( true or false)
-		show_sorting: true,
+		label_list: {
+			button_1: {
+				show: true,
+				text: "Apply"
+			},
+			button_2: {
+				show: true,
+				text: "Learn More"
+			},
+			modal_button_1: {
+				show: true,
+				text: "Apply"
+			},
+			modal_button_2: { // Description Modal
+				show: true,
+				text: "See Requirements"
+			},
+			modal_button_3: { // Requirements modal
+				show: true,
+				text: "See Description"
+			}
+		},
+		// Toggle to show or hide elements ( true or false)
+		toggles: {
+			sorting: true,
+			job_details: true,
+			description: true,
+			job_posted: true,
+		},
+		newTab: true
 	}
 };
 
-let headerHeight = $('.dmHeaderContainer').css("position") == "fixed" ? parseFloat($('.dmHeaderContainer').outerHeight()) : 0;
+let headerHeight = $('header.header').css("position") == "fixed" ? parseFloat($('header.header').outerHeight()) : 0;
 let scrollTo = $(element).offset().top - headerHeight - 20;
 let isMobile = mobileCheck();
 
-let proxy_url = 'https://api.allorigins.win/raw?url='; // Proxy server URL
 let api_url = data.config.api_url;
-let layoutType = isMobile ? "gridLayout" : data.config.layout;
-let newTab = data.config.linkNewTab;
+let proxy_url = api_url.includes("sample.json") ? '' : 'https://api.allorigins.win/raw?url='; // Proxy server URL
+let layoutType = isMobile ? "grid_layout" : data.config.layout;
+let newTab = data.config.newTab;
 let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(data.config.desktop_page_size);
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
 
-let show_sorting = data.config.show_sorting;
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
-
+let company_id = data.config.company_id;
 // Configuration
 let theme = data.config.theme;
 let font = data.config.font;
@@ -93,8 +180,11 @@ let font = data.config.font;
 let pagination_position = data.config.pagination_position;
 let filter_list = data.config.filter_list;
 let design_list = data.config.design_list;
-//DISPLAY FEATURED JOBS ON LOAD
 
+let label_list = data.config.label_list;
+let toggles = data.config.toggles;
+
+// Display Jobs Onload
 getJobs.then(function (response) {
 	new Addscript().loadScript('https://irp-cdn.multiscreensite.com/e70fa563a8d442bc81646ad9d635638a/files/uploaded/fuse.js', function () {
 		new Addscript().loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
@@ -129,7 +219,7 @@ getJobs.then(function (response) {
 					</div>`;
 
 				}).join(" ");
-				let sort_filter = show_sorting ? `<div class="job-fil-wrap" data-filter="sort">
+				let sort_filter = toggles.sorting ? `<div class="job-fil-wrap" data-filter="sort">
 					<select class="form-select" name="jobSortType" id="jobSortType">
 						<option value="" selected disabled hidden>Sort By</option>
 						<option value="atoz">A - Z</option>
@@ -159,7 +249,7 @@ getJobs.then(function (response) {
 	});
 });
 
-$(element).find(".btn.btn-light").on('click touchstart', function () {
+$(element).find(".btn.job_search_button").on('click touchstart', function () {
 	search_bar($(this).next().find('#searchKeyword'));
 });
 
@@ -376,12 +466,19 @@ function PaginationFunction(jobs) {
 			new Config().font(font);
 
 			let el_class = {
-				search: 'input#searchKeyword, #searchKeyword,.job-fil-wrap select,.job-category',
-				label: '.jobInfoLabel',
-				job_title: '.jobTitle',
-				company_name: '.jobcompanyname',
-				location: '.jobLocWrap',
-				description: '.jobDescription,.jobDescWrap',
+				search: '#searchKeyword',
+				dropdown_filters: '.job-fil-wrap select,.job-category',
+				label: '.job-info-label',
+				job_title: '.job-title',
+				company_name: '.job-company-name',
+				location: '.job-loc-wrapper',
+				description: '.job-description,.job-desc-wrapper',
+				job_details: ".job-details-wrapper>div,.job-info-val",
+				button_1: ".job-button-1 button",
+				button_2: ".job-button-2 button",
+				modal_button_1: ".modal-button-1",
+				modal_button_2: ".modal-button-2",
+				modal_button_3: ".modal-button-3",
 			};
 
 			Object.keys(el_class).map(i => {
@@ -390,8 +487,14 @@ function PaginationFunction(jobs) {
 					"color": design_list[i].color,
 					"font-family": design_list[i].font_family,
 					"font-weight": design_list[i].font_weight,
+					"background-color": design_list[i].background_color,
+					"border": design_list[i].border,
 				});
 			});
+
+			if (result.length % 3 == 2) {
+				$(element).find(".job-list-wrap").append(`<div class="job-wrap job-wrap-filler"></div>`);
+			}
 		},
 		afterPageOnClick: function () {
 			window.scrollTo({
@@ -417,148 +520,188 @@ function PaginationFunction(jobs) {
 //CREATE JOB GRID LAYOUT
 function Layout(obj) {
 	let $this = this;
-	this.list_layout = () => {
+	this.grid_layout = () => {
 		return obj.map(jobItem => {
-			let itemLink = jobItem.url;
+			let itemLink1 = `https://recruit.hirebridge.com/v3/ApplicationV2/QuickApply.aspx?cid=${company_id}&jid=${jobItem.joblistid}&bid=1`;
 			return `<div class="job-wrap" data-id="${jobItem.joblistid}">
-                <a href="${itemLink}" class="inner-job-wrap featJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
-                    <div class="jobHeadInfo">
-                        <div class="jobMainInfo">
-                            <div class="jobTitle">${jobItem.jobtitle}</div>
-                            <div class="jobcompanyname">${jobItem.companyname}</div>
+                <div class="inner-job-wrap featJob" data-jobid="${jobItem.joblistid}">
+                    <div class="job-head-info">
+                        <div class="job-main-info">
+                            <div class="job-title">${jobItem.jobtitle}</div>
+                            <div class="job-company-name">${jobItem.companyname}</div>
                         </div>
                     </div>
-                    <div class="jobLocWrap">
+                    <div class="job-loc-wrapper">
                         ${jobItem.joblocname}, ${jobItem.jobloc}
                     </div>
-                    <div class="jobDetailsWrap">
-                        <div class="jobCategorytext">${jobItem.jobtypename}</div>
-                        <div class="jobfunctionname">${jobItem.jobfunctionname}</div>
-                        <div class="jobcatnametext">${jobItem.jobcatname}</div>
+                    <div class="job-details-wrapper" style="display:${toggles.job_details ? "":"none"}">
+                        <div class="job-type-name">${jobItem.jobtypename}</div>
+                        <div class="job-function-name">${jobItem.jobfunctionname}</div>
+                        <div class="job-cat-name">${jobItem.jobcatname}</div>
                     </div>
-                    <div class="jobDescWrap">
+                    <div class="job-desc-wrapper" style="display:${toggles.description ? "":"none"}">
                         ${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")} 
                     </div>
-                    <div class="job-posted-date">
-						<div class="job-date">Job Posted: ${jobItem.createdate}</div>
+
+					<div class="job-bottom-details">
+						<div class="btn-toolbar job-list-buttons" role="toolbar" aria-label="Toolbar with button groups">
+							<div class="btn-group me-2 job-button-1" role="group" aria-label="First group" style="display:${label_list.button_1.show ? "":"none"}">
+								<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+									<button type="button" class="btn btn-primary">${label_list.button_1.text}</button>
+								</a>
+							</div>
+							<div class="btn-group job-button-2" role="group" aria-label="Second group" style="display:${label_list.button_2.show ? "" : "none"}">
+								<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.button_2.text}</button>
+							</div>
+						</div>
+						<div class="job-posted-date btn-group" role="group" aria-label="Third group">
+							<div class="job-date">
+								<div class="job-info-label">Job Posted:</div>
+								<div class="job-info-val">${jobItem.createdate}</div>
+							</div>
+						</div>
 					</div>
-                </a>
+
+					<!-- Modal -->
+					<div class="modal fade" id="job-${jobItem.joblistid}" tabindex="-1" aria-labelledby="job-${jobItem.joblistid}-label" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="job-${jobItem.joblistid}-label">${jobItem.jobtitle}</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<div class="modal-footer">
+										<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+											<button type="button" class="btn btn-secondary modal-button-1">${label_list.modal_button_1.text}</button>
+										</a>
+										<button type="button" class="btn btn-primary modal-button-2" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}-req">${label_list.modal_button_2.text}</button>
+									</div>
+									<div class="job-modal-skills">${jobItem.description}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal fade" id="job-${jobItem.joblistid}-req" tabindex="-1" aria-labelledby="job-${jobItem.joblistid}-label-req" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="job-${jobItem.joblistid}-label-req">${jobItem.jobtitle}</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+
+
+									<div class="modal-footer">
+										<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+											<button type="button" class="btn btn-secondary modal-button-1">${label_list.modal_button_1.text}</button>
+										</a>
+										<button type="button" class="btn btn-primary modal-button-3" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.modal_button_3.text}</button>
+									</div>
+									<div class="job-modal-skills">${jobItem.skills}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
             </div>`;
 		}).join("");
 	};
-	this.grid_layout = () => {
+	this.list_layout = () => {
 		return obj.map(jobItem => {
-			let itemLink = jobItem.url;
-			return `<a href="${itemLink}" class="job-wrap2 featuredJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
+			let itemLink1 = `https://recruit.hirebridge.com/v3/ApplicationV2/QuickApply.aspx?cid=${company_id}&jid=${jobItem.joblistid}&bid=1`;
+			return `<div class="job-wrap2 featuredJob" data-jobid="${jobItem.joblistid}">
                 <div class="inner-job-wrap2">
                     ${jobItem.jobFeatured == "true" ? '<div class="featWrapper">FEATURED</div>' : ''}
-                    <div class="jobWrap2Col1">
-                        <div class="jobTitle">${jobItem.jobtitle}</div>
-                        <div class="jobcompanyname">${jobItem.companyname}</div>
-                        <div class="jobDescription">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
+                    <div class="job-wrap2-col1">
+                        <div class="job-title">${jobItem.jobtitle}</div>
+                        <div class="job-company-name">${jobItem.companyname}</div>
+                        <div class="job-description">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
 						<div class="job-posted-date">
-							<div class="job-date">Job Posted: ${jobItem.createdate}</div>
+						<div class="job-bottom-details">
+							<div class="btn-toolbar job-list-buttons" role="toolbar" aria-label="Toolbar with button groups">
+								<div class="btn-group me-2 job-button-1" role="group" aria-label="First group" style="display:${label_list.button_1.show ? "":"none"}">
+									<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+										<button type="button" class="btn btn-primary">${label_list.button_1.text}</button>
+									</a>
+								</div>
+								<div class="btn-group job-button-2" role="group" aria-label="Second group" style="display:${label_list.button_2.show ? "" : "none"}">
+								<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.button_2.text}</button>
+								</div>
+							</div>
+							<div class="job-posted-date btn-group" role="group" aria-label="Third group">
+								<div class="job-date">
+									<div class="job-info-label">Job Posted:</div>
+									<div class="job-info-val">${jobItem.createdate}</div>
+								</div>
+							</div>
 						</div>
+					</div>
                     </div>
-                    <div class="jobWrap2Col2">
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Location:</div>
-                            <div class="jobInfoVal"> ${jobItem.joblocname}, ${jobItem.jobloc}</div>
+                    <div class="job-wrap2-col2">
+                        <div class="job-info">
+                            <div class="job-info-label">Location:</div>
+                            <div class="job-info-val"> ${jobItem.joblocname}, ${jobItem.jobloc}</div>
                         </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Employment Type:</div>
-                            <div class="jobInfoVal">${jobItem.jobtypename}</div>
+                        <div class="job-info">
+                            <div class="job-info-label">Employment Type:</div>
+                            <div class="job-info-val">${jobItem.jobtypename}</div>
                         </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Sub Type:</div>
-                            <div class="jobInfoVal">${jobItem.jobfunctionname}</div>
+                        <div class="job-info">
+                            <div class="job-info-label">Sub Type:</div>
+                            <div class="job-info-val">${jobItem.jobfunctionname}</div>
                         </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Category:</div>
-                            <div class="jobInfoVal">${jobItem.jobcatname}</div>
+                        <div class="job-info">
+                            <div class="job-info-label">Category:</div>
+                            <div class="job-info-val">${jobItem.jobcatname}</div>
                         </div>
                     </div>
+
+					<!-- Modal -->
+					<div class="modal fade" id="job-${jobItem.joblistid}" tabindex="-1" aria-labelledby="job-${jobItem.joblistid}-label" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="job-${jobItem.joblistid}-label">${jobItem.jobtitle}</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<div class="modal-footer">
+										<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+											<button type="button" class="btn btn-secondary modal-button-1">${label_list.modal_button_1.text}</button>
+										</a>
+										<button type="button" class="btn btn-primary modal-button-2" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}-req">${label_list.modal_button_2.text}</button>
+									</div>
+									<div class="job-modal-skills">${jobItem.description}</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal fade" id="job-${jobItem.joblistid}-req" tabindex="-1" aria-labelledby="job-${jobItem.joblistid}-label-req" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="job-${jobItem.joblistid}-label-req">${jobItem.jobtitle}</h1>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+
+
+									<div class="modal-footer">
+										<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
+											<button type="button" class="btn btn-secondary  modal-button-1">${label_list.modal_button_1.text}</button>
+										</a>
+										<button type="button" class="btn btn-primary modal-button-3" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.modal_button_3.text}</button>
+									</div>
+									<div class="job-modal-skills">${jobItem.skills}</div>
+								</div>
+							</div>
+						</div>
+					</div>
                 </div>
-            </a>`;
+            </div>`;
 		});
 	};
-}
-
-function createJob(jobItem) {
-	let tags = "";
-	// let jobT = 
-	// jobT.map(function (i) {
-	// 	tags += `<div class="jobTag">${i}</div>`;
-	// });
-	let itemLink = jobItem.url;
-
-	let j = `<div class="job-wrap" data-id="${jobItem.joblistid}">
-                <a href="${itemLink}" class="inner-job-wrap featJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
-                    <div class="jobHeadInfo">
-                        <div class="jobMainInfo">
-                            <div class="jobTitle">${jobItem.jobtitle}</div>
-                            <div class="jobcompanyname">${jobItem.companyname}</div>
-                        </div>
-                    </div>
-                    <div class="jobLocWrap">
-                        ${jobItem.joblocname}, ${jobItem.jobloc}
-                    </div>
-                    <div class="jobDetailsWrap">
-                        <div class="jobCategorytext">${jobItem.jobtypename}</div>
-                        <div class="jobfunctionname">${jobItem.jobfunctionname}</div>
-                        <div class="jobdeptnametext">${jobItem.jobdeptname}</div>
-                    </div>
-                    <div class="jobDescWrap">
-                        ${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")} 
-                    </div>
-                    <div class="job-posted-date">
-						<div class="job-date">Job Posted: ${jobItem.createdate}</div>
-					</div>
-                </a>
-            </div>`;
-	return j;
-}
-
-//CREATE JOB LIST LAYOUT
-function createJob2(jobItem) {
-	let tags = "";
-	// jobT.map(function (i) {
-	// 	tags += `<div class="jobTag">${i}</div>`
-	// });
-	let itemLink = jobItem.url;
-
-	let j = `<a href="${itemLink}" class="job-wrap2 featuredJob" data-jobid="${jobItem.joblistid}" ${newTab == true ? 'target="_blank"' : ''}>
-                <div class="inner-job-wrap2">
-                    ${jobItem.jobFeatured == "true" ? '<div class="featWrapper">FEATURED</div>' : ''}
-                    <div class="jobWrap2Col1">
-                        <div class="jobTitle">${jobItem.jobtitle}</div>
-                        <div class="jobcompanyname">${jobItem.companyname}</div>
-                        <div class="jobDescription">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
-						<div class="job-posted-date">
-							<div class="job-date">Job Posted: ${jobItem.createdate}</div>
-						</div>
-                    </div>
-                    <div class="jobWrap2Col2">
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Location:</div>
-                            <div class="jobInfoVal"> ${jobItem.joblocname}, ${jobItem.jobloc}</div>
-                        </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Employment Type:</div>
-                            <div class="jobInfoVal">${jobItem.jobtypename}</div>
-                        </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Sub Type:</div>
-                            <div class="jobInfoVal">${jobItem.jobfunctionname}</div>
-                        </div>
-                        <div class="jobInfo">
-                            <div class="jobInfoLabel">Category:</div>
-                            <div class="jobInfoVal">${jobItem.jobcatname}</div>
-                        </div>
-                    </div>
-                </div>
-            </a>`;
-	return j;
 }
 
 function multiSelectWithoutCtrl(elemSelector) {
@@ -629,7 +772,7 @@ $(element).find('.showFilter').click(function () {
 
 function Config() {
 	this.theme = function (theme) {
-		$(element).find(".input-group.mb-3 i,.jobcompanyname,.jobInfoLabel,.job-filter-wrapper>div,.job-posted-date").css("color", theme);
+		$(element).find(".input-group.mb-3 i,.job-company-name,.jobInfoLabel,.job-filter-wrapper>div,.job-posted-date").css("color", theme);
 		$(element).find(".featuredJob .inner-job-wrap2,.featJob,.job-date").css("border-color", theme);
 		$(element).find(".paginationjs .paginationjs-pages li.active>a").css("background-color", theme);
 		// $(element).find(".paginationjs .paginationjs-pages li").css("border-color", theme);
