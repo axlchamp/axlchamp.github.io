@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+	<div class="container main-container">
+		<div class="container" data-container="search_filters">
+			<label for="" class="custom-input-label input-label">Toggle Filters and Search Bar</label>
+			<div class="form-check searchbar-container">
+				<input class="form-check-input" type="checkbox" value="searchbar" id="searchbar" checked>
+				<label class="form-check-label" for="searchbar">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Search Bar">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check jobsort-container">
+				<input class="form-check-input" type="checkbox" value="jobsort" id="jobsort" checked>
+				<label class="form-check-label" for="jobsort">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Sort By">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="locations" id="locations" checked>
+				<label class="form-check-label" for="locations">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Job Locations">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobloccity" id="jobloccity">
+				<label class="form-check-label" for="jobloccity">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<input type="text" readonly value="City">
+					<i class="fa-regular fa-pen-to-square"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="joblocstatename" id="joblocstatename">
+				<label class="form-check-label" for="joblocstatename">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<input type="text" readonly value="State">
+					<i class="fa-regular fa-pen-to-square"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobloccountryname" id="jobloccountryname">
+				<label class="form-check-label" for="jobloccountryname">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<input type="text" readonly value="Country">
+					<i class="fa-regular fa-pen-to-square"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobcatname" id="jobcatname" checked>
+				<label class="form-check-label" for="jobcatname">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Job Category">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobfunctionname" id="jobfunctionname" checked>
+				<label class="form-check-label" for="jobfunctionname">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Job Function">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobtypename" id="jobtypename" checked>
+				<label class="form-check-label" for="jobtypename">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Job Type Name">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobgroupname" id="jobgroupname">
+				<label class="form-check-label" for="jobgroupname">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<input type="text" readonly value="Job Group">
+					<i class="fa-regular fa-pen-to-square"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="jobdeptname" id="jobdeptname">
+				<label class="form-check-label" for="jobdeptname">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<input type="text" readonly value="Job Dept Name">
+					<i class="fa-regular fa-pen-to-square"></i>
+				</label>
+			</div>
+			<div class="form-check">
+				<label for="" class="custom-input-label input-label">Pagination Position</label>
+				<div class="dropdown filter-layout">
+					<button class="btn btn-primary dropdown-toggle" type="button" id="pagination-position"
+						data-bs-toggle="dropdown" aria-expanded="false" data-value="Center">
+						Center
+					</button>
+					<ul class="dropdown-menu filter-selector-option" aria-labelledby="filter-layout-selector">
+						<li><button class="dropdown-item" type="button" data-value="flex-start">Left</button></li>
+						<li><button class="dropdown-item" type="button" data-value="center">Center</button></li>
+						<li><button class="dropdown-item" type="button" data-value="flex-end">Right</button></li>
+					</ul>
+				</div>
+			</div>
+			<div class="form-check">
+				<label for="" class="custom-input-label input-label">Search and Filter Position</label>
+				<div class="dropdown filter-layout">
+					<button class="btn btn-primary dropdown-toggle" type="button" id="filter-layout-selector"
+						data-bs-toggle="dropdown" aria-expanded="false" data-value="Top">
+						Top
+					</button>
+					<ul class="dropdown-menu filter-selector-option" aria-labelledby="filter-layout-selector">
+						<li><button class="dropdown-item" type="button" data-value="Top">Top</button></li>
+						<li><button class="dropdown-item" type="button" data-value="Side">Side</button></li>
+					</ul>
+				</div>
+			</div>
+			<div class="form-check newtab-form">
+				<input class="form-check-input" type="checkbox" value="newtab" id="newtab" checked>
+				<label class="form-check-label" for="newtab">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<span class="custom-input-label input-label">Open links in new tab?</span>
+				</label>
+			</div>
+		</div>
+		<div class="container" data-container="configurations">
+
+			<div class="configurator-wrapper">
+				<label for="" class="custom-input-label input-label">Company ID</label>
+				<div class="form-floating mb-3">
+					<input type="text" id="company_id" class="form-control" placeholder="1234" aria-label="company_id"
+						aria-describedby="company_id" value="1234">
+					<label for="company_id" class="floating-input">Enter company ID</label>
+				</div>
+			</div>
+			<div class="configurator-wrapper">
+				<label class="custom-input-label input-label">Button Labels</label>
+				<label class="mb-2 text-muted"> ( Remove text to hide the button ) </label>
+				<div class="row g-2">
+
+					<div class="col-md">
+						<div class="form-floating mb-3">
+							<input type="text" id="apply" class="form-control" placeholder="Apply" aria-label="apply"
+								aria-describedby="apply" value="Apply">
+							<label for="apply" class="floating-input">Apply Button Text</label>
+						</div>
+					</div>
+
+					<div class="col-md">
+						<div class="form-floating mb-3">
+							<input type="text" id="learnmore" class="form-control" placeholder="Learn More"
+								aria-label="learnmore" aria-describedby="learnmore" value="Learn More">
+							<label for="learnmore" class="floating-input">Learn More Text</label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-2">
+					<div class="col-md">
+						<div class="form-floating mb-3">
+							<input type="text" id="modal-apply" class="form-control" placeholder="Apply"
+								aria-label="modal-apply" aria-describedby="modal-apply" value="Apply">
+							<label for="modal-apply" class="floating-input">Modal Apply Button Text</label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="form-floating mb-3">
+							<input type="text" id="see-req" class="form-control" placeholder="See Requirements"
+								aria-label="see-req" aria-describedby="see-req" value="See Requirements">
+							<label for="see-req" class="floating-input">See Requirements Button Text</label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-2">
+					<div class="col-md">
+						<div class="form-floating mb-3">
+							<input type="text" id="see-desc" class="form-control" placeholder="See Description"
+								aria-label="see-desc" aria-describedby="see-desc" value="See Description">
+							<label for="see-desc" class="floating-input">See Description Button Text</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="configurator-wrapper">
+				<div class="row g-3">
+					<div class="col-md">
+						<div class="form-check">
+							<label for="" class="jobitems-input-label input-label">Job Items Layout</label>
+							<div class="dropdown jobitems-layout">
+								<button class="btn btn-primary dropdown-toggle" type="button"
+									id="jobitems-layout-selector" data-bs-toggle="dropdown" aria-expanded="false"
+									data-value="grid_layout">
+									Grid Layout
+								</button>
+								<ul class="dropdown-menu jobitems-selector-option"
+									aria-labelledby="jobitems-layout-selector">
+									<li><button class="dropdown-item" type="button" data-value="grid_layout">Grid
+											Layout</button></li>
+									<li><button class="dropdown-item" type="button" data-value="list_layout">List
+											Layout</button></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="desktop-count" class="desktop-input-label input-label">Desktop jobs per
+							page</label>
+						<div class="range-container">
+							<div class="range font-size jobitems-count-input count-input">
+								<input type="range" class="form-range" id="desktop_count" min="1" max="100" value="6">
+								<input type="number" id="desktop-count" class="form-input" value="6">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="mobile-count" class="mobile-input-label input-label">Mobile jobs per
+							page</label>
+						<div class="range-container">
+							<div class="range font-size jobitems-count-input count-input">
+								<input type="range" class="form-range" id="desktop_count" min="1" max="100" value="3">
+								<input type="number" id="mobile-count" class="form-input" value="3">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="configurator-wrapper toggles-container configurator-container">
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="job_details_fontweight" class="custom-input-label input-label">Show Job
+							Details</label>
+						<div class="form-check job_details_fontweight-form bottom-form">
+							<input class="form-check-input" type="checkbox" value="job_details_fontweight"
+								id="job_details_fontweight" checked="">
+							<label class="form-check-label" for="job_details_fontweight">
+								<i class="fa-solid fa-square-check checkbox-custom"></i>
+							</label>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="job_description_fontweight" class="custom-input-label input-label">Show Job
+							Description</label>
+						<div class="form-check job_description_fontweight-form bottom-form">
+							<input class="form-check-input" type="checkbox" value="job_description_fontweight"
+								id="job_description_fontweight" checked="">
+							<label class="form-check-label" for="job_description_fontweight">
+								<i class="fa-solid fa-square-check checkbox-custom"></i>
+							</label>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="job_posted_fontweight" class="custom-input-label input-label">Show Job Posted
+							Date</label>
+						<div class="form-check job_posted_fontweight-form bottom-form">
+							<input class="form-check-input" type="checkbox" value="job_posted_fontweight"
+								id="job_posted_fontweight" checked="">
+							<label class="form-check-label" for="job_posted_fontweight">
+								<i class="fa-solid fa-square-check checkbox-custom"></i>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="configurator-wrapper themes-container configurator-container">
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="" class="custom-input-label input-label">Themes Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown theme-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="theme-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="theme-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="theme-font-selected" class="form-input theme-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="theme-main-color main-color">
+							<label for="" class="custom-input-label input-label">Theme Color</label>
+							<div class=" theme-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper saf-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Search Bar</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown saf-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="saf-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="saf-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="saf-font-selected" class="form-input saf-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="saf-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="saf-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="saf-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="saf-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="saf-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size saf-count-input count-input">
+								<input type="range" class="form-range" id="saf-fontsize-range" min="1" max="100" value="16">
+								<input type="number" id="saf-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="saf-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size saf-count-input count-input">
+								<input type="range" class="form-range" id="saf-weight" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="saf-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper dropdown_filters-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Dropdown Filters</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown dropdown_filters-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="dropdown_filters-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdown_filters-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="dropdown_filters-font-selected"
+								class="form-input dropdown_filters-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="dropdown_filters-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="dropdown_filters-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="dropdown_filters-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" dropdown_filters-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="dropdown_filters-fontsize" class="inner-input-label input-label">Font
+							Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size dropdown_filters-count-input count-input">
+								<input type="range" class="form-range" id="dropdown_filters-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="dropdown_filters-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="dropdown_filters-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size dropdown_filters-count-input count-input">
+								<input type="range" class="form-range" id="dropdown_filters-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="dropdown_filters-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper job_title-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Job Title</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown job_title-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="job_title-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="job_title-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="job_title-font-selected" class="form-input job_title-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="job_title-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="job_title-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="job_title-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" job_title-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="job_title-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size job_title-count-input count-input">
+								<input type="range" class="form-range" id="job_title-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="job_title-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="job_title-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size job_title-count-input count-input">
+								<input type="range" class="form-range" id="job_title-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="job_title-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper company_name-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Company Name</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown company_name-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="company_name-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="company_name-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="company_name-font-selected"
+								class="form-input company_name-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="company_name-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="company_name-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="company_name-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" company_name-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="company_name-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size company_name-count-input count-input">
+								<input type="range" class="form-range" id="company_name-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="company_name-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="company_name-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size company_name-count-input count-input">
+								<input type="range" class="form-range" id="company_name-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="company_name-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper location-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Location</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown location-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="location-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="location-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="location-font-selected" class="form-input location-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="location-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="location-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="location-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" location-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="location-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size location-count-input count-input">
+								<input type="range" class="form-range" id="location-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="location-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="location-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size location-count-input count-input">
+								<input type="range" class="form-range" id="location-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="location-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper description-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Description</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown description-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="description-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="description-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="description-font-selected"
+								class="form-input description-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="description-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="description-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="description-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" description-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="description-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size description-count-input count-input">
+								<input type="range" class="form-range" id="description-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="description-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="description-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size description-count-input count-input">
+								<input type="range" class="form-range" id="description-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="description-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper job_details-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Job Details</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown job_details-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="job_details-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="job_details-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="job_details-font-selected"
+								class="form-input job_details-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="job_details-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="job_details-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="job_details-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" job_details-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="job_details-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size job_details-count-input count-input">
+								<input type="range" class="form-range" id="job_details-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="job_details-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="job_details-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size job_details-count-input count-input">
+								<input type="range" class="form-range" id="job_details-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="job_details-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper label-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Labels</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown label-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="label-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="label-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="label-font-selected" class="form-input label-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="label-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="label-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="label-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class=" label-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="label-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size label-count-input count-input">
+								<input type="range" class="form-range" id="label-fontsize-range" min="1" max="100" value="16">
+								<input type="number" id="label-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="label-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size label-count-input count-input">
+								<input type="range" class="form-range" id="label-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="label-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper button_1-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Apply Button</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown button_1-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="button_1-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="button_1-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="button_1-font-selected" class="form-input button_1-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="button_1-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="button_1-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="button_1-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="button_1-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="button_1-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size button_1-count-input count-input">
+								<input type="range" class="form-range" id="button_1-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="button_1-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="button_1-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size button_1-count-input count-input">
+								<input type="range" class="form-range" id="button_1-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="button_1-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper button_2-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Learn More Button</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown button_2-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="button_2-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="button_2-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="button_2-font-selected" class="form-input button_2-font-selected font-selected"
+								value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="button_2-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="button_2-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="button_2-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="button_2-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="button_2-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size button_2-count-input count-input">
+								<input type="range" class="form-range" id="button_2-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="button_2-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="button_2-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size button_2-input count-input">
+								<input type="range" class="form-range" id="button_2-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="button_2-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper modal_button_1-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">Modal Apply Button</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown modal_button_1-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="modal_button_1-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="modal_button_1-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="modal_button_1-font-selected" class="form-input modal_button_1-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_1-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="modal_button_1-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_1-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="modal_button_1-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="modal_button_1-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size modal_button_1-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_1-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="modal_button_1-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="modal_button_1-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size modal_button_1-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_1-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="modal_button_1-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper modal_button_2-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">See Requirements Button</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown modal_button_2-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="modal_button_2-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="modal_button_2-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="modal_button_2-font-selected"
+								class="form-input modal_button_2-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_2-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="modal_button_2-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_2-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="modal_button_2-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="modal_button_2-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size modal_button_2-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_2-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="modal_button_2-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="modal_button_2-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size modal_button_2-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_2-weight-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="modal_button_2-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+			<div class="configurator-wrapper modal_button_3-container configurator-container">
+				<div class="row g-3">
+					<label for="" class="custom-input-label input-label">See Description Button</label>
+					<div class="col-md">
+						<label for="" class="inner-input-label input-label">Font Family</label>
+						<div class="dropdown-container">
+							<div class="dropdown modal_button_3-font-selection font-selection">
+								<button class="btn btn-primary dropdown-toggle" type="button" id="modal_button_3-font"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Select
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="modal_button_3-font">
+									<li><button class="dropdown-item" type="button">Arial</button></li>
+									<li><button class="dropdown-item" type="button">Calibri</button></li>
+									<li><button class="dropdown-item" type="button">Cambria</button></li>
+									<li><button class="dropdown-item" type="button">Comic Sans MS</button></li>
+									<li><button class="dropdown-item" type="button">Courier New</button></li>
+									<li><button class="dropdown-item" type="button">Dosis</button></li>
+									<li><button class="dropdown-item" type="button">Fira Sans</button></li>
+									<li><button class="dropdown-item" type="button">Georgia</button></li>
+									<li><button class="dropdown-item" type="button">Impact</button></li>
+									<li><button class="dropdown-item" type="button">Lato</button></li>
+									<li><button class="dropdown-item" type="button">Libre Franklin</button></li>
+									<li><button class="dropdown-item" type="button">Lucida Sans Unicode</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Merriweather</button></li>
+									<li><button class="dropdown-item" type="button">Montserrat</button></li>
+									<li><button class="dropdown-item" type="button">Nunito Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans</button></li>
+									<li><button class="dropdown-item" type="button">Open Sans Condensed</button>
+									</li>
+									<li><button class="dropdown-item" type="button">Oswald</button></li>
+									<li><button class="dropdown-item" type="button">Palatino Linotype</button></li>
+									<li><button class="dropdown-item" type="button">Pinyon Script</button></li>
+									<li><button class="dropdown-item" type="button">Playfair Display</button>
+								</ul>
+							</div>
+							<input id="modal_button_3-font-selected"
+								class="form-input modal_button_3-font-selected font-selected" value="Arial">
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_3-main-color main-color">
+							<label for="" class="inner-input-label input-label">Font Color</label>
+							<div class="modal_button_3-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+					<div class="col-md">
+						<div class="modal_button_3-background-color background-color">
+							<label for="" class="inner-input-label input-label">Background
+								Color</label>
+							<div class="modal_button_3-background-color-container color-container">
+								<input type="color" value="#333333">
+								<input type="text" value="#333333">
+							</div>
+							<label class="mb-2 text-muted"> ( Text field only accepts hexcode ) </label>
+						</div>
+					</div>
+				</div>
+				<div class="row g-3">
+					<div class="col-md">
+						<label for="modal_button_3-fontsize" class="inner-input-label input-label">Font Size</label>
+						<label class="mb-2 text-muted"> ( in pixel ) </label>
+						<div class="range-container">
+							<div class="range font-size modal_button_3-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_3-fontsize-range" min="1" max="100"
+									value="16">
+								<input type="number" id="modal_button_3-fontsize" class="form-input" value="16">
+							</div>
+						</div>
+					</div>
+					<div class="col-md">
+						<label for="modal_button_3-weight" class="inner-input-label input-label">Font Weight</label>
+						<div class="range-container">
+							<div class="range font-size modal_button_3-count-input count-input">
+								<input type="range" class="form-range" id="modal_button_3-weight-range-range" min="100" max="700" value="400"
+									step="100">
+								<input type="number" id="modal_button_3-weight" class="form-input" value="400" step="100">
+							</div>
+						</div>
+					</div>
+					<div class="col-md"></div>
+				</div>
+			</div>
+		</div>
+		<div class="container" data-container="generate_codes">
+			<!-- <div class="btn-group" role="group" aria-label="Generate Codes"> -->
+			<button type="button" class="btn btn-primary generate-button">Generate and Copy Codes</button>
+			<!-- <button type="button" class="btn btn-primary">Preview</button> -->
+			<!-- </div> -->
+
+		</div>
+		<div class="container" data-container="generated_codes">
+			<textarea name="" id="" cols="30" rows="10"></textarea>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async defer></script>
+	<script src="src/js/script.js"></script>
+</body>
+
+</html>

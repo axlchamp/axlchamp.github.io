@@ -6,6 +6,7 @@ let data = {
 		// api_url: 'https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648',
 		company_id: "7648",
 		// DESIGN AND LAYOUT
+		filters_layout: "Side", // Top || Side
 		layout: "grid_layout", // grid_layout or list_layout ( for desktop only )
 		desktop_page_size: "6",
 		mobile_page_size: "3",
@@ -127,6 +128,7 @@ let data = {
 			name: 'Job Type'
 		}],
 		label_list: {
+			sort_label: "Sort By",
 			button_1: {
 				show: true,
 				text: "Apply"
@@ -166,6 +168,7 @@ let isMobile = mobileCheck();
 let api_url = data.config.api_url;
 let proxy_url = api_url.includes("sample.json") ? '' : 'https://api.allorigins.win/raw?url='; // Proxy server URL
 let layoutType = isMobile ? "grid_layout" : data.config.layout;
+let filters_layout = data.config.filters_layout;
 let newTab = data.config.newTab;
 let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(data.config.desktop_page_size);
 let getJobs = new Ajax_request(api_url).ajax();
@@ -221,7 +224,7 @@ getJobs.then(function (response) {
 				}).join(" ");
 				let sort_filter = toggles.sorting ? `<div class="job-fil-wrap" data-filter="sort">
 					<select class="form-select" name="jobSortType" id="jobSortType">
-						<option value="" selected disabled hidden>Sort By</option>
+						<option value="" selected disabled hidden>${label_list.sort_label}</option>
 						<option value="atoz">A - Z</option>
 						<option value="ztoa">Z - A</option>
 						<option value="newest">Newest</option>
@@ -244,6 +247,9 @@ getJobs.then(function (response) {
 				$(element).addClass('job-list-active');
 
 				$(element).find(".job-list-wrap-page .paginationjs").css('justify-content', pagination_position);
+				if (filters_layout.toLowerCase() == "side") {
+					$(element).addClass("main-container-side");
+				}
 			});
 		});
 	});
@@ -495,6 +501,7 @@ function PaginationFunction(jobs) {
 			if (result.length % 3 == 2) {
 				$(element).find(".job-list-wrap").append(`<div class="job-wrap job-wrap-filler"></div>`);
 			}
+			$(element).find(".job-list-wrap-page .paginationjs").css('justify-content', pagination_position);
 		},
 		afterPageOnClick: function () {
 			window.scrollTo({
@@ -554,7 +561,7 @@ function Layout(obj) {
 								<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.button_2.text}</button>
 							</div>
 						</div>
-						<div class="job-posted-date btn-group" role="group" aria-label="Third group">
+						<div class="job-posted-date btn-group" role="group" aria-label="Third group"  style="display:${toggles.job_posted ? "":"none"}">
 							<div class="job-date">
 								<div class="job-info-label">Job Posted:</div>
 								<div class="job-info-val">${jobItem.createdate}</div>
@@ -629,7 +636,7 @@ function Layout(obj) {
 								<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#job-${jobItem.joblistid}">${label_list.button_2.text}</button>
 								</div>
 							</div>
-							<div class="job-posted-date btn-group" role="group" aria-label="Third group">
+							<div class="job-posted-date btn-group" role="group" aria-label="Third group" style="display:${toggles.job_posted ? "" : "none"}">
 								<div class="job-date">
 									<div class="job-info-label">Job Posted:</div>
 									<div class="job-info-val">${jobItem.createdate}</div>

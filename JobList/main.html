@@ -12,13 +12,13 @@
 <body>
 
 	<div class="container-xxl" data-container="main">
-		<div class="seconday-container">
+		<div class="seconday-container job-inner-container">
 			<div class="container-xl">
 				<div class="input-group mb-3">
 					<button class="btn btn-light input-group-text job_search_button">
 						<i class="fas fa-search"></i>
 					</button>
-					<div class="container-xl">
+					<div class="container-xl job-search-input">
 						<input type="text" id="searchKeyword" name="keyword" class="form-control"
 							placeholder="Job title, location, and keyword">
 					</div>
@@ -27,19 +27,20 @@
 					</div>
 				</div>
 			</div>
+			<div class="job-count-container" data-container="job count">
+				<div class="form-label" data-label="result">
+					<span class="job-count"></span> job/s found.
+				</div>
+				<div class="job-filter-wrapper">
+					<div class="clear-filter">Clear Filter</div>
+				</div>
+			</div>
+			<div class="jobs-filter-wrapper">
+				<div class="inner-job-fil"></div>
+			</div>
+		</div>
+		<div class="seconday-container job-inner-container">
 			<div class="container-xxl">
-				<div class="job-count-container" data-container="job count">
-					<div class="form-label" data-label="result">
-						<span class="job-count"></span> job/s found.
-					</div>
-					<div class="job-filter-wrapper">
-						<div class="clear-filter">Clear Filter</div>
-						<!--<div class="showFilter">Show Filter</div>-->
-					</div>
-				</div>
-				<div class="jobs-filter-wrapper">
-					<div class="inner-job-fil"></div>
-				</div>
 				<div class="job-list-wrap-page">
 					<div class="job-list-wrap grid_layout"></div>
 				</div>

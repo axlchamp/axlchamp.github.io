@@ -1,0 +1,279 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.main-container {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+
+.container[data-container="search_filters"] {
+	position: relative;
+	display: block;
+	max-width: 20%;
+	width: 100%;
+}
+
+.container[data-container="configurations"] {
+	position: relative;
+	display: block;
+	max-width: 75%;
+	width: 100%;
+	border: 1px solid #cccccc;
+	padding: 15px;
+	max-height: 80vh;
+	overflow-y: auto;
+	height: auto;
+}
+
+
+.container[data-container=search_filters] div.form-check {
+	margin-bottom: 20px;
+	padding-left: 0
+}
+
+.container[data-container=search_filters] div.form-check label {
+	display: flex;
+	align-items: center;
+}
+
+.container[data-container=search_filters] div.form-check input[type=checkbox] {
+	opacity: 0;
+	position: absolute;
+}
+
+.container[data-container=search_filters] div.form-check input[type=text] {
+	border: 0;
+}
+
+.container[data-container=search_filters] div.form-check input[type=text]:focus {
+	outline: 0;
+}
+
+.container[data-container=search_filters] div.form-check input[type=text].selected_input {
+	border-bottom: 1px solid #dee2e6;
+}
+
+.container[data-container=search_filters] div.form-check i.fa-square,
+.container[data-container=search_filters] div.form-check i.fa-square-check {
+	font-size: 25px;
+	margin-right: 10px;
+}
+
+.container[data-container=search_filters] div.form-check i.fa-square {
+	color: #cccccc
+}
+
+.container[data-container=search_filters] div.form-check i.fa-square-check {
+	color: #3084d3
+}
+
+.container[data-container=search_filters] div.form-check input[type=checkbox]#newtab {
+	opacity: 0;
+	position: absolute;
+}
+
+.newtab-form span {
+	margin-bottom: 0
+}
+
+i.fa-pen-to-square {
+	display: none;
+	color: #3084d3
+}
+
+i.selected_icon {
+	display: block;
+}
+
+/* Filter Position */
+.container[data-container=configurations] div.jobitems-layout button,
+.container[data-container=search_filters] div.filter-layout button {
+	background-color: #ffffff;
+	color: #333333;
+	border: 1px solid #3084d3;
+	width: 100%;
+}
+
+.container[data-container=configurations] div.jobitems-layout li button,
+.container[data-container=search_filters] div.filter-layout li button {
+	border: 0;
+	border-bottom: 1px solid #dee2e6
+}
+
+.container[data-container=configurations] div.jobitems-layout li:last-child button,
+.container[data-container=search_filters] div.filter-layout li:last-child button {
+	border: 0;
+}
+
+/* Configurator */
+.configurator-wrapper {
+	margin-bottom: 20px
+}
+
+.container[data-container=configurations] div.form-check {
+	padding: 0
+}
+
+.container[data-container=configurations] div.form-check i.fa-square,
+.container[data-container=configurations] div.form-check i.fa-square-check {
+	font-size: 25px;
+	margin-right: 10px;
+}
+
+.container[data-container=configurations] div.form-check i.fa-square {
+	color: #cccccc;
+}
+
+.container[data-container=configurations] div.form-check i.fa-square-check {
+	color: #3084d3;
+}
+
+.count-input {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.count-input input:first-child {
+	max-width: 75%;
+	width: 100%;
+}
+
+.count-input input:last-child {
+	max-width: 20%;
+	width: 100%;
+}
+
+/* DESIGN */
+.configurator-container {
+	border: 1px solid #dee2e6;
+	padding: 15px;
+	border-radius: 5px
+}
+
+.configurator-container:not(.themes-container)>div {
+	margin-bottom: 20px;
+}
+
+.color-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.color-container>input {
+	max-width: 49%;
+	width: 100%;
+}
+
+.input-label {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+
+.custom-input-label {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.inner-input-label {
+	font-size: 14px;
+	font-weight: 600;
+	color: #444444
+}
+
+.dropdown-item:hover {
+	background-color: #f8f9fa;
+}
+
+.dropdown-container,
+.range-container {
+	display: flex
+}
+
+.font-selection button {
+	border-radius: 5px 0 0 5px;
+}
+
+.font-selected {
+	padding-left: 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border: 1px solid #dee2e6
+}
+
+
+
+.main-color input,
+.main-color label {
+	position: relative;
+	display: block;
+}
+
+.dropdown-menu {
+	max-height: 400px;
+	overflow: auto;
+}
+
+
+/* DESIGN */
+.bottom-form input {
+	opacity: 0;
+	position: absolute;
+}
+
+/* GENERATE BUTTON */
+.container[data-container="generate_codes"] {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.container[data-container="generated_codes"] textarea {
+	margin-top: 20px;
+	width: 100%;
+}
+
+
+
+ @media screen and (max-width:1050px) {
+	.main-container>div.container {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.container[data-container="configurations"] {
+		max-height: 100%
+	}
+}
+
+/* ? SCROLL BAR START */
+::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: #cccccc;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: #888888;
+}
+
+/* ? SCROLL BAR END */
