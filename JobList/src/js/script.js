@@ -2,7 +2,7 @@ let element = $('.container-xxl[data-container=main]');
 let headerHeight = $('header.header').css("position") == "fixed" ? parseFloat($('header.header').outerHeight()) : 0;
 let scrollTo = $(element).offset().top - headerHeight - 20;
 let isMobile = mobileCheck();
-
+let data = getData();
 let api_url = data.config.api_url;
 let proxy_url = api_url.includes("sample.json") ? '' : 'https://api.allorigins.win/raw?url='; // Proxy server URL
 let layoutType = isMobile ? "grid_layout" : data.config.layout;

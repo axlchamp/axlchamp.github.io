@@ -68,7 +68,7 @@ new Addscript().runOnReady('init', function () {
 
 				let job_details = $('#job_details_fontweight').is(":checked");
 				let description = $('#job_description_fontweight').is(":checked");
-				let job_posted = $('#job_job_posted_fontweight').is(":checked");
+				let job_posted = $('#job_posted_fontweight').is(":checked");
 
 				let newTab = getChecked($('#newtab')).length > 0 ? true : false;
 				// labels
