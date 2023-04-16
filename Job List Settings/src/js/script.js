@@ -164,35 +164,40 @@ new Addscript().runOnReady('init', function () {
 					color: $('.button_1-color-container input').val(),
 					font_family: $('#button_1-font-selected').val(),
 					font_weight: $('#button_1-weight').val(),
-					background_color: $('.button_1-background-color-container input').val()
+					background_color: $('.button_1-background-color-container input').val(),
+					border: "1px solid " + $('.button_1-background-color-container input').val(),
 				};
 				let button_2_design = {
 					size: $('#button_2-fontsize').val() + "px",
 					color: $('.button_2-color-container input').val(),
 					font_family: $('#button_2-font-selected').val(),
 					font_weight: $('#button_2-weight').val(),
-					background_color: $('.button_2-background-color-container input').val()
+					background_color: $('.button_2-background-color-container input').val(),
+					border: "1px solid " + $('.button_2-background-color-container input').val()
 				};
 				let modal_button_1_design = {
 					size: $('#modal_button_1-fontsize').val() + "px",
 					color: $('.modal_button_1-color-container input').val(),
 					font_family: $('#modal_button_1-font-selected').val(),
 					font_weight: $('#modal_button_1-weight').val(),
-					background_color: $('.modal_button_1-background-color-container input').val()
+					background_color: $('.modal_button_1-background-color-container input').val(),
+					border: "1px solid " + $('.modal_button_1-background-color-container input').val()
 				};
 				let modal_button_2_design = {
 					size: $('#modal_button_2-fontsize').val() + "px",
 					color: $('.modal_button_2-color-container input').val(),
 					font_family: $('#modal_button_2-font-selected').val(),
 					font_weight: $('#modal_button_2-weight').val(),
-					background_color: $('.modal_button_2-background-color-container input').val()
+					background_color: $('.modal_button_2-background-color-container input').val(),
+					border: "1px solid " + $('.modal_button_2-background-color-container input').val()
 				};
 				let modal_button_3_design = {
 					size: $('#modal_button_3-fontsize').val() + "px",
 					color: $('.modal_button_3-color-container input').val(),
 					font_family: $('#modal_button_3-font-selected').val(),
 					font_weight: $('#modal_button_3-weight').val(),
-					background_color: $('.modal_button_3-background-color-container input').val()
+					background_color: $('.modal_button_3-background-color-container input').val(),
+					border: "1px solid " + $('.modal_button_3-background-color-container input').val()
 				};
 
 
@@ -265,7 +270,7 @@ function copy_to_clipboard(el) {
 
 	// Copy the text inside the text field
 	navigator.clipboard.writeText(copyText.value);
-	
+
 }
 
 function getChecked(el) {
