@@ -148,7 +148,7 @@ function getData() {
                 "sorting": true,
                 "job_details": true,
                 "description": true,
-                "job_posted": false
+                "job_posted": true
             },
             "newTab": true
         }
