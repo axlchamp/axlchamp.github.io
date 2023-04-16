@@ -9,9 +9,6 @@ function Addscript() {
 	};
 }
 
-
-
-// WIDGET VARIABLES
 new Addscript().runOnReady('init', function () {
 	new Addscript().loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', function () {
 		new Addscript().loadScript('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/js/bootstrap-colorpicker.min.js', function () {
@@ -39,7 +36,6 @@ new Addscript().runOnReady('init', function () {
 				}
 			});
 
-			// Filter layout and Job Items Layout
 			$('.filter-selector-option li button,.jobitems-selector-option li button').click(function () {
 				let value = $(this).attr("data-value");
 				let text = $(this).text();
@@ -248,14 +244,29 @@ new Addscript().runOnReady('init', function () {
 					},
 					newTab
 				};
-
-				$('.container[data-container=generated_codes] textarea').val(JSON.stringify({
+				let data_string = JSON.stringify({
 					"config": new_code
-				}));
+				});
+				$('.container[data-container=generated_codes] textarea').val(data_string);
+				copy_to_clipboard('generated_code_text');
+
 			});
 		});
 	});
 });
+
+function copy_to_clipboard(el) {
+	// Get the text field
+	var copyText = document.getElementById(el);
+
+	// Select the text field
+	copyText.select();
+	copyText.setSelectionRange(0, 99999); // For mobile devices
+
+	// Copy the text inside the text field
+	navigator.clipboard.writeText(copyText.value);
+	
+}
 
 function getChecked(el) {
 	let checkedPermission = [];
