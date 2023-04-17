@@ -1,3 +1,5 @@
+let data = JSON.parse(atob(getParameterByName("config")));
+
 let element = $('.container-xxl[data-container=main]');
 let headerHeight = $('header.header').css("position") == "fixed" ? parseFloat($('header.header').outerHeight()) : 0;
 let scrollTo = $(element).offset().top - headerHeight - 20;
@@ -10,6 +12,7 @@ let newTab = data.config.newTab;
 let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(data.config.desktop_page_size);
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
+
 
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
 let company_id = data.config.company_id;
@@ -30,7 +33,6 @@ getJobs.then(function (response) {
 		new Addscript().loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
 			new Addscript().loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', function () {
 				jobList = new Collection().data(response);
-				console.log(data.config.toggles)
 				if (!data.config.toggles.search) {
 					$('.job-search-active').hide();
 				}

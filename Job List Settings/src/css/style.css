@@ -245,6 +245,7 @@ i.selected_icon {
 .container[data-container="generate_codes"] {
 	display: flex;
 	justify-content: flex-end;
+	flex-wrap: wrap;
 }
 
 .container[data-container="generated_codes"] textarea {
@@ -253,7 +254,11 @@ i.selected_icon {
 	padding: 15px
 }
 
-
+.gc1-prev {
+	max-width: 100%;
+	width: 100%;
+	text-align: right;
+}
 
 @media screen and (max-width:1050px) {
 	.main-container>div.container {

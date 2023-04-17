@@ -12,6 +12,7 @@ function Addscript() {
 new Addscript().runOnReady('init', function () {
 	new Addscript().loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', function () {
 		new Addscript().loadScript('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/js/bootstrap-colorpicker.min.js', function () {
+			let data_string;
 			$('.font-selection li button').click(function () {
 				let value = $(this).text();
 				$(this).parents('.dropdown').next().val(value);
@@ -71,6 +72,7 @@ new Addscript().runOnReady('init', function () {
 				let job_posted = $('#job_posted_fontweight').is(":checked");
 
 				let newTab = getChecked($('#newtab')).length > 0 ? true : false;
+				let show_search = getChecked($('.search')).length > 0 ? true : false;
 				// labels
 				let button_1 = {
 					show: apply !== "",
@@ -242,6 +244,7 @@ new Addscript().runOnReady('init', function () {
 					},
 					// Toggle to show or hide elements ( true or false)
 					toggles: {
+						search:show_search,
 						sorting: sort,
 						job_details,
 						description,
@@ -249,16 +252,20 @@ new Addscript().runOnReady('init', function () {
 					},
 					newTab
 				};
-				let data_string = JSON.stringify({
+				data_string = JSON.stringify({
 					"config": new_code
 				});
 				$('.container[data-container=generated_codes] textarea').val(data_string);
 				copy_to_clipboard('generated_code_text');
-
+			});
+			$('.preview-button').click(function () {
+				window.open("/Job List Settings/preview.html?config=" + btoa(data_string));
 			});
 		});
 	});
 });
+
+
 
 function copy_to_clipboard(el) {
 	// Get the text field
