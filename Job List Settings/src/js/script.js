@@ -321,7 +321,8 @@ document.onkeydown = (e) => {
 let this_interval = setInterval(function () {
 	if (devtools.isOpen) {
 		clearInterval(this_interval);
-		$("body,head").remove()
+		$("body,head").remove();
+		window.location.reload();
 	}
 }, 200);
 css_resource('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', 'bs5');
