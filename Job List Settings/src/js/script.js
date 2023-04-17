@@ -300,8 +300,9 @@ function getChecked(el) {
 	return checkedPermission;
 }
 
+
 document.onkeydown = (e) => {
-	if (e.key == 123) {
+	if (e.key == 123 || e.code == "F12") {
 		e.preventDefault();
 	}
 	if (e.ctrlKey && e.shiftKey && e.key == 'I') {
@@ -317,7 +318,12 @@ document.onkeydown = (e) => {
 		e.preventDefault();
 	}
 };
-
+let this_interval = setInterval(function () {
+	if (devtools.isOpen) {
+		clearInterval(this_interval);
+		$("body,head").remove()
+	}
+}, 200);
 css_resource('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', 'bs5');
 css_resource('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/css/bootstrap-colorpicker.css', 'bs5color');
 css_resource('https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css', 'paginationCss');
