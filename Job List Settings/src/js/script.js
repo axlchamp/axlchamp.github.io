@@ -72,7 +72,7 @@ new Addscript().runOnReady('init', function () {
 				let job_posted = $('#job_posted_fontweight').is(":checked");
 
 				let newTab = getChecked($('#newtab')).length > 0 ? true : false;
-				let show_search = getChecked($('.search')).length > 0 ? true : false;
+				let show_search = getChecked($('#searchbar')).length > 0 ? true : false;
 				// labels
 				let button_1 = {
 					show: apply !== "",
@@ -244,7 +244,7 @@ new Addscript().runOnReady('init', function () {
 					},
 					// Toggle to show or hide elements ( true or false)
 					toggles: {
-						search:show_search,
+						search: show_search,
 						sorting: sort,
 						job_details,
 						description,
