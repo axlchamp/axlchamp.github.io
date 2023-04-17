@@ -2,8 +2,8 @@ let data = {
     "config": {
         "api_url": "https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648",
         "company_id": "7648",
-        "filters_layout": "Side",
-        "layout": "grid_layout",
+        "filters_layout": "Top",
+        "layout": "list_layout",
         "desktop_page_size": "6",
         "mobile_page_size": "3",
         "theme": "#333333",
@@ -152,4 +152,4 @@ let data = {
         },
         "newTab": true
     }
-};
+}

@@ -30,7 +30,6 @@ getJobs.then(function (response) {
 		new Addscript().loadScript('https://irt-cdn.multiscreensite.com/8914113fe39e47bcb3040f2b64f71b02/files/uploaded/paginates.min.js', function () {
 			new Addscript().loadScript('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', function () {
 				jobList = new Collection().data(response);
-				console.log(data.config.toggles)
 				if (!data.config.toggles.search) {
 					$('.job-search-active').hide();
 				}

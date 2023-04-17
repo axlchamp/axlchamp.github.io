@@ -265,7 +265,8 @@ new Addscript().runOnReady('init', function () {
 				data_string = JSON.stringify({
 					"config": new_code
 				});
-				$('.container[data-container=generated_codes] textarea').val(data_string);
+				// $('.container[data-container=generated_codes] textarea').val(`<script id="${company_id}">let data=${data_string}</script>`);
+				$('.container[data-container=generated_codes] textarea').val(`let data=${data_string}`);
 				copy_to_clipboard('generated_code_text');
 			});
 			$('.preview-button').click(function () {
