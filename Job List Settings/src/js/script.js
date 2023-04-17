@@ -18,10 +18,15 @@ new Addscript().runOnReady('init', function () {
 				$(this).parents('.dropdown').next().val(value);
 			});
 
-			$('input[type=range]').mousemove(function () {
+			$('.count-input input[type=range]').mousemove(function () {
 				let value = $(this).val();
 				$(this).next().val(value);
 			});
+			$('.count-input input[type=number]').keyup(function () {
+				let value = $(this).val();
+				$(this).prev().val(value);
+			});
+
 
 			$('input[type=checkbox]').change(function () {
 				let is_checked = $(this).is(":checked");
@@ -43,9 +48,13 @@ new Addscript().runOnReady('init', function () {
 				$(this).parents('ul').prev().text(text).attr("data-value", value);
 			});
 
-			$('.color-container input').change(function () {
+			$('.color-container input[type=color]').change(function () {
 				let val = $(this).val().includes("#") ? $(this).val() : "#" + $(this).val();
 				$(this).next().val(val);
+			});
+			$('.color-container input[type=text]').keyup(function () {
+				let val = $(this).val().includes("#") ? $(this).val() : "#" + $(this).val();
+				$(this).prev().val(val);
 			});
 
 			$('.generate-button').click(function () {
@@ -104,6 +113,7 @@ new Addscript().runOnReady('init', function () {
 					};
 				});
 
+				console.log(filter_list)
 				let search_design = {
 					size: $('#saf-fontsize').val() + "px",
 					color: $('.saf-color-container input').val(),

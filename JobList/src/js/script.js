@@ -47,12 +47,15 @@ getJobs.then(function (response) {
 					$(element).find("#searchKeyword").val(keyword_init);
 				}
 				//CREATING DYNAMIC FILTER DROPDOWN
-				let filter_dropdown = filter_list.map(i => {
+				let sorted = filter_list.sort((a, b) => {
+					return a.field == "jobcatname" ? -1 : 1;
+				});
+				let filter_dropdown = sorted.map(i => {
 					let unique_list = removeDuplicate(jobList.map(a => a[i.field]));
 					let dropdown_options = createFilterDropdown(unique_list, i.field);
 
 					return `<div class="job-fil-wrap" data-filter="${i.field}">
-						${i.field=="jobcatname" ? `<div class="job-category"><span>Job Category</span> <i class="fa-solid fa-angle-down"></i>
+						${i.field=="jobcatname" ? `<div class="job-category"><span>${i.name}</span> <i class="fa-solid fa-angle-down"></i>
 						</div>`:""}
 						<select class="form-select" name="${i.field}" id="${i.field}" ${i.field=="jobcatname" ? "multiple":""}>
 							<option value="" selected disabled hidden>${i.name}</option>
@@ -463,7 +466,7 @@ function Layout(obj) {
                     <div class="job-wrap2-col1">
                         <div class="job-title">${jobItem.jobtitle}</div>
                         <div class="job-company-name">${jobItem.companyname}</div>
-                        <div class="job-description">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
+                        <div class="job-description" style="display:${toggles.description ? "":"none"}">${jobItem.description.replaceAll(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, " ")}</div>
 						<div class="job-posted-date">
 						<div class="job-bottom-details">
 							<div class="btn-toolbar job-list-buttons" role="toolbar" aria-label="Toolbar with button groups">
