@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+
+	<div class="widget-abc123">
+		<div class="printThis" id="printThis">
+			<div class="mortgageCalculatorWrapper" id="mortGageCal">
+				<div class="inputWrapper">
+					<div class="inputContainer">
+						<div class="inputLabel">Loan Amount</div>
+						<div class="inputIcon iconF">$</div>
+						<input type="text" name="loanAmount" id="loanAmount" class="calInputs inputL" value="500000"
+							required="">
+					</div>
+					<div class="inputContainer">
+						<div class="inputLabel">Annual Interest Rate</div>
+						<input type="number" name="loanRate" id="loanRate" class="calInputs inputF" required=""
+							placeholder="5%" min="1" max="99" step="0.05" value="3.95" data-placeholder-original="5%">
+						<div class="rateMeter" style="display: none;"><input type="range" name="rateRangeMeter"
+								class="rateRangeMeter" id="rateRangeMeter" min="1" max="99" step="0.05" value="3.95">
+						</div>
+						<div class="inputIcon iconL">%</div>
+					</div>
+					<div class="inputContainer">
+						<div class="inputLabel">Loan Terms</div>
+						<input type="number" name="loanTerms" id="loanTerms" class="calInputs inputF termInput"
+							required="" placeholder="5" min="1" max="40" value="20" data-placeholder-original="5">
+						<div class="loanMeter" style="display: none;"><input type="range" name="loanRangeMeter"
+								class="loanRangeMeter" id="loanRangeMeter" min="5" max="40" value="20"></div>
+						<div class="inputIcon iconL">yrs</div>
+					</div>
+					<div class="inputContainer">
+						<div class="inputLabel">Repayment frequency</div>
+						<select name="loanRepay" id="loanRepay" class="calInputs repayOp" required="">
+							<option value="12" selected="selected">Monthly</option>
+							<option value="26">Fortnightly</option>
+							<option value="52">Weekly</option>
+						</select>
+					</div>
+				</div>
+				<div class="resultSummartWrapper">
+					<div class="amountPerPay">$ <span class="rAmount">3,016.74</span>
+						per <span class="rFreq">month</span>
+					</div>
+					<div class="amountRates"> <span class="rYears">20</span>
+						Year Fixed. <span class="rRate">3.95</span>
+						% Annual Interest Rate.</div>
+				</div>
+				<div class="resultWrapper">
+					<div class="resultLabel">Repayment Amount</div>
+					<div class="resultAmount repaymentAmount">$ 3,016.74</div>
+					<div class="resultLabel">Total Repayment</div>
+					<div class="resultAmount totalRepayment">$ 724,017.60</div>
+					<div class="resultLabel">Total Interest</div>
+					<div class="resultAmount totalInterest">$ 224,017.60</div>
+				</div>
+				<div class="loanTypeWrapper">
+					<div class="loanType activeOp pAInterest">Principal &amp; Interest</div>
+					<div class="loanType intOnly">Interest Only</div>
+				</div>
+				<div class="disClaimer">
+					<p class="rteBlock"><strong>Disclaimer:</strong>&nbsp;Whilst every effort has been made to ensure
+						the accuracy of this calculator, the results should be used as indication only. They are neither
+						a quote nor a pre-qualification for a home loan.</p>
+				</div>
+				<div class="printBtnWrapper"> <i class="fa fa-print fa-2x" aria-hidden="true" id="printBtn"
+						title="Print Result" style="color:#000"></i>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async defer></script>
+	<script src="./src/js/script.js"></script>
+</body>
+
+</html>

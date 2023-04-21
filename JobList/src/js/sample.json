@@ -38,17 +38,26 @@
         "publicdate": "2/1/2023",
         "custom1": "",
         "location": {
-            "name": "IND- MH- Pune",
-            "address": "",
-            "city": "",
-            "state": "",
-            "statename": "",
-            "zip": "",
-            "country": "IN",
-            "countryname": "India",
+            "name": "PH Bats",
+            "address": {
+                "city": "",
+                "state": "",
+                "statename": "",
+                "zip": "",
+                "country": "IN",
+                "countryname": "India"
+            },
             "isremote": true
         },
-        "additionalLocations": null
+        "additionalLocations": [{
+            "name": "1"
+        }, {
+            "name": "2"
+        }, {
+            "name": [{
+                "inner": "inner 1"
+            }]
+        }]
     },
     {
         "companyid": "7648",
