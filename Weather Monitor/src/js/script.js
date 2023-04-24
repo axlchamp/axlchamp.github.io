@@ -56,19 +56,19 @@ let data = {
 			}
 		],
 		api_key: "602e2c4489f8e7ced7202c1be4bce66d",
-		address:"Lipa City, Batangas",
-		lat: "13.9413873",
-		long: "121.1450386",
+		address: "Fishkill, New York",
+		lat: "41.5333765",
+		long: "-73.9045562",
 		tempUnit: "metric",
 		temperatureLayout: "full",
 		tempContent: true,
-		weatherContent:true, 
-		windSpeed:true, 
-		pressure:true, 
-		fogvisibility:true, 
-		humidity:true, 
-		sunContent:true, 
-		
+		weatherContent: true,
+		windSpeed: true,
+		pressure: true,
+		fogvisibility: true,
+		humidity: true,
+		sunContent: true,
+
 	}
 };
 
@@ -81,7 +81,7 @@ let long = data.config.long;
 let api_key = data.config.api_key;
 let tempUnit = data.config.tempUnit;
 let temperatureLayout = data.config.temperatureLayout;
-let dt = Math.floor(new Date().getTime()/1000.0);
+let dt = Math.floor(new Date().getTime() / 1000.0);
 
 let tempContent = data.config.tempContent;
 let astroCredit = data.config.astroCredit;
