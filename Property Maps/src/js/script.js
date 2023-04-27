@@ -34,72 +34,12 @@ let data = {
     inEditor: false,
     siteId: "a1b2c3d4",
     config: {
-        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc
-        list: [{
-            name: "Location Name 1",
-            location: "Address 1",
-            logo: "https://supportraisingsolutions.org/wp-content/uploads/2018/11/sample-logo-655x158.png",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            category: "Food and Beverages",
-            latitude: "38.962949",
-            longitude: "-101.391798",
-            markericon: "https://irp.cdn-website.com/6519dece/dms3rep/multi/mobile/location.png",
-            email: "email1@sample.com",
-            telephone: "(+1) 555 5555",
-            website: "www.google.com",
-        }, {
-            name: "Location Name 2",
-            location: "Address 2",
-            logo: "https://supportraisingsolutions.org/wp-content/uploads/2018/11/sample-logo-655x158.png",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            category: "Clothing",
-            latitude: "38.474028",
-            longitude: "-90.099477",
-            markericon: "https://irp.cdn-website.com/6519dece/dms3rep/multi/mobile/location.png",
-            email: "email1@sample.com",
-            telephone: "(+1) 555 5555",
-            website: "www.google.com",
-        }, {
-            name: "Location Name 3",
-            location: "Address 3",
-            logo: "https://supportraisingsolutions.org/wp-content/uploads/2018/11/sample-logo-655x158.png",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            category: "Car Services",
-            latitude: "38.109535",
-            longitude: "-90.655261",
-            markericon: "https://irp.cdn-website.com/6519dece/dms3rep/multi/mobile/location.png",
-            email: "email1@sample.com",
-            telephone: "(+1) 555 5555",
-            website: "www.google.com",
-        }, {
-            name: "Location Name 4",
-            location: "Address 4",
-            logo: "https://supportraisingsolutions.org/wp-content/uploads/2018/11/sample-logo-655x158.png",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            category: "Hotels",
-            latitude: "35.73091",
-            longitude: "-114.974111",
-            markericon: "https://irp.cdn-website.com/6519dece/dms3rep/multi/mobile/location.png",
-            email: "email1@sample.com",
-            telephone: "(+1) 555 5555",
-            website: "www.google.com",
-        }, {
-            name: "Location Name 5",
-            location: "Address 5",
-            logo: "https://supportraisingsolutions.org/wp-content/uploads/2018/11/sample-logo-655x158.png",
-            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            category: "Food and Beverages",
-            latitude: "40.094256",
-            longitude: "-76.662661",
-            markericon: "https://irp.cdn-website.com/6519dece/dms3rep/multi/mobile/location.png",
-            email: "email1@sample.com",
-            telephone: "(+1) 555 5555",
-            website: "www.google.com",
-        }],
-        collection: "",
-        buttonText: "Subscribe",
+        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc,
+        spreadsheet: "https://docs.google.com/spreadsheets/d/1FSk-2bdlxFNonf92utCyIHv0TYTiearV2NoH3QcWmk0/edit?usp=sharing",
+        buttonText: "Read More",
         markerSize: "40",
         defaultZoom: 8,
+        currency: "$",
 
         markerEvent: true,
         trigger: "click", //click || mouseover
@@ -119,16 +59,22 @@ let data = {
         zoomControl: true,
         mapTypeControl: true,
         streetViewControl: true,
+
+        newTab:true
     }
 };
 
 // WIDGET VARIABLES
+
+const includedSearch = ['Name', 'Property Type', 'Description', 'Address']; // Searchable
 let map;
 let apikey = data.config.apikey;
 let dudaAlias = data.siteId;
 let buttonText = data.config.buttonText;
 let markerEvent = data.config.markerEvent;
 let collection = data.config.collection;
+let currency = data.config.currency;
+
 let markerSize = parseInt(data.config.markerSize);
 let trigger = data.config.trigger;
 
@@ -136,7 +82,7 @@ let centerLat = parseFloat(data.config.centerLat);
 let centerLng = parseFloat(data.config.centerLng);
 let defaultZoom = parseInt(data.config.defaultZoom);
 
-let scriptUrl = apikey ? `https://maps.googleapis.com/maps/api/js?v=weekly&libraries=places&key=${apikey}` : `https://maps.googleapis.com/maps/api/js?v=weekly`;
+let scriptUrl = apikey ? `https://maps.googleapis.com/maps/api/js?v=weekly&key=${apikey}` : `https://maps.googleapis.com/maps/api/js?v=weekly`;
 
 let random_id = Math.floor(Math.random(99999) * 99999);
 let googleId = `map_${random_id}`;
@@ -152,6 +98,8 @@ let zoomControl = data.config.zoomControl;
 let mapTypeControl = data.config.mapTypeControl;
 let streetViewControl = data.config.streetViewControl;
 
+let newTab = data.config.newTab ? "_blank" : "_self";
+
 // ERROR BEHAVIOR
 // if (!collection || collection == "") {
 //     if (data.inEditor) {
@@ -162,29 +110,39 @@ let streetViewControl = data.config.streetViewControl;
 //     return;
 // }
 
-let list = data.config.list;
+let spreadsheet = data.config.spreadsheet;
+let sheet = spreadsheet.substring(spreadsheet.indexOf('d/') + 2).replace('/edit?usp=sharing', '');
+let sheetDetails = {
+    sheetid: sheet,
+    sheetname: data.config.sheetname ? data.config.sheetname : "Sheet1",
+    apikey: data.config.apikey ? data.config.apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0"
+};
+
+
 
 // COLLECTION
 dmAPI.runOnReady('GoogleMap', function () {
-    let resp = new Collection(list).data();
-    if (resp.length == 0) {
-        if (data.inEditor) {
-            $(element).find('.googleMap-Main-Container').html('No Results Found.');
-        } else {
-            $(element).find('.googleMap-Main-Container').addClass('googlemap-hidden');
+    new Collection(sheetDetails).response().then(function (resp) {
+        console.log(resp)
+        if (resp.length == 0) {
+            if (data.inEditor) {
+                $(element).find('.googleMap-Main-Container').html('No Results Found.');
+            } else {
+                $(element).find('.googleMap-Main-Container').addClass('googlemap-hidden');
+            }
+            return;
         }
-        return;
-    }
-    locations.list = resp;
+        locations.list = resp;
 
-    dmAPI.loadScript(scriptUrl, function () {
-        let sideBar = new Create(resp).sidebar_structure();
-        $(element).find(".googleMap-Panel-Locations").html(sideBar);
+        dmAPI.loadScript(scriptUrl, function () {
+            let sideBar = new Create(resp).sidebar_structure();
+            $(element).find(".googleMap-Panel-Locations").html(sideBar);
 
-        let filter_dropdown = filter(resp, "category");
-        $(element).find(".googleMap-Filter-Category").html(`<option value="">All</option>${filter_dropdown}`);
+            let filter_dropdown = filter(resp, "propertytype");
+            $(element).find(".googleMap-Filter-Category").html(`<option value="">All</option>${filter_dropdown}`);
 
-        initMap(resp);
+            initMap(resp);
+        });
     });
 });
 
@@ -205,7 +163,7 @@ function eventFilter() {
     let key = searchValue.length == 2 ? "state" : "keyword";
     let filters = {
         [key]: searchValue,
-        category: filterValue
+        propertytype: filterValue
     };
     let filtered = multiFilter(locations.list, filters);
     let sideBar = new Create(filtered).sidebar_structure();
@@ -216,19 +174,35 @@ function eventFilter() {
 // Creating HTML Structures and Filters
 function Create(obj) {
     this.sidebar_structure = () => {
-        let output = '';
-        obj.map((i, index) => {
-            output += `
+        return obj.map((i, index) => {
+            return `
             <div class="googleMap-Locations-Sidebar" data-name="${i.name}" data-lat="${i.latitude}" data-lng="${i.longitude}" data-index="marker_${index}">
+
+                <!-- Image -->
+                <div class="googleMap-Sidebar-Image">
+                    <img src="${i.image}">
+                    <!-- Price -->
+                    <div class="googleMap-Sidebar-Price">
+                        <span>${currency}${i.price}</span>
+                    </div>
+                </div>
+
+
                 <!-- Details -->
                 <div class="googleMap-Sidebar-Details">
                     <div class="googleMap-Details-Name">${i.name}</div>
                     <div class="googleMap-Details-Location">${i.location}</div>
                 </div>
-            </div>
-            `;
-        });
-        return output;
+
+                <!-- Description -->
+                <div class="googleMap-Sidebar-Description">${i.description}</div>
+
+                <!-- Additional Info -->
+                <div class="googlemap-Sidebar-Button">
+                    <a class="googlemap-Sidebar-Link" href="#" target="${newTab}">${buttonText}</a>
+                </div>
+            </div>`;
+        }).join("");
     };
     this.filter = (key) => {
         let output = '';
@@ -249,23 +223,31 @@ function Create(obj) {
     };
 }
 
-// COLLECTION FOR WIDGET LIST
-function Collection(collection) {
-    this.data = () => {
-        return collection.map(i => {
-            let item = {};
-            Object.keys(i).filter(j => {
-                item[removeSpecial(j).toLowerCase()] = typeof i[j] == "object" ? i[j].href : this.removeExtra(i[j]);
-            });
-            item.keyword = Object.keys(i).map(k => i[k]).join(',');
-            return item;
+// COLLECTION USING GSX
+function Collection(sheetDetails) {
+    this.ajax = function () {
+        return $.ajax({
+            url: `https://sheets.googleapis.com/v4/spreadsheets/${sheetDetails.sheetid}/values/${sheetDetails.sheetname}?key=${sheetDetails.apikey}`,
         });
     };
-    this.removeExtra = (str) => {
-        if (str) {
-            return str.includes("</p>") ? str.substring(str.indexOf(">") + 1).replace("</p>", '') : str;
-        }
-        return str;
+    this.response = function () {
+        let sheet = this.ajax();
+        return sheet.then(resp => {
+            let header = resp.values[0];
+            let values = resp.values.filter((i, index) => index !== 0);
+            // let inclusions = includedSearch.map(i => i.replace(/[^A-Za-z]+/g, "").toLowerCase());
+            let inclusions = header.filter(a => includedSearch.includes(a));
+            let included = inclusions.map(i => i.replace(/[^A-Za-z]+/g, "").toLowerCase());
+            return values.map(i => {
+                let items = {};
+                header.map((k, index) => {
+                    items[removeSpecial(k.toLowerCase())] = i[index];
+                });
+                items.keyword = included.map(b => items[b.replace(/[^A-Za-z]+/g, "").toLowerCase()].toLowerCase()).join(",");
+                return items;
+            });
+        });
+
     };
 
     function removeSpecial(str) {
@@ -288,20 +270,18 @@ function initMap(obj) {
     });
 
 
-
-
-
     obj.map((i, index) => {
+        let icon = {
+            url: i.markericon,
+            scaledSize: new google.maps.Size(markerSize, markerSize)
+        };
+        if (!i.icon) icon = "";
         let marker = new google.maps.Marker({
             position: new google.maps.LatLng(parseFloat(i.latitude), parseFloat(i.longitude)),
             map,
-            icon: {
-                url: i.markericon,
-                scaledSize: new google.maps.Size(markerSize, markerSize)
-            },
+            icon: icon,
             id: "marker_" + index
         });
-
         bounds.extend(marker.position);
         markers.push(marker);
         if (locations.list.length > 1) {
@@ -319,7 +299,7 @@ function initMap(obj) {
                 </div>` : "";
 
                 let button = isShowButton ? `<div class="googlemap-InfoWindow-Button">
-                    <a class="googlemap-Button-Link" href="#">${buttonText}</a>
+                    <a class="googlemap-Button-Link" href="#" target="${newTab}">${buttonText}</a>
                 </div>` : "";
 
                 let form = `
@@ -347,21 +327,20 @@ function initMap(obj) {
             })(marker, i));
         }
     });
+    // Listen to the 'bounds_changed' event of the map object
     google.maps.event.addListener(map, 'bounds_changed', function () {
-        let visibleMarkers = markers.filter(function (marker) {
-            return map.getBounds().contains(marker.getPosition());
-        });
+        // let visibleMarkers = markers.filter(function (marker) {
+        //     return map.getBounds().contains(marker.getPosition());
+        // });
 
-        let viewport_markers = markers.filter(marker => {
-            if (visibleMarkers.includes(marker)) {
-                $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).show();
-            } else {
-                $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).hide();
-            }
-        });
+        // let viewport_markers = markers.filter(marker => {
+        //     if (visibleMarkers.includes(marker)) {
+        //         $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).show();
+        //     } else {
+        //         $(element).find(`.googleMap-Locations-Sidebar[data-index=${marker.id}]`).hide();
+        //     }
+        // });
     });
-
-
 }
 // Remove duplicate from Object
 function removeDuplicates(array, key) {

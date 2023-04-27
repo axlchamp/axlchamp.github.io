@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+    <div class="widget-abc123">
+        <div class="googleMap-Main-Container">
+            <!-- {{#equals filterPosition "top"}} -->
+            <div class="googleMap-Section-Filter">
+                <!-- /* PANEL FILTER */ -->
+                <div class="googleMap-Panel-Filter">
+                    <label class="googleMap-Filter-Label">Filter By:</label>
+                    <select class="googleMap-Filter-Category">
+                        <option value="" selected="" disabled="" hidden="">Select Category</option>
+                    </select>
+                </div>
+                <div class="googleMap-Panel-Search">
+                    <label class="googleMap-Search-Label">Search:</label>
+                    <input type="text" class="googleMap-Search-Input" placeholder="Search name, location...">
+                </div>
+            </div>
+            <!-- {{/equals}} -->
+            <div class="googleMap-Section-Map googleMap-Section-Map-Top">
+                <!-- /* PANEL LOCATIONS */ -->
+                <div class="googleMap-Pagination-Container googleMap-Pagination-Container-Left">
+                    <div class="googleMap-Panel-Locations">
+
+                    </div>
+                </div>
+                <div class="googleMap-Pagination-Section"></div>
+                <!-- PANEL MAP -->
+                <div class="googleMap-Panel-Map googlemap-Panel-Map-Left">
+                    <div class="googleMap-Map-Container"></div>
+                </div>
+            </div>
+            <!-- {{#equals filterPosition "bottom"}} -->
+            <!-- <div class="googleMap-Section-Filter">
+                <div class="googleMap-Panel-Search">
+                    <label class="googleMap-Search-Label">Search By Name:</label>
+                    <input type="text" class="googleMap-Search-Input" placeholder="Search by name...">
+                </div>
+                <div class="googleMap-Panel-Filter">
+                    <label class="googleMap-Filter-Label">Filter By:</label>
+                    <select class="googleMap-Filter-Category">
+                        <option value="" selected="" disabled="" hidden="">Select Category</option>
+                    </select>
+                </div>
+            </div> -->
+            <!-- {{/equals}} -->
+        </div>
+
+        <div class="googleMap-Sidebar-Selected"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>
