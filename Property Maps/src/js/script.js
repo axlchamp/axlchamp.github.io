@@ -60,7 +60,7 @@ let data = {
         mapTypeControl: true,
         streetViewControl: true,
 
-        newTab:true
+        newTab: true
     }
 };
 
@@ -199,7 +199,7 @@ function Create(obj) {
 
                 <!-- Additional Info -->
                 <div class="googlemap-Sidebar-Button">
-                    <a class="googlemap-Sidebar-Link" href="#" target="${newTab}">${buttonText}</a>
+                    <a class="googlemap-Sidebar-Link" href="${i.link}" target="${newTab}">${buttonText}</a>
                 </div>
             </div>`;
         }).join("");
@@ -299,7 +299,7 @@ function initMap(obj) {
                 </div>` : "";
 
                 let button = isShowButton ? `<div class="googlemap-InfoWindow-Button">
-                    <a class="googlemap-Button-Link" href="#" target="${newTab}">${buttonText}</a>
+                    <a class="googlemap-Button-Link" href="${i.link}" target="${newTab}">${buttonText}</a>
                 </div>` : "";
 
                 let form = `
