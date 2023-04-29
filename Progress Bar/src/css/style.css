@@ -1,0 +1,60 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	box-sizing: border-box;
+}
+
+.sample-Main-Container,
+.sample-Main-Container a,
+.sample-Main-Container div,
+.sample-Main-Container img,
+.sample-Main-Container label,
+.sample-Main-Container input,
+.sample-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+
+
+/* ? SCROLL BAR START */
+::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+/* ? SCROLL BAR END */

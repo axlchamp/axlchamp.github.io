@@ -374,6 +374,10 @@ div.googlemap-hidden {
 /*    position:absolute;*/
 /*}*/
 
+button.custom_map_buttons {
+    margin: 10px 5px !important;
+}
+
 @media screen and (max-width:900px) {
     .gmapInfoContainer {
         width: 100%;
@@ -407,6 +411,11 @@ div.googlemap-hidden {
     div.googleMap-Pagination-Container,
     div.googleMap-Locations-Sidebar {
         max-width: 100%;
+    }
+
+    div.googleMap-Pagination-Container {
+        margin-bottom: 20px;
+        order: 2;
     }
 
     div.googleMap-Section-Filter {
