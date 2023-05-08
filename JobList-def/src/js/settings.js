@@ -152,4 +152,4 @@ let data = {
         },
         "newTab": true
     }
-}
+};
