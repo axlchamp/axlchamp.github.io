@@ -348,36 +348,36 @@ function initMap(obj) {
         // });
     });
 
-    let poi_list = ['restaurant', 'hotel', 'attraction', 'museum', 'transit', 'medical'];
-    let button_position = is_mobile ? "LEFT_CENTER" : "TOP_CENTER";
-    poi_list.map(i => {
-        // Create the DIV to hold the control.
-        const centerControlDiv = document.createElement("div");
-        centerControlDiv.className = "custom_button_container";
-        // Create the control.
-        const centerControl = createCenterControl(i);
+    // let poi_list = ['restaurant', 'hotel', 'attraction', 'museum', 'transit', 'medical'];
+    // let button_position = is_mobile ? "LEFT_CENTER" : "TOP_CENTER";
+    // poi_list.map(i => {
+    //     // Create the DIV to hold the control.
+    //     const centerControlDiv = document.createElement("div");
+    //     centerControlDiv.className = "custom_button_container";
+    //     // Create the control.
+    //     const centerControl = createCenterControl(i);
 
-        // Append the control to the DIV.
-        centerControlDiv.appendChild(centerControl);
-        map.controls[google.maps.ControlPosition[button_position]].push(centerControlDiv);
-    });
+    //     // Append the control to the DIV.
+    //     centerControlDiv.appendChild(centerControl);
+    //     map.controls[google.maps.ControlPosition[button_position]].push(centerControlDiv);
+    // });
 
-    $(element).on("click", ".custom_map_buttons", function () {
-        let search_for = $(this).attr("data-button");
-        let is_active = $(this).attr("data-active") == "true" ? false : true;
-        console.log(is_active)
-        var noPoi = [{
-            featureType: "poi." + search_for,
-            stylers: [{
-                visibility: is_active ? "off" : "on"
-            }]
-        }];
+    // $(element).on("click", ".custom_map_buttons", function () {
+    //     let search_for = $(this).attr("data-button");
+    //     let is_active = $(this).attr("data-active") == "true" ? false : true;
+    //     console.log(is_active)
+    //     var noPoi = [{
+    //         featureType: "poi." + search_for,
+    //         stylers: [{
+    //             visibility: is_active ? "off" : "on"
+    //         }]
+    //     }];
 
-        map.setOptions({
-            styles: noPoi
-        });
-        $(this).attr("data-active", is_active);
-    });
+    //     map.setOptions({
+    //         styles: noPoi
+    //     });
+    //     $(this).attr("data-active", is_active);
+    // });
 }
 
 function createCenterControl(poi) {
