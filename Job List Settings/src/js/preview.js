@@ -5,7 +5,6 @@ let headerHeight = $('header.header').css("position") == "fixed" ? parseFloat($(
 let scrollTo = $(element).offset().top - headerHeight - 20;
 let isMobile = mobileCheck();
 let api_url = data.config.api_url;
-let proxy_url = api_url.includes("sample.json") ? '' : 'https://api.allorigins.win/raw?url='; // Proxy server URL
 let layoutType = isMobile ? "grid_layout" : data.config.layout;
 let filters_layout = data.config.filters_layout;
 let newTab = data.config.newTab;
@@ -13,7 +12,6 @@ let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(dat
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
 
-console.log("Test");
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
 let company_id = data.config.company_id;
 // Configuration
@@ -645,7 +643,7 @@ function Addscript() {
 
 function Ajax_request() {
 	this.ajax = () => {
-		const requestUrl = api_url; // Combined URL with proxy server
+		const requestUrl = api_url;
 		return $.ajax({
 			url: requestUrl,
 			type: 'GET'
