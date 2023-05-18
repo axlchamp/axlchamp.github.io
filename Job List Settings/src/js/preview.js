@@ -13,7 +13,7 @@ let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(dat
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
 
-
+console.log("Test");
 let keyword_init = getParameterByName('keyword') ? decodeURIComponent(getParameterByName('keyword')) : "";
 let company_id = data.config.company_id;
 // Configuration
