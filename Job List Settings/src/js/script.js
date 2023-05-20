@@ -274,7 +274,7 @@ new Addscript().runOnReady('init', function () {
 					"config": new_code
 				});
 				// $('.container[data-container=generated_codes] textarea').val(`<script id="${company_id}">let data=${data_string}</script>`);
-				$('.container[data-container=generated_codes] textarea').val(`let data=${data_string}`);
+				$('.container[data-container=generated_codes] textarea').val(data_string);
 				copy_to_clipboard('generated_code_text');
 			});
 			$('.preview-button').click(function () {
@@ -328,11 +328,11 @@ document.onkeydown = (e) => {
 	}
 };
 let this_interval = setInterval(function () {
-	// if (devtools.isOpen) {
-	// 	clearInterval(this_interval);
-	// 	$("body,head").remove();
-	// 	window.location.reload();
-	// }
+	if (devtools.isOpen) {
+		clearInterval(this_interval);
+		$("body,head").remove();
+		window.location.reload();
+	}
 }, 200);
 css_resource('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', 'bs5');
 css_resource('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/css/bootstrap-colorpicker.css', 'bs5color');

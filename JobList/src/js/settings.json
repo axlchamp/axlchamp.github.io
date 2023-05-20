@@ -1,12 +1,12 @@
-let data = {
+{
     "config": {
-        "api_url": "https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648",
-        "company_id": "7648",
+        "api_url": "https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7167",
+        "company_id": "7167",
         "filters_layout": "Top",
         "layout": "grid_layout",
         "desktop_page_size": "6",
         "mobile_page_size": "3",
-        "theme": "#8eb14e",
+        "theme": "#c11a1a",
         "font": "Arial",
         "pagination_position": "Center",
         "design_list": {
@@ -71,12 +71,12 @@ let data = {
                 "color": "#ffffff",
                 "font_family": "Arial",
                 "font_weight": "400",
-                "background_color": "#8eb14e",
-                "border": "1px solid #8eb14e"
+                "background_color": "#c11a1a",
+                "border": "1px solid #c11a1a"
             },
             "button_2": {
                 "size": "16px",
-                "color": "#8eb14e",
+                "color": "#c11a1a",
                 "font_family": "Arial",
                 "font_weight": "400",
                 "background_color": "#ffffff",
@@ -87,12 +87,12 @@ let data = {
                 "color": "#ffffff",
                 "font_family": "Arial",
                 "font_weight": "400",
-                "background_color": "#8eb14e",
-                "border": "1px solid #8eb14e"
+                "background_color": "#c11a1a",
+                "border": "1px solid #c11a1a"
             },
             "modal_button_2": {
                 "size": "16px",
-                "color": "#8eb14e",
+                "color": "#c11a1a",
                 "font_family": "Arial",
                 "font_weight": "400",
                 "background_color": "#ffffff",
@@ -100,7 +100,7 @@ let data = {
             },
             "modal_button_3": {
                 "size": "16px",
-                "color": "#8eb14e",
+                "color": "#c11a1a",
                 "font_family": "Arial",
                 "font_weight": "400",
                 "background_color": "#ffffff",
@@ -154,6 +154,6 @@ let data = {
             "job_posted": true
         },
         "newTab": true,
-        "hideCount": false
+        "hideCount": true
     }
 }

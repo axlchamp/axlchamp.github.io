@@ -659,10 +659,7 @@ function Addscript() {
 function Ajax_request() {
 	this.ajax = () => {
 		const requestUrl = api_url; // Combined URL with proxy server
-		return $.ajax({
-			url: requestUrl,
-			type: 'GET'
-		});
+		return $.getJSON(requestUrl);
 	};
 }
 
