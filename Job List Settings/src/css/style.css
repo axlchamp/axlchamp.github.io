@@ -248,6 +248,7 @@ i.selected_icon {
 	display: flex;
 	justify-content: flex-end;
 	flex-wrap: wrap;
+	margin-top: 20px
 }
 
 .container[data-container="generated_codes"] textarea {
