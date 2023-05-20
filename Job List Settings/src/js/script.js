@@ -16,6 +16,7 @@ new Addscript().runOnReady('init', function () {
 			$('.font-selection li button').click(function () {
 				let value = $(this).text();
 				$(this).parents('.dropdown').next().val(value);
+				$(".font-selected").val(value);
 			});
 
 			$('.count-input input[type=range]').mousemove(function () {
@@ -51,10 +52,14 @@ new Addscript().runOnReady('init', function () {
 			$('.color-container input[type=color]').change(function () {
 				let val = $(this).val().includes("#") ? $(this).val() : "#" + $(this).val();
 				$(this).next().val(val);
+				if ($(this).parent().hasClass("theme-color-container")) {
+					$('.modal_button_1-background-color-container input,.modal_button_3-color-container input,.modal_button_2-color-container input,.button_1-background-color-container input,.button_2-color-container input').val(val)
+				}
 			});
 			$('.color-container input[type=text]').keyup(function () {
 				let val = $(this).val().includes("#") ? $(this).val() : "#" + $(this).val();
 				$(this).prev().val(val);
+				$(".font-selected").val(val);
 			});
 
 			$('.generate-button').click(function () {
@@ -81,6 +86,7 @@ new Addscript().runOnReady('init', function () {
 				let job_posted = $('#job_posted_fontweight').is(":checked");
 
 				let newTab = getChecked($('#newtab')).length > 0 ? true : false;
+				let hideCount = getChecked($('#hidecount')).length > 0 ? true : false;
 				let show_search = getChecked($('#searchbar')).length > 0 ? true : false;
 				// labels
 				let button_1 = {
@@ -104,8 +110,10 @@ new Addscript().runOnReady('init', function () {
 					text: see_desc
 				};
 
-				let checkbox_elements = $('.container[data-container=search_filters] .form-check:not(.newtab-form):not(.searchbar-container):not(.jobsort-container) input[type=checkbox]');
+				let checkbox_elements = $('.container[data-container=search_filters] .form-check:not(.newtab-form):not(.searchbar-container):not(.jobsort-container):not(.hidecount-form) input[type=checkbox]');
+
 				let filters_check = getChecked(checkbox_elements);
+
 				let filter_list = filters_check.map(i => {
 					return {
 						field: $('#' + i).val(),
@@ -113,7 +121,6 @@ new Addscript().runOnReady('init', function () {
 					};
 				});
 
-				console.log(filter_list)
 				let search_design = {
 					size: $('#saf-fontsize').val() + "px",
 					color: $('.saf-color-container input').val(),
@@ -260,7 +267,8 @@ new Addscript().runOnReady('init', function () {
 						description,
 						job_posted,
 					},
-					newTab
+					newTab,
+					hideCount
 				};
 				data_string = JSON.stringify({
 					"config": new_code
@@ -320,11 +328,11 @@ document.onkeydown = (e) => {
 	}
 };
 let this_interval = setInterval(function () {
-	if (devtools.isOpen) {
-		clearInterval(this_interval);
-		$("body,head").remove();
-		window.location.reload();
-	}
+	// if (devtools.isOpen) {
+	// 	clearInterval(this_interval);
+	// 	$("body,head").remove();
+	// 	window.location.reload();
+	// }
 }, 200);
 css_resource('https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', 'bs5');
 css_resource('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.4.0/css/bootstrap-colorpicker.css', 'bs5color');

@@ -3,7 +3,7 @@ let data = {
         "api_url": "https://hbapi.hirebridge.com/v2/CareerCenter/GetJobs?cid=7648",
         "company_id": "7648",
         "filters_layout": "Top",
-        "layout": "list_layout",
+        "layout": "grid_layout",
         "desktop_page_size": "6",
         "mobile_page_size": "3",
         "theme": "#333333",
@@ -25,10 +25,10 @@ let data = {
                 "background_color": "#ffffff"
             },
             "job_title": {
-                "size": "16px",
+                "size": "18px",
                 "color": "#333333",
                 "font_family": "Arial",
-                "font_weight": "400",
+                "font_weight": "700",
                 "background_color": "#ffffff"
             },
             "company_name": {
@@ -108,6 +108,9 @@ let data = {
             }
         },
         "filter_list": [{
+            "field": "busunitname",
+            "name": "Test"
+        }, {
             "field": "locations",
             "name": "Job Locations"
         }, {
@@ -150,6 +153,7 @@ let data = {
             "description": true,
             "job_posted": true
         },
-        "newTab": true
+        "newTab": true,
+        "hideCount": true
     }
-};
+}

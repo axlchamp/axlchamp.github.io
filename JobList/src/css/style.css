@@ -10,6 +10,7 @@ body {
 	font-family: 'Nunito', sans-serif;
 	margin: 0 auto;
 }
+
 .container-xxl[data-container=main]>div {
 	text-align: left;
 }
@@ -175,8 +176,7 @@ div.container-xxl {
 	align-items: center;
 }
 
-.job-fil-wrap select,
-.job-category {
+.job-fil-wrap select{
 	width: 100%;
 	font-size: 16px;
 	padding: 15px;
@@ -185,34 +185,6 @@ div.container-xxl {
 	background-color: transparent !important;
 	color: #000000;
 	cursor: pointer;
-}
-
-.job-category {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.job-category i {
-	font-size: 13.5px !important;
-	font-weight: bold;
-	color: #333333 !important;
-}
-
-#jobcatname {
-	position: absolute;
-	opacity: 0;
-	max-width: 100%;
-	background-color: #ffffff !important;
-	border: 1px solid #cccccc !important;
-	left: 0;
-	height: 250px;
-	top: 100%;
-}
-
-#jobcatname.job-category-active {
-	opacity: 1;
-	z-index: 1;
 }
 
 .job-fil-wrap option {
@@ -512,27 +484,19 @@ div.container-xxl {
 	display: block
 }
 
+.job-count-hidden {
+	justify-content: flex-end !important;
+}
+
+.job-count-hidden .form-label {
+	display: none !important;
+}
+
 /* PAGINATION */
 .job-list-wrap-page .paginationjs {
 	display: flex;
 }
 
-/* ? SCROLL BAR START */
-#jobcatname::-webkit-scrollbar-track {
-	border-radius: 5px;
-	background-color: #cccccc;
-}
-
-#jobcatname::-webkit-scrollbar {
-	width: 5px;
-	height: 5px;
-	border-radius: 5px;
-}
-
-#jobcatname::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-	background-color: #333333;
-}
 
 /* MODAL */
 div.modal-dialog {
@@ -546,7 +510,6 @@ div.modal-footer {
 
 }
 
-/* ? SCROLL BAR END */
 
 
 @media screen and (max-width:1050px) {
@@ -556,26 +519,10 @@ div.modal-footer {
 		border-right: 0
 	}
 
-	.job-wrap,
-	#jobcatname {
+	.job-wrap {
 		width: 100%;
 		max-width: 100%;
 		top: 0
-	}
-
-	#jobcatname {
-		max-width: 100%;
-		width: 100%;
-		opacity: 1;
-		pointer-events: auto;
-		position: relative;
-		border: 0 !important;
-		left: 0px;
-		height: auto;
-	}
-
-	.job-category {
-		display: none;
 	}
 
 	.btn.btn-light {

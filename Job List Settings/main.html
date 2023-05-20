@@ -31,6 +31,14 @@
 				</label>
 			</div>
 			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="busunitname" id="busunitname" checked>
+				<label class="form-check-label" for="busunitname">
+					<i class="fa-solid fa-square-check checkbox-custom"></i>
+					<input type="text" class="selected_input" value="Business Unit Name">
+					<i class="fa-regular fa-pen-to-square selected_icon"></i>
+				</label>
+			</div>
+			<div class="form-check">
 				<input class="form-check-input" type="checkbox" value="locations" id="locations" checked>
 				<label class="form-check-label" for="locations">
 					<i class="fa-solid fa-square-check checkbox-custom"></i>
@@ -134,6 +142,13 @@
 				<label class="form-check-label" for="newtab">
 					<i class="fa-solid fa-square-check checkbox-custom"></i>
 					<span class="custom-input-label input-label">Open links in new tab?</span>
+				</label>
+			</div>
+			<div class="form-check hidecount-form">
+				<input class="form-check-input" type="checkbox" value="hidecount" id="hidecount">
+				<label class="form-check-label" for="hidecount">
+					<i class="fa-solid fa-square checkbox-custom"></i>
+					<span class="custom-input-label input-label">Hide job count?</span>
 				</label>
 			</div>
 		</div>
@@ -664,8 +679,8 @@
 						<div class="range-container">
 							<div class="range font-size job_title-count-input count-input">
 								<input type="range" class="form-range" id="job_title-fontsize-range" min="1" max="100"
-									value="16">
-								<input type="number" id="job_title-fontsize" class="form-input" value="16">
+									value="18">
+								<input type="number" id="job_title-fontsize" class="form-input" value="18">
 							</div>
 						</div>
 					</div>
@@ -674,8 +689,8 @@
 						<div class="range-container">
 							<div class="range font-size job_title-count-input count-input">
 								<input type="range" class="form-range" id="job_title-weight-range" min="100" max="700"
-									value="400" step="100">
-								<input type="number" id="job_title-weight" class="form-input" value="400" step="100">
+									value="700" step="100">
+								<input type="number" id="job_title-weight" class="form-input" value="700" step="100">
 							</div>
 						</div>
 					</div>

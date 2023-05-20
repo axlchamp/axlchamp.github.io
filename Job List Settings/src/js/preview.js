@@ -5,9 +5,11 @@ let headerHeight = $('header.header').css("position") == "fixed" ? parseFloat($(
 let scrollTo = $(element).offset().top - headerHeight - 20;
 let isMobile = mobileCheck();
 let api_url = data.config.api_url;
+let proxy_url = api_url.includes("sample.json") ? '' : 'https://api.allorigins.win/raw?url='; // Proxy server URL
 let layoutType = isMobile ? "grid_layout" : data.config.layout;
 let filters_layout = data.config.filters_layout;
 let newTab = data.config.newTab;
+let hideCount = data.config.hideCount;
 let page_size = isMobile ? parseInt(data.config.mobile_page_size) : parseInt(data.config.desktop_page_size);
 let getJobs = new Ajax_request(api_url).ajax();
 let jobList;
@@ -34,6 +36,10 @@ getJobs.then(function (response) {
 				if (!data.config.toggles.search) {
 					$('.job-search-active').hide();
 				}
+
+				if (hideCount) {
+					$(element).find(".job-count-container").addClass('job-count-hidden');
+				}
 				let filter_param = filter_list.map(i => {
 					return `\"${i.field}\":${getParameterByName(i.field) ? `"${decodeURIComponent(getParameterByName(i.field))}"` : '\""'}`;
 				}).join(",");
@@ -49,19 +55,28 @@ getJobs.then(function (response) {
 				//CREATING DYNAMIC FILTER DROPDOWN
 				let sorted = filter_list.sort((a, b) => {
 					return a.field == "jobcatname" ? -1 : 1;
+				}).sort((a, b) => {
+					return a.field == "busunitname" ? -1 : 1;
 				});
 				let filter_dropdown = sorted.map(i => {
 					let unique_list = removeDuplicate(jobList.map(a => a[i.field]));
 					let dropdown_options = createFilterDropdown(unique_list, i.field);
+					// return `<div class="job-fil-wrap" data-filter="${i.field}">
+					// 	${i.field=="jobcatname" ? `<div class="job-category"><span>${i.name}</span> <i class="fa-solid fa-angle-down"></i>
+					// 	</div>`:""}
+					// 	<select class="form-select" name="${i.field}" id="${i.field}" ${i.field=="jobcatname" ? "multiple":""}>
+					// 		<option value="" selected disabled hidden>${i.name}</option>
+					// 		<option value="select_all">Any</option>
+					// 		${dropdown_options}
+					// 	</select>
+					// </div>`;
 					return `<div class="job-fil-wrap" data-filter="${i.field}">
-						${i.field=="jobcatname" ? `<div class="job-category"><span>${i.name}</span> <i class="fa-solid fa-angle-down"></i>
-						</div>`:""}
-						<select class="form-select" name="${i.field}" id="${i.field}" ${i.field=="jobcatname" ? "multiple":""}>
-							<option value="" selected disabled hidden>${i.name}</option>
-							<option value="select_all">Any</option>
-							${dropdown_options}
-						</select>
-					</div>`;
+					<select class="form-select" name="${i.field}" id="${i.field}">
+						<option value="" selected disabled hidden>${i.name}</option>
+						<option value="select_all">Any</option>
+						${dropdown_options}
+					</select>
+				</div>`;
 				}).join("");
 				let sort_filter = toggles.sorting ? `<div class="job-fil-wrap" data-filter="sort">
 					<select class="form-select" name="jobSortType" id="jobSortType">
@@ -76,15 +91,15 @@ getJobs.then(function (response) {
 
 				$(element).find(".inner-job-fil").html(dropdowns);
 
-				if (data.device != "mobile") {
-					multiSelectWithoutCtrl('#jobcatname');
-				}
+				// if (data.device != "mobile") {
+				// 	multiSelectWithoutCtrl('#jobcatname');
+				// }
 
 				displayFeatJobs(param);
 
-				if (isMobile) {
-					$(element).find('#jobcatname').addClass('job-category-active');
-				}
+				// if (isMobile) {
+				// 	$(element).find('#jobcatname').addClass('job-category-active');
+				// }
 				$(element).addClass('job-list-active');
 
 				$(element).find(".job-list-wrap-page .paginationjs").css('justify-content', pagination_position);
@@ -100,17 +115,17 @@ $(element).find(".btn.job_search_button").on('click touchstart', function () {
 	search_bar($(this).next().find('#searchKeyword'));
 });
 
-$(element).on('click touchstart', '.job-category', function () {
-	$(element).find("#jobcatname").toggleClass("job-category-active");
-});
+// $(element).on('click touchstart', '.job-category', function () {
+// 	$(element).find("#jobcatname").toggleClass("job-category-active");
+// });
 
-$(element).on('click touch', '#jobcatname option', function () {
-	$(element).find('.job-fil-wrap select').trigger("change");
-});
+// $(element).on('click touch', '#jobcatname option', function () {
+// 	$(element).find('.job-fil-wrap select').trigger("change");
+// });
 
-$(element).on("mouseleave", "#jobcatname", function () {
-	$(element).find("#jobcatname").removeClass("job-category-active");
-});
+// $(element).on("mouseleave", "#jobcatname", function () {
+// 	$(element).find("#jobcatname").removeClass("job-category-active");
+// });
 
 //ONCHANGE SEARCH
 $(element).find('#searchKeyword').keyup(function (event) {
@@ -127,7 +142,7 @@ function search_bar(el) {
 
 	PaginationFunction(result);
 	let jobCount = result.length;
-	$(element).find('.job-count').text(jobCount);
+	$(element).find('.job-count').text(`${jobCount} ${jobCount > 1 ? "Jobs found":"Job found"}.`);
 	$(element).find('.jobKey').text(keyword);
 	// $(element).find('.jobFeatTitle').hide();
 	$(element).find('.form-label[data-label=result]').fadeIn();
@@ -251,7 +266,7 @@ function updateJobList(arr, keyword) {
 	let str = arr.filter(i => i);
 	PaginationFunction(str);
 	let jobCount = arr.length;
-	$(element).find('.job-count').text(jobCount);
+	$(element).find('.job-count').text(`${jobCount} ${jobCount > 1 ? "Jobs found":"Job found"}.`);
 	$(element).find('.jobKey').text(keyword);
 	// $(element).find('.jobFeatTitle').hide();
 	$(element).find('.form-label[data-label=result]').fadeIn();
@@ -266,7 +281,7 @@ function createFilterDropdown(arr, filter) {
 			if (!i) return "";
 			return `<option value="${i}" ${i.includes(getParameterByName(filter)) ? "selected" : ""}>${i}</option>`;
 		}
-	});
+	}).join("");
 }
 
 
@@ -298,7 +313,7 @@ function displayFeatJobs(arr) {
 
 	PaginationFunction(str);
 	let jobCount = jobList.length;
-	$(element).find('.job-count').text(jobCount);
+	$(element).find('.job-count').text(`${jobCount} ${jobCount > 1 ? "Jobs found":"Job found"}.`);
 }
 
 //PAGINATION 
@@ -643,7 +658,7 @@ function Addscript() {
 
 function Ajax_request() {
 	this.ajax = () => {
-		const requestUrl = api_url;
+		const requestUrl = api_url; // Combined URL with proxy server
 		return $.ajax({
 			url: requestUrl,
 			type: 'GET'

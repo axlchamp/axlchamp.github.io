@@ -183,12 +183,12 @@ div.container-xxl {
 	padding: 15px;
 	box-sizing: border-box !important;
 	border: 0 !important;
-	background-color: transparent !important;
+	background-color: #ffffff;
 	color: #000000;
 	cursor: pointer;
 }
 
-.job-category {
+/* .job-category {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -198,9 +198,9 @@ div.container-xxl {
 	font-size: 13.5px !important;
 	font-weight: bold;
 	color: #333333 !important;
-}
+} */
 
-#jobcatname {
+/* #jobcatname {
 	position: absolute;
 	opacity: 0;
 	max-width: 100%;
@@ -209,12 +209,12 @@ div.container-xxl {
 	left: 0;
 	height: 250px;
 	top: 100%;
-}
+} */
 
-#jobcatname.job-category-active {
+/* #jobcatname.job-category-active {
 	opacity: 1;
 	z-index: 1;
-}
+} */
 
 .job-fil-wrap option {
 	font-size: 14px;
@@ -296,7 +296,7 @@ div.container-xxl {
 .job-title {
 	display: block;
 	width: 100%;
-	font-weight: 700;
+	font-weight: bold;
 	color: black;
 	font-size: 18px;
 }
@@ -513,13 +513,21 @@ div.container-xxl {
 	display: block
 }
 
+.job-count-hidden {
+	justify-content: flex-end;
+}
+
+.job-count-hidden .form-label {
+	display: none !important
+}
+
 /* PAGINATION */
 .job-list-wrap-page .paginationjs {
 	display: flex;
 }
 
 /* ? SCROLL BAR START */
-#jobcatname::-webkit-scrollbar-track {
+/* #jobcatname::-webkit-scrollbar-track {
 	border-radius: 5px;
 	background-color: #cccccc;
 }
@@ -533,7 +541,7 @@ div.container-xxl {
 #jobcatname::-webkit-scrollbar-thumb {
 	border-radius: 5px;
 	background-color: #333333;
-}
+} */
 
 /* MODAL */
 div.modal-dialog {
@@ -557,13 +565,13 @@ div.modal-footer {
 		border-right: 0
 	}
 
-	.job-wrap,
-	#jobcatname {
+	.job-wrap {
 		width: 100%;
 		max-width: 100%;
 		top: 0
 	}
 
+	/* 
 	#jobcatname {
 		max-width: 100%;
 		width: 100%;
@@ -573,11 +581,11 @@ div.modal-footer {
 		border: 0 !important;
 		left: 0px;
 		height: auto;
-	}
+	} */
 
-	.job-category {
+	/* .job-category {
 		display: none;
-	}
+	} */
 
 	.btn.btn-light {
 		width: 20%;

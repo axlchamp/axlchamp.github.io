@@ -38,7 +38,7 @@ h1 {
 	width: 100%;
 	border: 1px solid #cccccc;
 	padding: 15px;
-	max-height: 80vh;
+	max-height: 92vh;
 	overflow-y: auto;
 	height: auto;
 }
@@ -85,11 +85,13 @@ h1 {
 	color: #3084d3
 }
 
+.container[data-container=search_filters] div.form-check input[type=checkbox]#hidecount,
 .container[data-container=search_filters] div.form-check input[type=checkbox]#newtab {
 	opacity: 0;
 	position: absolute;
 }
 
+.hidecount-form span,
 .newtab-form span {
 	margin-bottom: 0
 }
