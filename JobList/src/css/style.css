@@ -176,7 +176,7 @@ div.container-xxl {
 	align-items: center;
 }
 
-.job-fil-wrap select{
+.job-fil-wrap select {
 	width: 100%;
 	font-size: 16px;
 	padding: 15px;
@@ -309,7 +309,7 @@ div.container-xxl {
 	font-size: 14px;
 	line-height: 1.4;
 	color: black;
-
+	height: 70px;
 	-webkit-line-clamp: 3 !important;
 	-webkit-box-orient: vertical !important;
 	text-align: left;
