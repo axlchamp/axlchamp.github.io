@@ -274,6 +274,10 @@ function updateJobList(arr, keyword) {
 
 //CREATE DROPDOWN
 function createFilterDropdown(arr, filter) {
+	if (filter == "locations") {
+		let loc_split = arr.map(i => i.trim().split("; ")).flat();
+		arr = uniqueItems = Array.from(new Set(loc_split));
+	}
 	return arr.map(function (i) {
 		if (getParameterByName(filter)) {
 			return `<option value="${i}" ${i.toLowerCase().includes(getParameterByName(filter).toLowerCase()) ? "selected" : ""}>${i}</option>`;
@@ -549,7 +553,6 @@ function Layout(obj) {
 								</div>
 								<div class="modal-body">
 
-
 									<div class="modal-footer">
 										<a href="${itemLink1}" ${newTab == true ? 'target="_blank"' : '_self'}>
 											<button type="button" class="btn btn-secondary  modal-button-1">${label_list.modal_button_1.text}</button>
@@ -654,7 +657,6 @@ function Addscript() {
 		script.onload = callback;
 	};
 }
-
 
 function Ajax_request() {
 	this.ajax = () => {

@@ -251,6 +251,10 @@ $.getJSON('src/js/settings.json').then(function (data) {
 
 	//CREATE DROPDOWN
 	function createFilterDropdown(arr, filter) {
+		if (filter == "locations") {
+			let loc_split = arr.map(i => i.trim().split("; ")).flat();
+			arr = uniqueItems = Array.from(new Set(loc_split));
+		}
 		return arr.map(function (i) {
 			if (getParameterByName(filter)) {
 				return `<option value="${i}" ${i.toLowerCase().includes(getParameterByName(filter).toLowerCase()) ? "selected" : ""}>${i}</option>`;
