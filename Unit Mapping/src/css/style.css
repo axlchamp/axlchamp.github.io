@@ -1,0 +1,119 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 1200px;
+	box-sizing: border-box;
+}
+
+.propMap-Main-Container,
+.propMap-Main-Container a,
+.propMap-Main-Container div,
+.propMap-Main-Container img,
+.propMap-Main-Container label,
+.propMap-Main-Container input,
+.propMap-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+div.propMap-Main-Container {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+div.propMap-Main-Container>div {
+	max-width: 49%;
+}
+
+div.propMap-Row-Header,
+div.propMap-Cell-Item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+}
+
+div.propMap-Panel-Image svg,
+div.propMap-Header-Title,
+div.propMap-Item-Value {
+	width: 100%;
+	height: auto;
+}
+
+div.propMap-Header-Title,
+div.propMap-Item-Value {
+	max-width: 30%
+}
+
+svg path,
+svg g {
+	pointer-events: none;
+}
+
+path.propMap-Svg-Class {
+	pointer-events: auto
+}
+
+path.propMap-Svg-Class,
+g.propMap-Svg-PE {
+	cursor: pointer;
+	opacity: 0;
+	z-index: 1
+}
+
+g.propMap-Svg-PE {
+	pointer-events: none;
+}
+
+path.propMap-Active,
+g.propMap-Active {
+	opacity: 1;
+}
+
+div.propMap-Unit-Active {
+	background-color: #7ad2c0;
+	color: #ffffff;
+}
+
+/* ? SCROLL BAR START */
+::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+/* ? SCROLL BAR END */
