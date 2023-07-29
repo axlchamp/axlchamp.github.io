@@ -13,8 +13,8 @@ let element = $('.widget-abc123');
 let data = {
 	config: {
 		apikey: "AIzaSyCypYDynk1pVZJxjn4UCu5pK-4-d_tw1PY",
-		channelID: "UCgeftOQdZpPmAFA-r8mMi4w",
-		playlistID: "PLPV3DWVWcY3RZAiv1CENFaxMekF5xYeRT",
+		channelID: "UCK8sQmJBp8GCxrOtXWBpyEA",
+		playlistID: "PL590L5WQmH8dAqv03RCMbZrbzxqCn6W3O",
 		videoCount: "50",
 		pageSize: "9"
 	}
