@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="widget-abc123">
+        <div class="googleMap-Main-Container">
+            <!-- {{#equals filterPosition "top"}} -->
+            <div class="googleMap-Section-Filter">
+                <!-- /* PANEL FILTER */ -->
+                <div class="googleMap-Panel-Search">
+                    <label class="googleMap-Search-Label">Search:</label>
+                    <input type="text" class="googleMap-Search-Input" placeholder="Search by location...">
+                </div>
+                <div class="googleMap-Panel-Export"><button onclick="exportTableToXLS()">Export to xls</button></div>
+            </div>
+            <!-- {{/equals}} -->
+            <div class="googleMap-Section-Map googleMap-Section-Map-Top">
+                <!-- PANEL MAP -->
+                <div class="googleMap-Panel-Map googlemap-Panel-Map-Left">
+                    <div class="googleMap-Map-Container"></div>
+                </div>
+                <!-- /* PANEL LOCATIONS */ -->
+                <div class="googleMap-Pagination-Container googleMap-Pagination-Container-Left">
+                    <div class="googleMap-Panel-Locations">
+                        <table class="googleMap-Locations-Table table" id="tbl_exporttable_to_xls">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Balance</th>
+                                    <th scope="col">Value</th>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">Bed</th>
+                                    <th scope="col">Baths</th>
+                                    <th scope="col">Sqft</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="googleMap-Pagination-Section"></div>
+            </div>
+            <!-- {{#equals filterPosition "bottom"}} -->
+            <!-- <div class="googleMap-Section-Filter">
+                <div class="googleMap-Panel-Search">
+                    <label class="googleMap-Search-Label">Search By Name:</label>
+                    <input type="text" class="googleMap-Search-Input" placeholder="Search by name...">
+                </div>
+                <div class="googleMap-Panel-Filter">
+                    <label class="googleMap-Filter-Label">Filter By:</label>
+                    <select class="googleMap-Filter-Category">
+                        <option value="" selected="" disabled="" hidden="">Select Category</option>
+                    </select>
+                </div>
+            </div> -->
+            <!-- {{/equals}} -->
+        </div>
+
+        <div class="googleMap-Sidebar-Selected"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>
