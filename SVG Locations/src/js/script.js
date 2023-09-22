@@ -13,48 +13,43 @@ let element = $('.widget-abc123');
 let data = {
 	device: "desktop",
 	config: {
-		list: [{
-			street: "Level 1/48-50 Smith Street Mall",
-			city: "Darwin",
-			state: "NT",
-			postal: "8000"
-		}, {
-			street: "217-225 Flinders Street",
-			city: "Adelaide",
-			state: "SA",
-			postal: "5000"
-		}, {
-			street: "37 Clifton St",
-			city: "Perth",
-			state: "WA",
-			postal: "6000"
-		}, {
-			street: "118 Olinda - Monbulk Road",
-			city: "Melbourne",
-			state: "VIC",
-			postal: "3788"
-		}]
+		spreadsheet: "https://docs.google.com/spreadsheets/d/1dPbPN5bwv3paxYAkdqtbsJloPG_v7UcOVsZxy93nH9k/edit?usp=sharing"
 	}
 };
 
-let list = data.config.list;
 let city_list = {};
+let spreadsheet = data.config.spreadsheet;
+let sheet = spreadsheet.substring(spreadsheet.indexOf('d/') + 2).replace('/edit?usp=sharing', '');
+let sheetDetails = {
+	sheetid: sheet,
+	sheetname: data.config.sheetname ? data.config.sheetname : "Sheet1",
+	apikey: data.config.apikey ? data.config.apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0"
+};
+
 
 // WIDGET VARIABLES
+
 dmAPI.runOnReady('init', function () {
 	dmAPI.loadScript("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js", function () {
-		let location_list = new Collection(list).data();
-		city_list.list = location_list;
-
+		new Collection(sheetDetails).response().then(location_list => {
+			city_list.list = location_list;
+			location_list.map(i => {
+				$(element).find(`g.svgAus-Pin-City[data-city="${i.city}"]`).addClass("svgAus-Pin-City-Active");
+				$(element).find(`g.svgAus-Pin-City[data-city="${i.city}"]`).prev().addClass("svgAus-Pin-City-Active");
+				$(element).find(`g.svgAus-Pin-City[data-city="${i.city}"]`).next().addClass("svgAus-Pin-City-Active");
+			});
+		});
 	});
 });
 
 $(element).on("mouseenter touchstart", ".svgAus-Pin-City", function (event) {
+	if (!$(this).attr("data-city")) return;
 	let city = $(this).attr("data-city");
 	let filters = {
 		city
 	};
 	let filtered = multiFilter(city_list.list, filters);
+
 	let content_window = new Create(filtered).infowindow();
 	$(element).find('.svgAus-Tool-Container').html(content_window);
 	let infowindow_height = $(element).find(".svgAus-Container-Infowindow").height() + 30;
@@ -65,11 +60,13 @@ $(element).on("mouseenter touchstart", ".svgAus-Pin-City", function (event) {
 		$(element).find('.svgAus-Tool-Container').css({
 			top: top,
 			left: left,
-			opacity: 1
+			opacity: 1,
+			"pointer-events": "none"
 		});
 	} else {
 		$(element).find('.svgAus-Tool-Container').css({
-			opacity: 1
+			opacity: 1,
+			"pointer-events": "auto"
 		});
 	}
 })
@@ -96,23 +93,26 @@ function Create(obj) {
 }
 
 // COLLECTION FOR WIDGET LIST
-function Collection(collection) {
-	this.data = () => {
-		return collection.map(i => {
-			let item = {};
-			Object.keys(i).filter(j => {
-				if (i.inNavigation) return j;
-				item[removeSpecial(j).toLowerCase()] = typeof i[j] == "object" ? i[j].href : this.removeExtra(i[j]);
-			});
-			item.keyword = Object.keys(i).map(k => i[k]).join(',');
-			return item;
+function Collection(sheetDetails) {
+	this.ajax = function () {
+		return $.ajax({
+			url: `https://sheets.googleapis.com/v4/spreadsheets/${sheetDetails.sheetid}/values/${sheetDetails.sheetname}?key=${sheetDetails.apikey}`,
 		});
 	};
-	this.removeExtra = (str) => {
-		if (str) {
-			return str.includes("</p>") ? str.substring(str.indexOf(">") + 1).replace("</p>", '') : str;
-		}
-		return str;
+	this.response = function () {
+		let sheet = this.ajax();
+		return sheet.then(resp => {
+			let header = resp.values[0];
+			let values = resp.values.filter((i, index) => index !== 0);
+			return values.map(i => {
+				let items = {};
+				header.map((k, index) => {
+					items[removeSpecial(k.toLowerCase())] = i[index];
+				});
+				return items;
+			});
+		});
+
 	};
 
 	function removeSpecial(str) {

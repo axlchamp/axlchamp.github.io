@@ -88,6 +88,15 @@ div.svgAus-Container-Infowindow {
 	width: 100%;
 }
 
+/* PINS */
+g.svgAus-Pin-City {
+	display: none
+}
+
+g.svgAus-Pin-City-Active {
+	display: block
+}
+
 @media screen and (max-width:800px) {
 	.svgAus-Tool-Container {
 		display: block;
