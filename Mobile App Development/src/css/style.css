@@ -1,0 +1,357 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 30px auto;
+	max-width: 1200px;
+	box-sizing: border-box;
+	font-family: Poppins
+}
+
+.madWidget-Main-Container,
+.madWidget-Main-Container a,
+.madWidget-Main-Container div,
+.madWidget-Main-Container img,
+.madWidget-Main-Container label,
+.madWidget-Main-Container input,
+.madWidget-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+div.madWidget-Section-Filter {
+	display: flex;
+	justify-content: space-between;
+}
+
+div.madWidget-Filter-Title {
+	max-width: 65%;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+div.madWidget-Filter-Dropdown {
+	max-width: 35%;
+	display: flex;
+	justify-content: space-between;
+}
+
+div.madWidget-Filter-Dropdown>div {
+	max-width: 49%;
+	cursor: pointer;
+}
+
+div.madWidget-Filter-Dropdown>div>div {
+	display: flex;
+	justify-content: space-between;
+}
+
+div.madWidget-Location-Input {
+	max-width: 80%;
+}
+
+div.madWidget-Location-Icon {
+	max-width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ebf0fa;
+	border: 1px solid #979ca8;
+	border-right: 0;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+div.madWidget-Location-Icon i {
+	color: #979ca8;
+}
+
+/* Dropdown */
+div.madWidget-Container-Dropdown {
+	max-width: 80%;
+	border: 1px solid #979ca8;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding: 10px 33px 10px 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+div.madWidget-Container-Dropdown i {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	margin-top: -3px
+}
+
+div.madWidget-Container-Dropdown span {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+div.madWidget-Dropdown-Options {
+	position: absolute;
+	top: 100%;
+	padding-top: 10px;
+	border: 1px solid #cccccc;
+	border-top: 0;
+	display: none;
+	z-index: 1;
+	background-color: #ffffff;
+}
+
+div.show-Options {
+	display: block;
+}
+
+div.madWidget-Options-Value {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+div.madWidget-Options-Value>div {
+	cursor: pointer;
+	padding: 5px
+}
+
+div.madWidget-Options-Value>div:hover {
+	background-color: #eeeeee
+}
+
+/* Item Info */
+div.madWidget-Result-Company {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px
+}
+
+div.madWidget-Company-Details {
+	max-width: 30%;
+	box-shadow: 1px 1px 6px 1px #979ca880;
+	border-radius: 5px;
+	background-color: #ffffff;
+	border-radius: 5px;
+}
+
+div.madWidget-Details-Panel {
+	padding: 16px;
+}
+
+div.madWidget-Details-Image {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	display: flex;
+	margin: 0 auto 20px;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 1px 1px 6px 1px #979ca860;
+	padding: 8px;
+	border-radius: 5px;
+}
+
+div.madWidget-Details-Name {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+div.madWidget-Details-Name span {
+	text-align: center;
+	margin-right: 10px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+div.madWidget-Details-Name i {
+	color: #0e59c8;
+}
+
+div.madWidget-Details-Description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+div.madWidget-Description-Text {
+	margin: 0;
+	padding: 0;
+	height: 4.5em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre-wrap;
+	color: #626262;
+	margin-bottom: 20px;
+}
+
+div.madWidget-Description-Text-Active {
+	height: auto
+}
+
+p.madWidget-Text-Button {
+	border: none;
+	padding: 0 0 0 0;
+	cursor: pointer;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	position: absolute;
+	background-color: #ffffff;
+}
+
+p.madWidget-Text-Button span {
+	color: #2379c2;
+}
+
+div.madWidget-Info-Panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.madWidget-Panel-Wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+div.madWidget-Wrapper-Icon {
+	width: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.madWidget-Wrapper-Icon>i {
+	color: #fe5077;
+}
+
+div.madWidget-Wrapper-Text {
+	margin-left: 10px;
+	color: #0b1f37
+}
+
+div.madWidget-Panel-Wrapper:first-child {
+	max-width: 65%
+}
+
+div.madWidget-Panel-Wrapper:last-child {
+	max-width: 35%
+}
+
+hr.madWidget-Details-Divider {
+	margin: 0
+}
+
+div.madWidget-Details-Title {
+	color: #091e3a
+}
+
+div.madWidget-Details-Services,
+div.madWidget-Services-ServiceList {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+div.madWidget-Services-More {
+	cursor: pointer;
+}
+
+div.madWidget-Services-ServiceList {
+	position: absolute;
+	background-color: #ffffff;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	box-shadow: 1px 1px 6px 1px #979ca880;
+	padding: 20px 10px 10px;
+	transition: all .25s;
+	opacity: 0;
+	user-select: none;
+	pointer-events: none;
+}
+
+div.madWidget-Services-ServiceList-Active {
+	opacity: 1;
+	user-select: auto;
+	pointer-events: auto;
+}
+
+i.madWidget-Close {
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+
+div.madWidget-Services-Item {
+	background-color: #e3f2fd;
+	padding: 5px 10px;
+	width: auto;
+	margin: 5px;
+	border-radius: 50px;
+	font-size: 14px;
+}
+
+/* Buttons */
+div.madWidget-Details-Buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px
+}
+
+a.madwidget-Button-Quote,
+a.madwidget-Button-Portfolio {
+	max-width: 49%;
+	border-radius: 50px;
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 5px 10px
+}
+
+a.madwidget-Button-Quote span,
+a.madwidget-Button-Portfolio span {
+	margin-right: 5px;
+}
+
+a.madwidget-Button-Quote {
+	background-color: #09c26c;
+	text-align: center;
+	color: #ffffff
+}
+
+a.madwidget-Button-Portfolio {
+	background-color: #ffffff;
+	border: 1px solid #0a68c0;
+	text-align: center;
+	color: #0a68c0
+}
