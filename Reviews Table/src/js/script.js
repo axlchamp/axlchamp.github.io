@@ -68,7 +68,7 @@ function Run(obj) {
 	let $this = this;
 	this.ajax = function () {
 		let ajax_settings = {
-			url: "src/php/actions.php",
+			url: "https://personalappaxl.000webhostapp.com/reviews/actions.php",
 			method: "POST",
 			data: JSON.stringify(obj)
 		}
