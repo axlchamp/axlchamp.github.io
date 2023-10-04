@@ -12,7 +12,7 @@ define("TOKEN_ID", "patvhkh2wszzLmz9A");
 define("AIRTABLE_API_KEY", "keydJT50TZrtjtdel");
 define("TABLE_ID", "tbl7UNMFyaRtO7SHH");
 define("APP_ID", "appsjK5CG9rrYQ4zG");
-define("AIRTABLE_ENDPOINT", "https://api.airtable.com/v0/" . APP_ID ."/". TABLE_ID."?sort%5B0%5D%5Bfield%5D=Date%20Posted&sort%5B0%5D%5Bdirection%5D=asc");
+define("AIRTABLE_ENDPOINT", "https://api.airtable.com/v0/" . APP_ID ."/". TABLE_ID."?sort%5B0%5D%5Bfield%5D=Date%20Posted&sort%5B0%5D%5Bdirection%5D=desc");
 
 // Actions Custom Function for front-end handling data/error
 function printResponse($response) {

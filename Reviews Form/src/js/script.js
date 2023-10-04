@@ -16,29 +16,44 @@ let data = {
 	}
 };
 
+let global_data = {};
+
 let company_name = data.config.company_name;
 dmAPI.runOnReady("Widget_Initialization", function () {
-	new Run({
-		action: "Get Record",
-	}).ajax().then(function (response) {
-		let resp = JSON.parse(response).response.records;
-		console.log(resp)
-		let reviews = new Create(resp).review_structure();
-		$(element).find(".reviewsTable-Section-Container").html(reviews)
+	dmAPI.loadScript("https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.31/sweetalert2.all.min.js", function () {
+
 	});
 });
+$(element).find(".reviewsForm-Dropdown-Category").click(function () {
+	$(this).next(".reviewsForm-Dropdown-Options").toggleClass("show-Options");
+});
 
-$(element).find('.reviewsForm-Panel-Button').click(function () {
+$(element).on("click", ".reviewsForm-Value-Item", function () {
+	$(this).find("i").toggleClass("fa-solid fa-square-check fa-regular fa-square");
+	$(this).toggleClass("reviewsForm-Value-Item-Active");
+
+	let selected = new Get().categories().map(i => {
+		return `<span>${i}</span>`
+	});
+	$(element).find(".reviewsForm-Dropdown-Text").html(selected)
+})
+$(element).find(".reviewsForm-Dropdown-Options").mouseleave(function () {
+	global_data.categories = new Get().categories();
+	$(this).removeClass("show-Options");
+});
+
+$(element).find(".reviewsForm-Panel-Button").click(function () {
 	let author = $(element).find('.reviewsForm-Name-Input').val()
 	let review = $(element).find('.reviewsForm-Panel-Review').val()
-	let rating = $(element).find('.reviewsForm-Name-Rating input:checked').val();
-
+	let rating = $(element).find('.reviewsForm-Star-Rating input:checked').val();
 	let reviews = {
 		"records": [{
 			"fields": {
 				"Author": author,
 				"Review": review,
-				"Rating": parseInt(rating)
+				"Rating": parseInt(rating),
+				"Categories": global_data.categories,
+				"Timestamp": Date.now()
 			}
 		}]
 	};
@@ -47,8 +62,28 @@ $(element).find('.reviewsForm-Panel-Button').click(function () {
 		action: "Create Record",
 		review_obj: reviews
 	}).ajax().then(function (response) {
-		alert("Posted!")
-		console.log(response);
+		let resp = JSON.parse(response);
+		if (resp.status) {
+			const Toast = Swal.mixin({
+				toast: true,
+				position: 'top-end',
+				showConfirmButton: false,
+				timer: 1500,
+				timerProgressBar: true,
+				customClass: {
+					container: 'reviewsForm-Swal-Class' // Apply the custom CSS class to the dialog container
+				},
+				didOpen: (toast) => {
+					toast.addEventListener('mouseenter', Swal.stopTimer)
+					toast.addEventListener('mouseleave', Swal.resumeTimer)
+				}
+			})
+
+			Toast.fire({
+				icon: 'success',
+				title: 'Review Posted!'
+			})
+		}
 	});
 });
 
@@ -79,6 +114,19 @@ function Create(obj) {
 	}
 }
 
+function Get() {
+	let $this = this;
+	this.categories = function () {
+		let selected_categories = [];
+		$(element).find(".reviewsForm-Value-Item").each(function () {
+			if ($(this).hasClass("reviewsForm-Value-Item-Active")) {
+				selected_categories.push($(this).find("span").text())
+			}
+		});
+		return selected_categories;
+	};
+}
+
 function Run(obj) {
 	let $this = this;
 	this.ajax = function () {
@@ -93,6 +141,7 @@ function Run(obj) {
 
 
 css_resource('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css', 'fasrc');
+css_resource('https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.7.31/sweetalert2.min.css', 'swal2');
 
 function css_resource(href, id) {
 	if (!document.getElementById(id)) {

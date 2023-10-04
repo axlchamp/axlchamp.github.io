@@ -1,3 +1,17 @@
+@font-face {
+	font-family: 'SF Pro';
+	src: url('https://irp.cdn-website.com/d1d0af07/files/uploaded/SF-Pro-Display-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gordita';
+	src: url('https://irp.cdn-website.com/d1d0af07/files/uploaded/Gordita Medium.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 body,
 html {
 	position: relative;
@@ -18,6 +32,7 @@ html {
 	margin: 40px auto;
 	max-width: 960px;
 	box-sizing: border-box;
+	font-family: "Gordita"
 }
 
 .reviewsForm-Main-Container,
@@ -39,23 +54,20 @@ html {
 	box-sizing: border-box;
 }
 
+div.reviewsForm-Panel-Title {
+	font-family: "Gordita";
+	font-size: 30px;
+	font-weight: bold;
+}
+
 div.reviewsForm-Panel-Name {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-
-div.reviewsForm-Name-Wrapper {
-	width: 80%;
-}
-
-input.reviewsForm-Name-Input {
-	padding: 5px 10px
-}
-
-div.reviewsForm-Panel-Name .reviewsForm-Name-Rating {
-	width: 15%;
+div.reviewsForm-Rating-Wrapper {
+	width: 30%;
 }
 
 textarea.reviewsForm-Panel-Review {
@@ -63,13 +75,108 @@ textarea.reviewsForm-Panel-Review {
 }
 
 div.reviewsForm-Panel-Container {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
-/* ! STAR RATING */
+/* REVIEW DROPDOWN */
+div.reviewsForm-Dropdown-Category {
+	border: 1px solid #cccccc;
+	padding: 10px 25px;
+	border-radius: 5px;
+}
+
+div.reviewsForm-Container-Dropdown {
+	border: 0 !important;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+div.reviewsForm-Container-Dropdown i {
+	font-size: 25px;
+	margin-right: 10px;
+	margin-left: auto;
+	margin-top: -10px
+}
+
+div.reviewsForm-Dropdown-Options {
+	position: absolute;
+	top: 100%;
+	padding: 10px 20px;
+	border: 1px solid #cccccc;
+	display: none;
+	z-index: 1;
+	background-color: #ffffff;
+	border-radius: 3px;
+}
+
+div.show-Options {
+	display: block;
+	box-shadow: 0px 4px 6px 0px #cccccc80;
+}
+
+div.reviewsForm-Options-Value {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+div.reviewsForm-Options-Value>div {
+	cursor: pointer;
+	padding: 5px
+}
+
+div.reviewsForm-Options-Value>div:hover {
+	background-color: #eeeeee
+}
+
+div.reviewsForm-Value-Item i {
+	color: #cccccc;
+	margin-right: 5px;
+	font-size: 20px
+}
+
+/* !Active */
+div.reviewsForm-Value-Item-Active i,
+div.reviewsForm-Value-Item-Active span {
+	color: #1057cb
+}
+
+
+
+div.reviewsForm-Dropdown-Text {
+	display: flex;
+	align-items: center;
+	text-wrap: nowrap;
+	overflow: auto;
+}
+
+div.reviewsForm-Dropdown-Text span {
+	background-color: #e2f1fc;
+	padding: 5px 25px;
+	border-radius: 50px;
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+/* REVIEW DROPDOWN */
+
+/* REVIEW STAR RATING */
+div.reviewsForm-Panel-Rating label {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+div.reviewsForm-Star-Rating {
+	display: flex;
+	align-items: center;
+	margin-top: 10px
+}
+
 div.reviewsForm-Rating-Wrapper {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	font-size: 24px;
 	flex-direction: row-reverse;
@@ -82,6 +189,12 @@ div.reviewsForm-Rating-Wrapper input {
 div.reviewsForm-Rating-Wrapper label {
 	color: gray;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	width: auto;
+	margin-right: 15px;
 }
 
 
@@ -89,69 +202,102 @@ div.reviewsForm-Rating-Wrapper input:checked~label {
 	color: gold;
 }
 
-/* ! STAR RATING */
 
-
-
-
-
-/* REVIEW PANEL */
-
-.reviewsTable-Main-Container,
-.reviewsTable-Main-Container a,
-.reviewsTable-Main-Container div,
-.reviewsTable-Main-Container img,
-.reviewsTable-Main-Container label,
-.reviewsTable-Main-Container input,
-.reviewsTable-Main-Container textarea,
-.reviewsTable-Main-Container select {
-	position: relative;
-	display: block;
-	width: 100%;
-	height: auto;
-	padding: 0;
-	margin: 0;
-	line-height: 1.5em;
-	text-decoration: none;
-	box-sizing: border-box;
+div.reviewsForm-Rating-Sub {
+	width: auto;
+	display: none
 }
 
-div.reviewsTable-Panel-Name {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+/* REVIEW STAR RATING */
+
+/* REVIEW NAME  */
+div.reviewsForm-Name-Wrapper {
+	border: 1px solid #cccccc;
+	padding: 10px 25px;
+	border-radius: 5px;
 }
 
-div.reviewsTable-Panel-Container {
-	padding: 15px;
-	border-bottom: 1px solid #cccccc;
+div.reviewsForm-Name-Wrapper input {
+	border: 0;
+	outline: none;
+	font-size: 20px
 }
 
-div.reviewsTable-Name-Rating {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
+/* REVIEW NAME  */
 
-div.reviewsTable-Name-Rating i {
-	color: grey;
-}
+/* REVIEW CONTENT */
 
-div.reviewsTable-Name-Rating i.reviewsTable-Rating-Star-Active {
-	color: gold;
-}
-
-div.reviewsTable-Panel-Name {
-	margin-bottom: 10px;
-}
-
-div.reviewsTable-Name-Author {
-	font-size: 16px;
+div.reviewsForm-Panel-Content label {
+	font-size: 20px;
 	font-weight: bold;
 }
 
-div.reviewsTable-Panel-Review {
-	text-indent: 16px;
+div.reviewsForm-Content-Text {
+	border: 1px solid #cccccc;
+	padding: 10px 25px;
+	border-radius: 5px;
+	margin-top: 10px;
 }
 
-/* REVIEW PANEL */
+
+div.reviewsForm-Content-Text textarea {
+	border: 0;
+	padding: 0;
+	min-height: 125px;
+	font-size: 20px;
+	outline: none;
+}
+
+/* REVIEW CONTENT */
+
+
+
+
+
+/* ? SCROLL BAR START */
+div.reviewsForm-Dropdown-Text::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+div.reviewsForm-Dropdown-Text::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 50px;
+}
+
+div.reviewsForm-Dropdown-Text::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: #cccccc;
+}
+
+/* ? SCROLL BAR END */
+
+/* REVIEW BUTTON */
+div.reviewsForm-Panel-Button {
+	width: fit-content;
+	margin: 0 auto;
+	background-color: #09c26c;
+	padding: 10px 20px;
+	border-radius: 50px;
+	cursor: pointer;
+}
+
+div.reviewsForm-Panel-Button span.text {
+	color: #ffffff;
+	font-weight: normal;
+}
+
+/* REVIEW BUTTON */
+
+
+/* REVIEW SWAL */
+div.reviewsForm-Swal-Class {
+	font-family: "Gordita";
+	max-width: 275px !important;
+	color: #333333 !important
+}
+
+/* REVIEW SWAL */
+
+
