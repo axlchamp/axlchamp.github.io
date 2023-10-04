@@ -24,9 +24,27 @@ dmAPI.runOnReady("Widget_Initialization", function () {
 		action: "Get Record",
 	}).ajax().then(function (response) {
 		let resp = JSON.parse(response).response.records;
+		global_data.all = resp;
 		let reviews = new Create(resp).review_structure();
-		$(element).find(".reviewsTable-Section-Container").html(reviews)
+		$(element).find(".reviewsTable-Reviews-Result").html(reviews);
+
+		let dropdown = new Create(resp).dropdown("Categories");
+		$(element).find(".reviewsTable-Options-Value").html(dropdown);
 	});
+});
+
+$(element).find(".reviewsTable-Container-Dropdown").click(function () {
+	$(this).next().toggleClass("show-Options")
+});
+
+$(element).on("click", ".reviewsTable-Value-Item", function () {
+	let value = $(this).text();
+	$(element).find(".reviewsTable-Dropdown-Text").text(value);
+	$(this).parents(".reviewsTable-Dropdown-Options").removeClass("show-Options");
+	let searched = new Create(global_data.all).search(value);
+	let filtered_structure = new Create(searched).review_structure();
+	$(element).find(".reviewsTable-Reviews-Result").html(filtered_structure);
+
 });
 
 function Create(obj) {
@@ -36,7 +54,7 @@ function Create(obj) {
 			let raw_date = new Date(i.fields['Timestamp']);
 			let date = `${raw_date.getMonth()+1}/${raw_date.getDate()}/${raw_date.getFullYear()}`
 
-			return `<div class="reviewsTable-Panel-Container">
+			return `<div class="reviewsTable-Result-Item">
 				<div class="reviewsTable-Panel-Name">
 					<div class="reviewsTable-Name-Author">
 						<div class="reviewsTable-Author-Initial">${i.fields['Author'].charAt(0).toUpperCase()}</div>
@@ -61,6 +79,22 @@ function Create(obj) {
 			star += `<i class="fa-solid fa-star ${i<=rating ? "reviewsTable-Rating-Star-Active ":"" }"></i>`;
 		}
 		return star;
+	}
+	this.dropdown = function (key) {
+		let newObj = obj.map(i => {
+			return i.fields[key].map(j => {
+				return j.trim();
+			});
+		}).flat();
+		var uniqueItems = Array.from(new Set(newObj));
+		return uniqueItems.sort((a, b) => {
+			return a > b ? 1 : -1;
+		}).map(i => {
+			return `<div class="reviewsTable-Value-Item">${i}</div>`;
+		}).join('');
+	}
+	this.search = function (value) {
+		return obj.filter(i => i.fields['Categories'].join(",").toLowerCase().includes(value.toLowerCase()));
 	}
 }
 

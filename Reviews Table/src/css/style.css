@@ -55,7 +55,7 @@ html {
 	box-sizing: border-box;
 }
 
-div.reviewsTable-Panel-Container {
+div.reviewsTable-Result-Item {
 	padding: 15px;
 	border-bottom: 1px solid #cccccc;
 }
@@ -114,4 +114,54 @@ div.reviewsTable-Panel-Rating i.reviewsTable-Rating-Star-Active {
 	color: gold;
 }
 
-div.reviewsTable-Panel-Review {}
+/* Dropdown */
+
+div.reviewsTable-Panel-Filter {
+	margin-bottom: 10px
+}
+
+div.reviewsTable-Container-Dropdown {
+	border: 1px solid #cccccc;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+div.reviewsTable-Container-Dropdown i {
+	font-size: 17px;
+	margin-right: 10px;
+	margin-left: auto;
+	margin-top: -9px;
+}
+
+div.reviewsTable-Dropdown-Options {
+	position: absolute;
+	top: 100%;
+	padding-top: 10px;
+	border: 1px solid #cccccc;
+	border-top: 0;
+	display: none;
+	z-index: 1;
+	background-color: #ffffff;
+}
+
+div.show-Options {
+	display: block;
+}
+
+div.reviewsTable-Options-Value {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+div.reviewsTable-Options-Value>div {
+	cursor: pointer;
+	padding: 5px
+}
+
+div.reviewsTable-Options-Value>div:hover {
+	background-color: #eeeeee
+}
