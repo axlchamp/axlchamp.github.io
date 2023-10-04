@@ -16,20 +16,42 @@ let data = {
 	}
 };
 
-let global_data = {};
+let global_data = {
+	rating_list: {},
+	rating_average: {},
+};
 
 let company_name = data.config.company_name;
 dmAPI.runOnReady("Widget_Initialization", function () {
 	new Run({
 		action: "Get Record",
 	}).ajax().then(function (response) {
-		let resp = JSON.parse(response).response.records;
+		let resp = JSON.parse(response).response.records.filter(i => i.fields['Status'] == "Accepted");
 		global_data.all = resp;
 		let reviews = new Create(resp).review_structure();
 		$(element).find(".reviewsTable-Reviews-Result").html(reviews);
 
 		let dropdown = new Create(resp).dropdown("Categories");
 		$(element).find(".reviewsTable-Options-Value").html(dropdown);
+
+		let reviews_count = resp.length;
+		$(element).find(".reviewsTable-Count-Reviews").text(`${reviews_count} Reviews`)
+
+		let reviews_average = (resp.map(i => i.fields["Rating"]).reduce((accumulator, currentValue) => accumulator + currentValue, 0) / reviews_count).toFixed(1);
+		$(element).find(".reviewsTable-Value-Text span").text(`${reviews_average}`);
+		$(element).find(".reviewsTable-Count-Ratings").text(`${reviews_average} Ratings`);
+
+
+		$(element).find(".reviewsTable-Base-Container").each(function (e) {
+			let count = e + 1;
+			global_data.rating_list["rate_" + count] = resp.filter(i => i.fields["Rating"] == count).length;
+			global_data.rating_average["rate_" + count] = ((resp.filter(i => i.fields["Rating"] == count).length / resp.length) * 100).toFixed(0);
+		});
+		console.log(global_data)
+		Object.keys(global_data.rating_list).map(i => {
+			$(element).find(`.reviewsTable-Base-Container[data-rate="${i.replace("rate_","")}"] .reviewsTable-Container-Count`).text(global_data.rating_list[i])
+			$(element).find(`.reviewsTable-Base-Container[data-rate="${i.replace("rate_","")}"] .reviewsTable-Container-Bar`).val(global_data.rating_average[i])
+		})
 	});
 });
 
@@ -50,7 +72,7 @@ $(element).on("click", ".reviewsTable-Value-Item", function () {
 function Create(obj) {
 	let $this = this;
 	this.review_structure = function () {
-		return obj.filter(i => i.fields['Status'] == "Accepted").map(i => {
+		return obj.map(i => {
 			let raw_date = new Date(i.fields['Timestamp']);
 			let date = `${raw_date.getMonth()+1}/${raw_date.getDate()}/${raw_date.getFullYear()}`
 
@@ -62,7 +84,7 @@ function Create(obj) {
 					</div>
 				</div>
 				<div class="reviewsTable-Panel-Title">
-					${i.fields['Categories'].join(",")}
+					${i.fields['Categories'].join(", ")}
 				</div>
 				<div class="reviewsTable-Panel-Rating">
 					${$this.star_rating(i.fields['Rating'])}
