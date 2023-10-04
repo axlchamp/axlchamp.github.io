@@ -62,7 +62,7 @@ function Create(obj) {
 					</div>
 				</div>
 				<div class="reviewsTable-Panel-Title">
-					${i.fields['Categories']}
+					${i.fields['Categories'].join(",")}
 				</div>
 				<div class="reviewsTable-Panel-Rating">
 					${$this.star_rating(i.fields['Rating'])}

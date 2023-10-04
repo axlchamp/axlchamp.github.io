@@ -114,6 +114,10 @@ div.reviewsTable-Panel-Rating i.reviewsTable-Rating-Star-Active {
 	color: gold;
 }
 
+div.reviewsTable-Panel-Title {
+	font-size: 15px
+}
+
 /* Dropdown */
 
 div.reviewsTable-Panel-Filter {
