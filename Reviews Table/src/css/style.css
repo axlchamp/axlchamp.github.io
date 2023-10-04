@@ -176,6 +176,10 @@ div.reviewsTable-Panel-Filter {
 	margin-bottom: 10px
 }
 
+div.reviewsTable-Category-Container {
+	max-width: 50%
+}
+
 div.reviewsTable-Container-Dropdown {
 	border: 1px solid #cccccc;
 	height: 40px;
