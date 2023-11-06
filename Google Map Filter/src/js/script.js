@@ -478,7 +478,7 @@ function initMap(obj) {
             lng: centerLng
         },
         zoom: defaultZoom,
-        styles: map_style
+        // styles: map_style
     });
 
 
