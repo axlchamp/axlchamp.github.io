@@ -35,7 +35,7 @@ let data = {
     siteId: "a1b2c3d4",
     config: {
         spreadsheet: "https://docs.google.com/spreadsheets/d/1fv5oIXi7HER9LnAZDmGVwiDWko5lHZ1oXzBxSbNX-hc/edit?usp=sharing",
-        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c || AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
+        apikey: "AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c || AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
         collection: "",
         buttonText: "Subscribe",
         markerSize: "40",
@@ -82,10 +82,10 @@ let sheet = spreadsheet.substring(spreadsheet.indexOf('d/') + 2).replace('/edit?
 let sheetDetails = {
     sheetid: sheet,
     sheetname: data.config.sheetname ? data.config.sheetname : "Sheet1",
-    apikey: apikey ? apikey : "" // AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
+    apikey: apikey ? apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0" // AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
 };
 
-let script_url = apikey ? `https://maps.googleapis.com/maps/api/js?v=beta&libraries=places&key=${apikey}&callback=map_callback` : `https://maps.googleapis.com/maps/api/js?v=beta&libraries=places&callback=map_callback`;
+let script_url = apikey ? `https://maps.googleapis.com/maps/api/js?v=beta&libraries=places&key=${apikey}&callback=map_callback` : `https://maps.googleapis.com/maps/api/js?v=beta&callback=map_callback`;
 
 let random_id = Math.floor(Math.random(99999) * 99999);
 let googleId = `map_${random_id}`;
@@ -103,9 +103,8 @@ let streetViewControl = data.config.streetViewControl;
 // COLLECTION
 dmAPI.runOnReady('GoogleMap', function () {
     dmAPI.loadScript("https://docs.google.com/spreadsheets/d/1fv5oIXi7HER9LnAZDmGVwiDWko5lHZ1oXzBxSbNX-hc/edit?usp=sharing", function () {
-        let response = new Collection(sheetDetails).response();
-        response.then(function (resp_value) {
-            let resp = resp_value;
+        new Collection(sheetDetails).response().then(function (resp_value) {
+            let resp = resp_value.filter(i => i.verified && i.verified.toLowerCase() !== "false");
             locations.list = resp;
             dmAPI.loadScript(script_url, function () {
                 let filter_dropdown = filter(resp, "category");
@@ -228,14 +227,15 @@ function initMap(obj) {
                 let address = isShowAddress ? `<div class="googlemap-InfoWindow-Address">
                     <span>${i.location}, ${i.city}, ${i.stateabbrev}</span>
                 </div>` : "";
-
-
+                let image = isShowLogo ? `<div class="googlemap-InfoWindow-Logo">
+                    <img src="${i.logo}">
+                </div>` : "";
                 let form = `
                     <div class="googleMap-Container-InfoWindow">
+                    ${image}
                         ${name}
                         ${address}
                     </div>`;
-
 
                 return function () {
                     infowindow.setContent(form);
