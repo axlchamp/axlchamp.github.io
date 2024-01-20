@@ -32,7 +32,7 @@ let dmAPI = {
 let element = $('.widget-abc123');
 let data = {
     config: {
-        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyBMr1pQsfm1SIgU54HgGx5YxM56EjyOV3c || AIzaSyBxbT_lvVBVVSQdtRSUlp3lZYlDJyFRrLk
+        apikey: "https://axlchamp.github.io/Google%20Maps/main.html", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyBMr1pQsfm1SIgU54HgGx5YxM56EjyOV3c || AIzaSyBxbT_lvVBVVSQdtRSUlp3lZYlDJyFRrLk
         spreadsheet: "https://docs.google.com/spreadsheets/d/1c4dcpoLCKSP2EBkp04rSTtjL3RXwspMvYAR_XAZgIwQ/edit?usp=sharing",
         sheetname: "Sheet1",
 
