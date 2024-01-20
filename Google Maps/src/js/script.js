@@ -34,7 +34,7 @@ let data = {
     inEditor: false,
     siteId: "a1b2c3d4",
     config: {
-        apikey: "", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc
+        apikey: "AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc
         list: [{
             name: "Location Name 1",
             location: "Address 1",
