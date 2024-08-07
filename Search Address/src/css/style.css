@@ -1,0 +1,104 @@
+body,
+html {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.widget-abc123 {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	box-sizing: border-box;
+}
+
+.saw-Main-Container,
+.saw-Main-Container a,
+.saw-Main-Container div,
+.saw-Main-Container img,
+.saw-Main-Container label,
+.saw-Main-Container input,
+.saw-Main-Container select {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	line-height: 1.5em;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+
+/* Dropdown */
+input.saw-Container-Dropdown {
+	border: 1px solid #cccccc;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+input.saw-Container-Dropdown i {
+	font-size: 12px;
+	margin-right: 10px;
+	margin-left: auto
+}
+
+div.saw-Dropdown-Options {
+	position: absolute;
+	top: 100%;
+	padding-top: 10px;
+	border: 1px solid #cccccc;
+	border-top: 0;
+	display: none;
+	z-index: 1;
+	background-color: #ffffff;
+}
+
+div.show-Options {
+	display: block;
+}
+
+div.saw-Options-Value {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+div.saw-Options-Value>div {
+	cursor: pointer;
+	padding: 5px
+}
+
+div.saw-Options-Value>div:hover {
+	background-color: #eeeeee
+}
+
+/* ? SCROLL BAR START */
+::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+/* ? SCROLL BAR END */
