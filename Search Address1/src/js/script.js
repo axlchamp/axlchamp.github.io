@@ -21,7 +21,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Outage"
+			"Network Status": "Outage",
+			"Update": "Planned Maintenance Underway, expected resolution 10 August 2024"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 2/32",
@@ -31,7 +32,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 3/32",
@@ -41,7 +43,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 4/32",
@@ -51,7 +54,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 101/32",
@@ -61,7 +65,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 102/32",
@@ -71,7 +76,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 103/32",
@@ -81,7 +87,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 104/32",
@@ -91,7 +98,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 105/32",
@@ -101,7 +109,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 106/32",
@@ -111,7 +120,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 107/32",
@@ -121,7 +131,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 108/32",
@@ -131,7 +142,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 109/32",
@@ -141,7 +153,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 110/32",
@@ -151,7 +164,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 111/32",
@@ -161,7 +175,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 112/32",
@@ -171,7 +186,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 201/32",
@@ -181,7 +197,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 202/32",
@@ -191,7 +208,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 203/32",
@@ -201,7 +219,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 204/32",
@@ -211,7 +230,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 205/32",
@@ -221,7 +241,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 206/32",
@@ -231,7 +252,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 207/32",
@@ -241,7 +263,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 208/32",
@@ -251,7 +274,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 209/32",
@@ -261,7 +285,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 210/32",
@@ -271,7 +296,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 211/32",
@@ -281,7 +307,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 212/32",
@@ -291,7 +318,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 301/32",
@@ -301,7 +329,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 302/32",
@@ -311,7 +340,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 303/32",
@@ -321,7 +351,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 304/32",
@@ -331,7 +362,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 305/32",
@@ -341,7 +373,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 306/32",
@@ -351,7 +384,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 307/32",
@@ -361,7 +395,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 308/32",
@@ -371,7 +406,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 309/32",
@@ -381,7 +417,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 310/32",
@@ -391,7 +428,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 311/32",
@@ -401,7 +439,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 312/32",
@@ -411,7 +450,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 401/32",
@@ -421,7 +461,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 402/32",
@@ -431,7 +472,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 403/32",
@@ -441,7 +483,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 404/32",
@@ -451,7 +494,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 405/32",
@@ -461,7 +505,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 406/32",
@@ -471,7 +516,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 407/32",
@@ -481,7 +527,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 408/32",
@@ -491,7 +538,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 409/32",
@@ -501,7 +549,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 410/32",
@@ -511,7 +560,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 411/32",
@@ -521,7 +571,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 412/32",
@@ -531,7 +582,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 501/32",
@@ -541,7 +593,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 502/32",
@@ -551,7 +604,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 503/32",
@@ -561,7 +615,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 504/32",
@@ -571,7 +626,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}, {
 			"ICP": "",
 			"Street No.": "Unit 505/32",
@@ -581,7 +637,8 @@ let data = {
 			"Post Code": "0630",
 			"Lot No.": "",
 			"Stage": "",
-			"Network Status": "Good"
+			"Network Status": "Good",
+			"Update": "All Good"
 		}]
 	}
 };
@@ -635,7 +692,8 @@ $(element).find('.saw-Category-Container').on("click", '.saw-Value-Item', functi
 	searched_data[parent_container] = value;
 	let searched_value = new Create(searched_data.all).validate(value);
 	let st = searched_value[0].networkstatus;
-	$(element).find(".saw-Dropdown-Result").html(`${st == "Good" ? `<div class="saw-Result-Value">No issues on network</div>`:`<div class="saw-Result-Value">Outage - Planned Maintenance Underway, expected resolution 10 August 2024</div>`}`)
+	let ud = searched_value[0].update;
+	$(element).find(".saw-Dropdown-Result").html(`${st == "Good" ? `<div class="saw-Result-Value">No issues on network</div>`:`<div class="saw-Result-Value">Outage - ${ud}</div>`}`)
 
 });
 
