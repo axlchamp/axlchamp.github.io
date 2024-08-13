@@ -34,7 +34,273 @@ let data = {
     inEditor: false,
     siteId: "a1b2c3d4",
     config: {
-        spreadsheet: "https://docs.google.com/spreadsheets/d/1fv5oIXi7HER9LnAZDmGVwiDWko5lHZ1oXzBxSbNX-hc/edit?usp=sharing",
+        list: [{
+                "ID": "BN1",
+                "Business Name": "Business Name Sample 1",
+                "STATE": "Ohio",
+                "STATEABBREV": "OH",
+                "CITY": "COCHSOTON",
+                "LOCATION": "COUNTY ROAD 1A",
+                "Outage": "FALSE",
+                "Logo": "https://png.pngtree.com/png-clipart/20230207/original/pngtree-beauty-logo-design-png-image_8947095.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.33727,
+                "Longitude": -81.86454,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9805/9805408.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 1"
+            },
+            {
+                "ID": "BN2",
+                "Business Name": "Business Name Sample 2",
+                "STATE": "Ohio",
+                "STATEABBREV": "OH",
+                "CITY": "MALVERN",
+                "LOCATION": "ROUTE 183",
+                "Outage": "TRUE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.698741,
+                "Longitude": -81.16814,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9352/9352064.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 2"
+            },
+            {
+                "ID": "BN3",
+                "Business Name": "Business Name Sample 3",
+                "STATE": "Ohio",
+                "STATEABBREV": "OH",
+                "CITY": "MALVERN",
+                "LOCATION": "ROUTE 183",
+                "Outage": "TRUE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.698747,
+                "Longitude": -81.16814,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/10339/10339929.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 3"
+            },
+            {
+                "ID": "BN4",
+                "Business Name": "Business Name Sample 4",
+                "STATE": "Ohio",
+                "STATEABBREV": "OH",
+                "CITY": "CARROLLTOWN",
+                "LOCATION": "ROUTE 39",
+                "Outage": "FALSE",
+                "Logo": "https://png.pngtree.com/png-clipart/20230207/original/pngtree-beauty-logo-design-png-image_8947095.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.669235,
+                "Longitude": -81.117964,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9805/9805408.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 1"
+            },
+            {
+                "ID": "BN5",
+                "Business Name": "Business Name Sample 5",
+                "STATE": "Ilinois",
+                "STATEABBREV": "IL",
+                "CITY": "COLONA",
+                "LOCATION": "1202 HIGHWAY 84",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.570684,
+                "Longitude": -81.079726,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9352/9352064.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 2"
+            },
+            {
+                "ID": "BN6",
+                "Business Name": "Business Name Sample 6",
+                "STATE": "Ilinois",
+                "STATEABBREV": "IL",
+                "CITY": "COLONA",
+                "LOCATION": "1205 HIGHAY 84",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.522278,
+                "Longitude": -81.027564,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/10339/10339929.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 3"
+            },
+            {
+                "ID": "BN7",
+                "Business Name": "Business Name Sample 7",
+                "STATE": "Ilinois",
+                "STATEABBREV": "IL",
+                "CITY": "CARBON CLIFF",
+                "LOCATION": "IL5 & AVE OF THE CITIES",
+                "Outage": "FALSE",
+                "Logo": "https://png.pngtree.com/png-clipart/20230207/original/pngtree-beauty-logo-design-png-image_8947095.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.433709,
+                "Longitude": -80.773139,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9805/9805408.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 1"
+            },
+            {
+                "ID": "BN8",
+                "Business Name": "Business Name Sample 8",
+                "STATE": "Ilinois",
+                "STATEABBREV": "IL",
+                "CITY": "CARBON CLIFF",
+                "LOCATION": "IL5 & AVE OF THE CITIES",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.289441,
+                "Longitude": -81.023538,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9352/9352064.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 2"
+            },
+            {
+                "ID": "BN9",
+                "Business Name": "Business Name Sample 9",
+                "STATE": "Ilinois",
+                "STATEABBREV": "IL",
+                "CITY": "SILVIS",
+                "LOCATION": "1650 FIRST AVE & 17 STREET",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.625431,
+                "Longitude": -80.591135,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/10339/10339929.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 3"
+            },
+            {
+                "ID": "BN10",
+                "Business Name": "Business Name Sample 10",
+                "STATE": "Pennsylvania",
+                "STATEABBREV": "PA",
+                "CITY": "SCOTTSDALE",
+                "LOCATION": "SR819",
+                "Outage": "FALSE",
+                "Logo": "https://png.pngtree.com/png-clipart/20230207/original/pngtree-beauty-logo-design-png-image_8947095.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.670673,
+                "Longitude": -80.584007,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9805/9805408.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 1"
+            },
+            {
+                "ID": "BN11",
+                "Business Name": "Business Name Sample 11",
+                "STATE": "Pennsylvania",
+                "STATEABBREV": "PA",
+                "CITY": "SCOTTSDALE",
+                "LOCATION": "SR819",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.671565,
+                "Longitude": -80.575617,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9352/9352064.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 2"
+            },
+            {
+                "ID": "BN12",
+                "Business Name": "Business Name Sample 12",
+                "STATE": "Pennsylvania",
+                "STATEABBREV": "PA",
+                "CITY": "HOMESTEAD",
+                "LOCATION": "8TH AVE/SR 837",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/768px-LEGO_logo.svg.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.672866,
+                "Longitude": -80.609593,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/10339/10339929.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 3"
+            },
+            {
+                "ID": "BN13",
+                "Business Name": "Business Name Sample 13",
+                "STATE": "Pennsylvania",
+                "STATEABBREV": "PA",
+                "CITY": "HOMESTEAD",
+                "LOCATION": "8TH AVE/SR 837",
+                "Outage": "FALSE",
+                "Logo": "https://png.pngtree.com/png-clipart/20230207/original/pngtree-beauty-logo-design-png-image_8947095.png",
+                "Email": "info@example1.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN1",
+                "Latitude": 40.432869,
+                "Longitude": -80.772654,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9805/9805408.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 1"
+            },
+            {
+                "ID": "BN14",
+                "Business Name": "Business Name Sample 14",
+                "STATE": "Pennsylvania",
+                "STATEABBREV": "PA",
+                "CITY": "HOPEWELL",
+                "LOCATION": "ROUTE 26/36",
+                "Outage": "FALSE",
+                "Logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/2491px-Logo_of_Twitter.svg.png",
+                "Email": "info@example2.com",
+                "Phone": "1 000 000 000",
+                "Website": "My website",
+                "Website Link": "https://editor-sandbox.duda.co/site/db65dc46d2c6449889c5021e919cf537/location/BN2",
+                "Latitude": 40.51766,
+                "Longitude": -80.62462,
+                "Marker Icon": "https://cdn-icons-png.flaticon.com/512/9352/9352064.png",
+                "Additional Info Title": "Business Hours",
+                "Category": "Category 2"
+            }
+        ],
         apikey: "AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c", //AIzaSyA0Sd-eaBl-zUFAbFdMnO5c0crhxeT4AIc || AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c || AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
         collection: "",
         buttonText: "Subscribe",
@@ -64,6 +330,7 @@ let data = {
 
 // WIDGET VARIABLES
 let map;
+let list = data.config.list;
 let apikey = data.config.apikey;
 let dudaAlias = data.siteId;
 let buttonText = data.config.buttonText;
@@ -75,17 +342,8 @@ let trigger = data.config.trigger;
 let centerLat = parseFloat(data.config.centerLat);
 let centerLng = parseFloat(data.config.centerLng);
 let defaultZoom = parseInt(data.config.defaultZoom);
-
-let spreadsheet = data.config.spreadsheet;
-let sheet = spreadsheet.substring(spreadsheet.indexOf('d/') + 2).replace('/edit?usp=sharing', '');
-
-let sheetDetails = {
-    sheetid: sheet,
-    sheetname: data.config.sheetname ? data.config.sheetname : "Sheet1",
-    apikey: apikey ? apikey : "AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0" // AIzaSyAO95R71N7Ha4Z8smai-y23QuKE2Rrq4U0
-};
-
 let script_url = apikey ? `https://maps.googleapis.com/maps/api/js?v=beta&libraries=visualization,places&key=${apikey}&callback=map_callback` : `https://maps.googleapis.com/maps/api/js?v=beta&libraries=places&callback=map_callback`;
+
 
 let random_id = Math.floor(Math.random(99999) * 99999);
 let googleId = `map_${random_id}`;
@@ -396,18 +654,18 @@ let map_style = [{
 ];
 // COLLECTION
 dmAPI.runOnReady('GoogleMap', function () {
-    dmAPI.loadScript("https://docs.google.com/spreadsheets/d/1fv5oIXi7HER9LnAZDmGVwiDWko5lHZ1oXzBxSbNX-hc/edit?usp=sharing", function () {
-        let response = new Collection(sheetDetails).response();
-        response.then(function (resp_value) {
-            let resp = resp_value;
-            locations.list = resp;
-            dmAPI.loadScript(script_url, function () {
-                let filter_dropdown = filter(resp, "category");
-                $(element).find(".googleMap-Filter-Category").html(filter_dropdown);
-                initMap(resp);
-            });
-        });
+    let response = new Collection(list).data();
+    console.log(response)
+
+    let resp = response;
+    console.log(resp)
+    locations.list = resp;
+    dmAPI.loadScript(script_url, function () {
+        let filter_dropdown = filter(resp, "category");
+        $(element).find(".googleMap-Filter-Category").html(filter_dropdown);
+        initMap(resp);
     });
+
 });
 
 $(element).on("click", ".googleMap-Category-Item", function () {
@@ -437,27 +695,22 @@ function Create(obj) {
     };
 }
 
-function Collection(sheetDetails) {
-    this.ajax = function () {
-        return $.ajax({
-            url: `https://sheets.googleapis.com/v4/spreadsheets/${sheetDetails.sheetid}/values/${sheetDetails.sheetname}?key=${sheetDetails.apikey}`,
+function Collection(obj) {
+    this.data = () => {
+        return obj.map(i => {
+            let item = {};
+            Object.keys(i).filter(j => {
+                item[removeSpecial(j).toLowerCase()] = typeof i[j] == "object" ? i[j].href : this.removeExtra(i[j]);
+            });
+            item.keyword = Object.keys(i).map(k => i[k]).join(',');
+            return item;
         });
     };
-    this.response = function (sheetDetails) {
-        let sheet = this.ajax(sheetDetails);
-        return sheet.then(resp => {
-            let header = resp.values[0];
-            let values = resp.values.filter((i, index) => index !== 0);
-            return values.map(i => {
-                let items = {};
-                header.map((k, index) => {
-                    items[removeSpecial(k.toLowerCase())] = i[index];
-                    items.keyword = i.map(k => i[k] ? i[k].includes("http") ? null : i[k].trim() : null).join(" ").replace(/\s+/g, ' ').trim();
-                });
-                return items;
-            });
-        });
-
+    this.removeExtra = (str) => {
+        if (str && typeof str == "string") {
+            return str.includes("</p>") ? str.substring(str.indexOf(">") + 1).replace("</p>", '') : str;
+        }
+        return str;
     };
 
     function removeSpecial(str) {
@@ -478,11 +731,11 @@ function initMap(obj) {
             lng: centerLng
         },
         zoom: defaultZoom,
-        mapTypeId: 'satellite'
+        mapTypeId: 'terrain'
     });
 
 
-    let coordinates = obj.map((i, index) => {
+    let coordinates = obj.filter(i => i.outage.toLowerCase() == "true").map((i, index) => {
         // let marker = new google.maps.Marker({
         //     position: {
         //         lat: parseFloat(i.latitude),
@@ -542,7 +795,6 @@ function initMap(obj) {
             return map.getBounds().contains(marker.getPosition());
         });
     });
-    console.log(coordinates)
     var heatmap = new google.maps.visualization.HeatmapLayer({
         data: coordinates
     });
