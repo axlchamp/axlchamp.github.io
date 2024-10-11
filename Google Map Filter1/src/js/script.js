@@ -449,24 +449,18 @@ let map_style = [
 ];
 // COLLECTION
 dmAPI.runOnReady("GoogleMap", function () {
-    dmAPI.loadScript(
-        "https://docs.google.com/spreadsheets/d/1fv5oIXi7HER9LnAZDmGVwiDWko5lHZ1oXzBxSbNX-hc/edit?usp=sharing",
-        function () {
-            let response = new Collection(sheetDetails).response();
-            response.then(function (resp_value) {
-                let resp = resp_value;
-                locations.list = resp;
-                console.log(resp);
-                dmAPI.loadScript(script_url, function () {
-                    let filter_dropdown = filter(resp, "category");
-                    $(element)
-                        .find(".googleMap-Filter-Category")
-                        .html(filter_dropdown);
-                    initMap(resp);
-                });
-            });
-        }
-    );
+    console.log(sheetDetails);
+    let response = new Collection(sheetDetails).response();
+    response.then(function (resp_value) {
+        let resp = resp_value;
+        locations.list = resp;
+        console.log(resp);
+        dmAPI.loadScript(script_url, function () {
+            let filter_dropdown = filter(resp, "category");
+            $(element).find(".googleMap-Filter-Category").html(filter_dropdown);
+            initMap(resp);
+        });
+    });
 });
 
 $(element).on("click", ".googleMap-Category-Item", function () {
