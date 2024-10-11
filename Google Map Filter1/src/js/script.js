@@ -449,12 +449,10 @@ let map_style = [
 ];
 // COLLECTION
 dmAPI.runOnReady("GoogleMap", function () {
-    console.log(sheetDetails);
     let response = new Collection(sheetDetails).response();
     response.then(function (resp_value) {
         let resp = resp_value;
         locations.list = resp;
-        console.log(resp);
         dmAPI.loadScript(script_url, function () {
             let filter_dropdown = filter(resp, "category");
             $(element).find(".googleMap-Filter-Category").html(filter_dropdown);
@@ -658,7 +656,6 @@ function exportTableToXLS() {
     var table = document.getElementById("tbl_exporttable_to_xls");
     var ws = XLSX.utils.table_to_sheet(table);
     var wb = XLSX.utils.book_new();
-    console.log(table);
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
     XLSX.writeFile(wb, "exported_data.xlsx");
 }
