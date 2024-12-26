@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="src/css/style.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>AI Recipe Generator</h1>
+			<form id="recipe-form">
+				<label for="ingredients">Enter Ingredients:</label>
+				<textarea id="ingredients" placeholder="e.g., chicken, tomato, basil"></textarea>
+
+				<label for="cuisine">Choose Cuisine:</label>
+				<select id="cuisine">
+					<option value="Italian">Italian</option>
+					<option value="Chinese">Chinese</option>
+					<option value="Mexican">Mexican</option>
+					<option value="Indian">Indian</option>
+				</select>
+
+				<input type="button" value="Generate Recipe">
+			</form>
+			<div id="recipe-result"></div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+		<script src="src/js/script.js"></script>
+	</body>
+</html>
