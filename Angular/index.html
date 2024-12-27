@@ -36,7 +36,7 @@
 				<div class="pdd-Wrapper-Properties">
 					<article class="property-item" ng-repeat="property in properties | filter: propertyFilter | filter: searchQuery">
 						<figure>
-							<img ng-src="{{ property.image_url || 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg'}}" alt="{{property.name}} | {{ property.property_type }}" />
+							<img ng-src="{{ property.image || 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg'}}" alt="{{property.name}} | {{ property.property_type }}" />
 							<figcaption>{{ property.price | currency }}</figcaption>
 						</figure>
 						<div class="property-details">

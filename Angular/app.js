@@ -1,10 +1,16 @@
 const list = angular.module("propertyList", []);
 list.controller("propertySearch", function ($scope, $http) {
-	$http.get("app.php").then(function (response) {
-		console.log(response);
-		$scope.properties = response.data.slice(1);
-		$scope.propertyTypes = [...new Set($scope.properties.map((p) => p.property_type))];
+	let sheetDetails = {
+		apikey: "AIzaSyAmbSeWrN0FsC8uCXxYBFlsW4zpa5T8B7c", // Replace with your API key
+		sheetid: "1FSk-2bdlxFNonf92utCyIHv0TYTiearV2NoH3QcWmk0", // Replace with your Spreadsheet ID
+		sheetname: "Sheet1", // Define the range
+	};
 
+	$http.get(`https://sheets.googleapis.com/v4/spreadsheets/${sheetDetails.sheetid}/values/${sheetDetails.sheetname}?key=${sheetDetails.apikey}`).then(function (response) {
+		let propertyData = new Collection(response.data).response();
+		$scope.properties = propertyData;
+		$scope.propertyTypes = [...new Set(propertyData.map((p) => p.property_type))];
+		console.log($scope.properties);
 		// Initialize filters
 		$scope.searchQuery = "";
 
@@ -20,8 +26,26 @@ list.controller("propertySearch", function ($scope, $http) {
 	});
 });
 
-function CustomFilter(obj) {
-	this.removeDuplicate = function () {
-		return obj.filter((value, index, self) => index === self.findIndex((t) => t.property_type === value.property_type));
+function Collection(obj) {
+	this.response = function () {
+		let header = obj.values[0];
+		let values = obj.values.filter((i, index) => index !== 0);
+		return values.map((i) => {
+			let items = {};
+			header.map((k, index) => {
+				items[removeSpecial(k.toLowerCase())] = k == "Price" ? parseFloat(i[index].replace(/,/g, "")) : i[index];
+				items.keyword = i
+					.map((k) => (i[k] ? (i[k].includes("http") ? null : i[k].trim()) : null))
+					.join(" ")
+					.replace(/\s+/g, " ")
+					.trim();
+			});
+			return items;
+		});
 	};
+
+	function removeSpecial(str) {
+		let pattern = str.replace(/[^A-Z0-9]/gi, `_`);
+		return pattern;
+	}
 }

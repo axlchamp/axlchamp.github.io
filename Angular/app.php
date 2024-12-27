@@ -1,6 +1,6 @@
 <?php
 // Database credentials
-$servername = "https://axlchamp.github.io/";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "properties";
