@@ -18,16 +18,29 @@ list.controller("propertySearch", function ($scope, $http) {
 		// Initialize filters
 		$scope.searchQuery = "";
 
-		// Change the selected property type
 		$scope.changeSelected = function (property) {
+			// Update selected property
 			$scope.selectedProperty = property;
+
+			// Reinitialize the map with the filtered data
+			initMap($scope.properties.filter($scope.combinedFilter), $scope);
 		};
 
-		// Filter function to match the selected property type
-		$scope.propertyFilter = function (property) {
-			return !$scope.selectedProperty || property.property_type === $scope.selectedProperty;
+		$scope.combinedFilter = function (property) {
+			// Filter properties based on selected type and search query
+			const matchesType = !$scope.selectedProperty || property.property_type === $scope.selectedProperty;
+			const matchesSearch = !$scope.searchQuery || property.name.toLowerCase().includes($scope.searchQuery.toLowerCase());
+			return matchesType && matchesSearch;
 		};
-		initMap(propertyData, $scope);
+
+		// Watch for changes in searchQuery
+		$scope.$watch("searchQuery", function () {
+			// Reinitialize the map with the filtered data
+			initMap($scope.properties.filter($scope.combinedFilter), $scope);
+		});
+
+		// Initialize the map with all properties initially
+		initMap($scope.properties, $scope);
 	});
 });
 function mapStart() {
