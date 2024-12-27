@@ -61,12 +61,11 @@ div.pdd-Input-Search {
 }
 .pdd-Result-List {
 	display: block;
-	padding: 10px;
 	max-width: 100%;
 	max-width: 43%;
-	padding: 10px;
 	border: 1px solid #cccccc;
 	overflow: none;
+	padding: 10px 0;
 }
 .pdd-Wrapper-Properties {
 	display: flex;
@@ -75,6 +74,7 @@ div.pdd-Input-Search {
 	overflow: auto;
 	max-height: 85vh;
 	box-sizing: border-box;
+	padding: 5px;
 }
 
 article.property-item {
