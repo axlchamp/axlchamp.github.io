@@ -6,12 +6,14 @@ let sheetDetails = {
 };
 let random_id = Math.floor(Math.random(99999) * 99999);
 let googleId = `map_${random_id}`;
+let map;
 
 const list = angular.module("propertyList", []);
 list.controller("propertySearch", function ($scope, $http) {
 	$scope.mapid = googleId;
 	$http.get(`https://sheets.googleapis.com/v4/spreadsheets/${sheetDetails.sheetid}/values/${sheetDetails.sheetname}?key=${sheetDetails.apikey}`).then(function (response) {
 		let propertyData = new Collection(response.data).response();
+		console.log(propertyData);
 		$scope.properties = propertyData;
 		$scope.propertyTypes = [...new Set(propertyData.map((p) => p.property_type))];
 		locations.list = propertyData;
@@ -21,7 +23,6 @@ list.controller("propertySearch", function ($scope, $http) {
 		$scope.changeSelected = function (property) {
 			// Update selected property
 			$scope.selectedProperty = property;
-
 			// Reinitialize the map with the filtered data
 			initMap($scope.properties.filter($scope.combinedFilter), $scope);
 		};
@@ -93,11 +94,7 @@ function initMap(obj, $scope) {
 					let name = isShowName ? `<div class="googlemap-InfoWindow-Name"><span>${i.name}</span></div>` : "";
 					let address = isShowAddress ? `<div class="googlemap-InfoWindow-Address"><span>${i.location}</span></div>` : "";
 					let button = isShowButton ? `<div class="googlemap-InfoWindow-Button"><a class="googlemap-Button-Link" href="${i.link}" target="${newTab}">${buttonText}</a></div>` : "";
-					let form = `<div class="googleMap-Container-InfoWindow">
-						${name}
-						${address}
-						${button}
-					</div>`;
+					let form = `<div class="googleMap-Container-InfoWindow">${name}${address}${button}</div>`;
 
 					// $(element).on(trigger, ".googleMap-Locations-Sidebar", function () {
 					// 	let markerIndex = $(this).attr("data-index");
@@ -121,6 +118,14 @@ function initMap(obj, $scope) {
 					};
 				})(marker, i)
 			);
+			$scope.goToLoc = function (markerId) {
+				const marker = markers.find((m) => m.id == markerId);
+				if (marker) {
+					google.maps.event.trigger(marker, "click"); // Simulate a click on the marker
+					map.panTo(marker.getPosition()); // Center the map on the marker
+					map.setZoom(9); // Adjust the zoom level as needed
+				}
+			};
 		}
 	});
 	// Listen to the 'bounds_changed' event of the map object
