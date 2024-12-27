@@ -4,6 +4,17 @@ body {
 	justify-content: center;
 }
 
+.angular-google-map,
+.angular-google-map-container {
+	width: 100%;
+	height: 100%;
+}
+
+.gscale {
+	width: 100%;
+	height: 100%;
+}
+
 .pdd-Main-Container {
 	display: block;
 	position: relative;
@@ -141,4 +152,11 @@ div.property-details address {
 	max-width: 55%;
 	height: 85vh;
 	width: 100%;
+}
+
+.pdd-Map {
+	display: block;
+	width: 100%;
+	position: relative;
+	height: 100%;
 }
