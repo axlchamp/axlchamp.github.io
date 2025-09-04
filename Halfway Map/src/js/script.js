@@ -49,7 +49,7 @@ let data = {
 };
 
 let map, service, defaultSetting;
-let apikey = data.config.apikey;
+let apikey = "abc";
 // let apikey = data.config.apikey;
 $(document).ready(function () {
 	var lmOptions = `<option value="Restaurant">Restaurant</option>
@@ -98,7 +98,7 @@ $(document).ready(function () {
 	// Append Max Radius as Dropdown End
 
 	if (apikey != "") {
-		dmAPI.loadScript(`https://maps.google.com/maps/api/js?v=weekly&key=${apikey}&libraries=drawing,places&callback=cb`, function () {
+		dmAPI.loadScript(`https://maps.google.com/maps/api/js?v=weekl&key=${apikey}&libraries=drawing,places&callback=cb`, function () {
 			dmAPI.loadScript(`https://irt-cdn.multiscreensite.com/5775367238d847b8b62d126ce25c20de/files/uploaded/slick-latest.js`, function () {
 				initMap();
 			});
