@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+
+	<div class="widget-abc123 dmCustomWidget" data-lazy-load="" data-title="" id="1399172318"
+		dmle_extension="custom_extension" data-element-type="custom_extension" wr="false" icon="false" surround="false"
+		data-widget-id="f2822147025648868f76417ee451d58e" data-widget-version="23"
+		data-widget-config="eyJsbVJhZCI6IjMwIiwibG1NaWRwb2ludCI6IldoYXQgaXMgSGFsZndheT8iLCJhcGlrZXkiOiJBSXphU3lDMC01UVFNNjdDMHo1eFpiOFpoTkVfZmZQLWQ4R1Z0dGciLCJsbUluaXRpYWxUbyI6IiIsImxtRnJvbSI6IkZyb20iLCJsbUluaXRpYWxQT0kiOiJSZXN0YXVyYW50IiwibG1SYWRpdXNMYWJlbCI6IlJhZGl1cyAoIG1pbGVzICkiLCJsbU5lYXJieVJlbCI6IkZpbmQgTW9yZSBSZWxhdGVkIE5lYXJieSIsImxtSW5pdGlhbEZyb20iOiIiLCJsbVBPSSI6IkVzdGFibGlzaG1lbnRzIiwibG1MYXlvdXQiOiJsbUhvcml6b250YWwiLCJsbVRvIjoiVG8ifQ=="
+		data-widget-initialized="">
+		<div class="lmContainer">
+			<!--START FROM-->
+			<div class="fromContainer inputContainer">
+				<div class="inputLabel">From</div>
+				<input type="text" name="startLoc" class="startLoc pac-target-input" id="startLoc"
+					placeholder="Enter Location" value="" autocomplete="off">
+			</div>
+			<!--END FROM-->
+			<!--START TO-->
+			<div class="toContainer inputContainer">
+				<div class="inputLabel">To</div>
+				<input type="text" name="destination" class="destination pac-target-input" id="destination"
+					placeholder="Enter Location" value="" autocomplete="off">
+			</div>
+			<!--END TO-->
+			<!--START DROPDOWN CHROME-->
+			<div class="selectVenue inputContainer lmIs_Chrome">
+				<div class="inputLabel">Establishment</div>
+				<input list="establishment" type="text" class="dataEstablishment"
+					placeholder="Select establishment type"> <datalist id="establishment" class="dataListEstablishment">
+					<option value="Restaurant">Restaurant</option>
+					<option value="Cafe">Cafe</option>
+					<option value="Night Club">Night Club</option>
+					<option value="Shopping Mall">Shopping Mall</option>
+					<option value="Park">Park</option>
+					<option value="Airport">Airport</option>
+					<option value="Car Rental">Car Rental</option>
+					<option value="Convenience Store">Convenience Store</option>
+					<option value="Gas Station">Gas Station</option>
+					<option value="Hospital">Hospital</option>
+					<option value="Liquor Store">Liquor Store</option>
+					<option value="Police">Police</option>
+				</datalist>
+			</div>
+			<!--END DROPDOWN CHROME-->
+			<!--START DROPDOWN SAFARI-->
+			<!--END DROPDOWN SAFARI-->
+			<!--START RADIUS CHROME-->
+			<div class="radiusContainer inputContainer lmIs_Chrome">
+				<div class="inputLabel">Radius ( miles )</div>
+				<input list="radiusData" type="text" class="dataRadius" placeholder="Enter radius"> <datalist
+					id="radiusData" class="radiusDropdown">
+					<option value="1"></option>
+					<option value="2"></option>
+					<option value="3"></option>
+					<option value="4"></option>
+					<option value="5"></option>
+					<option value="6"></option>
+					<option value="7"></option>
+					<option value="8"></option>
+					<option value="9"></option>
+					<option value="10"></option>
+					<option value="11"></option>
+					<option value="12"></option>
+					<option value="13"></option>
+					<option value="14"></option>
+					<option value="15"></option>
+					<option value="16"></option>
+					<option value="17"></option>
+					<option value="18"></option>
+					<option value="19"></option>
+					<option value="20"></option>
+					<option value="21"></option>
+					<option value="22"></option>
+					<option value="23"></option>
+					<option value="24"></option>
+					<option value="25"></option>
+					<option value="26"></option>
+					<option value="27"></option>
+					<option value="28"></option>
+					<option value="29"></option>
+					<option value="30"></option>
+				</datalist>
+			</div>
+			<!--END RADIUS CHROME-->
+			<!--START RADIUS SAFARI-->
+			<!--END RADIUS SAFARI-->
+			<div class="halfWayContainer">
+				<div class="inputLabel">0</div>
+				<div class="getHalfWay" id="gethalf">
+					<span class="text">What is Halfway?</span>
+				</div>
+			</div>
+		</div>
+		<p class="destinationDetails"></p>
+		<p class="centerDestination"></p>
+		<div class="mapDetails">
+			<div id="map" class="lmHorizontal gscale"></div>
+			<div class="detailsContainerMain lmHorizontal">
+				<div class="detailsContainer"></div>
+				<div class="lmLocationModal" style="display: none;"></div>
+			</div>
+		</div>
+		<div class="lmDirection"></div>
+		<div class="lmTrModeActive lmHidden"></div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async defer></script>
+	<script src="./src/js/script.js"></script>
+</body>
+
+</html>
