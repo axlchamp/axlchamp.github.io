@@ -346,9 +346,11 @@ function initMap(obj) {
 						$sidebar.addClass("googleMap-Sidebar-Selected");
 
 						if ($sidebar.length) {
+							let scrollTo = $sidebar[0].offsetTop;
+
 							$container.animate(
 								{
-									scrollTop: $sidebar.position().top + $container.scrollTop(),
+									scrollTop: scrollTo,
 								},
 								500,
 							);
